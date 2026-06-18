@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BookOpen, CalendarDays, MapPin } from "lucide-react";
 import { navLinks } from "@/data/content";
+import { smoothScrollTo, smoothScrollToElement } from "@/lib/smoothScroll";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -12,18 +13,14 @@ export default function Footer() {
   const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href === "/" && isHome) {
       e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      smoothScrollTo(0);
       return;
     }
 
     if (!isHome || !href.startsWith("/#")) return;
 
     e.preventDefault();
-    const el = document.querySelector(href.replace("/", ""));
-    if (el) {
-      const y = el.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
+    smoothScrollToElement(href.replace("/", ""), 80);
   };
 
   return (

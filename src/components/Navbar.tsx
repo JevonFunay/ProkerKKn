@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "@/data/content";
+import { smoothScrollTo, smoothScrollToElement } from "@/lib/smoothScroll";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -25,19 +26,14 @@ export default function Navbar() {
 
     if (href === "/" && isHome) {
       e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      smoothScrollTo(0);
       return;
     }
 
     if (!isHome || !href.startsWith("/#")) return;
 
     e.preventDefault();
-    const target = document.querySelector(href.replace("/", ""));
-    if (target) {
-      const navHeight = 80;
-      const y = target.getBoundingClientRect().top + window.scrollY - navHeight;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
+    smoothScrollToElement(href.replace("/", ""), 80);
   };
 
   const isSolidNav = scrolled || !isHome;
@@ -55,6 +51,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
+            scroll={false}
             onClick={(e) => handleLinkClick(e, "/")}
             className="flex items-center gap-2.5 group"
           >
@@ -78,6 +75,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                scroll={false}
                 onClick={(e) => handleLinkClick(e, link.href)}
                 className={`relative text-sm font-medium transition-colors group ${
                   isSolidNav
@@ -124,6 +122,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
+                    scroll={false}
                     onClick={(e) => handleLinkClick(e, link.href)}
                     className="block py-3 text-sm font-medium text-white/80 hover:text-primary-400 hover:pl-2 transition-all"
                   >

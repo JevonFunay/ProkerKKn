@@ -40,7 +40,7 @@
 /* ================================ */
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {
@@ -48,6 +48,13 @@ body {
   color: var(--color-slate-700);
   font-family: var(--font-sans), system-ui, sans-serif;
 }
+
+main,
+footer {
+  transition: filter 80ms ease-out, transform 80ms ease-out;
+}
+
+
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {

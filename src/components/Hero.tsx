@@ -2,14 +2,11 @@
 
 import { motion } from "framer-motion";
 import { ChevronDown, ArrowRight } from "lucide-react";
+import { smoothScrollToElement } from "@/lib/smoothScroll";
 
 export default function Hero() {
   const scrollTo = (href: string) => {
-    const el = document.querySelector(href);
-    if (el) {
-      const y = el.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
+    smoothScrollToElement(href, 80);
   };
 
   return (
