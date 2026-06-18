@@ -1,12 +1,25 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { BookOpen, CalendarDays, MapPin } from "lucide-react";
 import { navLinks } from "@/data/content";
 
 export default function Footer() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
   const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href === "/" && isHome) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    if (!isHome || !href.startsWith("/#")) return;
+
     e.preventDefault();
-    const el = document.querySelector(href);
+    const el = document.querySelector(href.replace("/", ""));
     if (el) {
       const y = el.getBoundingClientRect().top + window.scrollY - 80;
       window.scrollTo({ top: y, behavior: "smooth" });
@@ -21,9 +34,7 @@ export default function Footer() {
           {/* Branding */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <span className="w-9 h-9 rounded-xl bg-primary-600 flex items-center justify-center text-white font-bold text-lg">
-                K
-              </span>
+              <img src="/logotransparan.png" alt="Logo" className="h-10 w-auto object-contain" />
               <span className="font-bold text-xl text-white">
                 Dusun Karangnongko
               </span>
@@ -42,13 +53,13 @@ export default function Footer() {
             <ul className="space-y-3">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     onClick={(e) => scrollTo(e, link.href)}
                     className="text-sm hover:text-primary-400 transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

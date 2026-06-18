@@ -87,16 +87,12 @@ export default function ProfilSection() {
               Penguatan Mitigasi Bencana & Digitalisasi Pesisir
             </h3>
             <p className="text-slate-600 leading-relaxed mb-6">
-              KKN Kelompok 44 Universitas Kristen Duta Wacana berfokus pada{" "}
-              <strong className="text-slate-800">
-                penguatan mitigasi bencana gempa bumi adaptif
-              </strong>{" "}
-              dan{" "}
-              <strong className="text-slate-800">
-                penyusunan basis data infrastruktur pesisir
-              </strong>{" "}
-              di Dusun Karangnongko, Pacitan. Program dirancang berbasis kebutuhan
-              riil masyarakat dengan pendekatan partisipatif.
+              Kuliah Kerja Nyata (KKN) Kelompok 44 dilaksanakan di Dusun
+              Karangnongko, Desa Watukarung, Kec. Pringkuku, Kabupaten Pacitan.
+              Mengingat lokasi dusun yang berada di pesisir selatan, fokus utama
+              kami adalah peningkatan kesiapsiagaan mitigasi bencana gempa bumi.
+              Selain itu, kami juga melakukan pemetaan digital dan pemberdayaan
+              masyarakat untuk menunjang potensi desa.
             </p>
             <p className="text-slate-600 leading-relaxed mb-8">
               Selama satu bulan penuh, tim melaksanakan 7 program kerja yang

@@ -32,7 +32,7 @@ export default function ProgramSection({ onCardClick }: ProgramSectionProps) {
             <span className="gradient-text">Utama</span>
           </h2>
           <p className="text-slate-500 max-w-2xl mx-auto mt-4">
-            Tiga program kerja strategis yang menjadi fondasi pengabdian
+            Tujuh program kerja strategis yang menjadi fondasi pengabdian
             masyarakat di Dusun Karangnongko.
           </p>
           <div className="w-16 h-1 bg-primary-500 rounded-full mx-auto mt-6" />

@@ -32,8 +32,8 @@ export default function PotensiSection({ onCardClick }: PotensiSectionProps) {
             <span className="gradient-text">Keberlanjutan</span>
           </h2>
           <p className="text-slate-500 max-w-2xl mx-auto mt-4">
-            Program pemberdayaan yang dirancang untuk keberlanjutan jangka
-            panjang dan peningkatan kualitas hidup masyarakat.
+            Ide pengembangan berkelanjutan di luar program kerja yang dapat
+            menunjang potensi Dusun Karangnongko.
           </p>
           <div className="w-16 h-1 bg-primary-500 rounded-full mx-auto mt-6" />
         </motion.div>

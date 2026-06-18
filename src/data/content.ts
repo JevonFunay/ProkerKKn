@@ -29,31 +29,31 @@ export interface PotensiData {
 export const programKerja: ProgramData[] = [
   {
     id: 1,
-    title: "Mitigasi Gempa Bumi",
+    title: "Sayembara Tas Siaga Bencana Gempa Bumi",
     category: "Kebencanaan",
     categoryColor: "bg-red-100 text-red-700",
-    image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&h=500&fit=crop",
     shortDesc:
-      "Program edukasi dan simulasi kesiapsiagaan gempa bumi untuk masyarakat pesisir Dusun Karangnongko.",
+      "Edukasi kesiapsiagaan gempa bumi melalui sayembara penyusunan tas siaga bencana.",
     fullDesc:
-      "Program mitigasi gempa bumi ini dirancang secara komprehensif untuk meningkatkan kesiapsiagaan masyarakat Dusun Karangnongko dalam menghadapi potensi bencana gempa bumi. Kegiatan meliputi sosialisasi jalur evakuasi, pelatihan P3K darurat, simulasi evakuasi bersama warga, serta pemasangan rambu-rambu peringatan di titik-titik strategis dusun. Program ini juga mencakup penyusunan dokumen Rencana Kontigensi Dusun yang dapat digunakan sebagai panduan resmi penanganan bencana.",
-    timeline: "Minggu ke-1 s/d Minggu ke-3 (Juni 2026)",
-    target: "Seluruh warga RT 02/RW 01 mampu menjalankan prosedur evakuasi mandiri. Terpasang 10 rambu jalur evakuasi.",
-    pj: "Tim KKN 44",
+      "Edukasi kesiapsiagaan masyarakat menghadapi gempa bumi melalui sayembara penyusunan tas siaga bencana yang berisi dokumen penting dan logistik darurat.",
+    timeline: "Dilaksanakan selama periode KKN Kelompok 44",
+    target: "Masyarakat memahami isi dan fungsi tas siaga bencana gempa bumi.",
+    pj: "Tim Kelompok 44",
   },
   {
     id: 2,
-    title: "Digitalisasi & Pemetaan Google Maps",
-    category: "Infrastruktur",
-    categoryColor: "bg-blue-100 text-blue-700",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop",
+    title: "Edukasi Keuangan Metode Amplop",
+    category: "Literasi Finansial",
+    categoryColor: "bg-amber-100 text-amber-700",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=500&fit=crop",
     shortDesc:
-      "Pemetaan aset infrastruktur dusun dan digitalisasi data ke platform Google Maps.",
+      "Peningkatan literasi keuangan rumah tangga bagi ibu-ibu PKK melalui metode amplop.",
     fullDesc:
-      "Program digitalisasi ini bertujuan untuk mendokumentasikan dan memetakan seluruh aset infrastruktur penting di Dusun Karangnongko ke dalam platform Google Maps. Proses meliputi survei lapangan menggunakan GPS, pengambilan foto 360°, pencatatan koordinat fasilitas umum (masjid, balai dusun, sekolah, puskesmas pembantu), serta penandaan jalur evakuasi dan titik kumpul. Hasil pemetaan akan dipublikasikan secara terbuka agar dapat diakses oleh siapa saja.",
-    timeline: "Minggu ke-2 s/d Minggu ke-4 (Juni — Juli 2026)",
-    target: "Minimal 20 titik lokasi terpetakan di Google Maps dengan foto dan deskripsi lengkap.",
-    pj: "Gatot Subroto",
+      "Peningkatan literasi keuangan rumah tangga bagi ibu-ibu PKK melalui metode amplop sederhana untuk mengatur pos pengeluaran, tabungan, dan dana darurat.",
+    timeline: "Dilaksanakan selama periode KKN Kelompok 44",
+    target: "Ibu-ibu PKK mampu membagi pos keuangan rumah tangga secara sederhana.",
+    pj: "Reynathania Nonie",
   },
   {
     id: 3,
@@ -62,70 +62,140 @@ export const programKerja: ProgramData[] = [
     categoryColor: "bg-emerald-100 text-emerald-700",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
     shortDesc:
-      "Pembangunan website dokumentasi digital sebagai arsip program kerja dan potensi desa.",
+      "Rancang bangun sistem informasi berbasis web untuk dokumentasi pengabdian KKN.",
     fullDesc:
-      "Website E-Portofolio ini dibangun menggunakan teknologi modern (Next.js, React, Tailwind CSS) sebagai pusat dokumentasi digital seluruh kegiatan KKN Kelompok 44. Website ini menampilkan profil dusun, realisasi program kerja, analisis potensi desa, galeri dokumentasi, serta informasi kontak. Diharapkan website ini dapat menjadi arsip permanen yang berguna bagi kelompok KKN berikutnya dan menjadi referensi bagi pemerintah desa.",
-    timeline: "Minggu ke-1 s/d Minggu ke-4 (Juni — Juli 2026)",
-    target: "Website live dan dapat diakses publik. Dokumentasi minimal 50 foto kegiatan.",
+      "Rancang bangun sistem informasi berbasis web untuk mendokumentasikan rekam jejak pengabdian dan hasil pemetaan potensi berkelanjutan Dusun Karangnongko.",
+    timeline: "Dilaksanakan selama periode KKN Kelompok 44",
+    target: "Tersedia arsip digital program kerja dan potensi Dusun Karangnongko.",
     pj: "Jevon Christian",
+  },
+  {
+    id: 4,
+    title: "Batik Jumputan Teknik Shibori",
+    category: "Pemberdayaan",
+    categoryColor: "bg-purple-100 text-purple-700",
+    image: "https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=800&h=500&fit=crop",
+    shortDesc:
+      "Pelatihan pewarnaan kain metode ikat-celup Shibori untuk ibu-ibu PKK.",
+    fullDesc:
+      "Pengembangan kreativitas dan produktivitas ibu-ibu PKK melalui pelatihan pewarnaan kain metode ikat-celup (Shibori) bernilai jual.",
+    timeline: "Dilaksanakan selama periode KKN Kelompok 44",
+    target: "Ibu-ibu PKK memiliki keterampilan dasar membuat produk kain Shibori.",
+    pj: "Lidwina Cahya",
+  },
+  {
+    id: 5,
+    title: "Senam Hipertensi Lansia Happy",
+    category: "Kesehatan",
+    categoryColor: "bg-pink-100 text-pink-700",
+    image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&h=500&fit=crop",
+    shortDesc:
+      "Upaya preventif kesehatan lansia melalui senam pengendalian tekanan darah.",
+    fullDesc:
+      "Upaya preventif kesehatan posyandu lansia melalui senam pengendalian tekanan darah dan edukasi gaya hidup sehat terukur.",
+    timeline: "Dilaksanakan selama periode KKN Kelompok 44",
+    target: "Lansia memperoleh edukasi gaya hidup sehat dan aktivitas fisik terukur.",
+    pj: "Elisabeth Liliana",
+  },
+  {
+    id: 6,
+    title: "Mapping Wilayah Google Maps",
+    category: "Infrastruktur",
+    categoryColor: "bg-blue-100 text-blue-700",
+    image: "https://images.unsplash.com/photo-1569336415962-a4bd9f69c07b?w=800&h=500&fit=crop",
+    shortDesc:
+      "Digitalisasi titik koordinat lokasi krusial Dusun Karangnongko ke Google Maps.",
+    fullDesc:
+      "Digitalisasi titik koordinat lokasi krusial seperti Pustu, Balai Dusun, fasilitas umum, dan toko kelontong ke dalam platform Google Maps global.",
+    timeline: "Dilaksanakan selama periode KKN Kelompok 44",
+    target: "Lokasi krusial dusun lebih mudah ditemukan melalui Google Maps.",
+    pj: "Gatot Subroto",
+  },
+  {
+    id: 7,
+    title: "Sosialisasi Pembuatan QRIS",
+    category: "Ekonomi Digital",
+    categoryColor: "bg-cyan-100 text-cyan-700",
+    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=500&fit=crop",
+    shortDesc:
+      "Edukasi penggunaan dan pendampingan pembuatan QRIS bagi pelaku UMKM.",
+    fullDesc:
+      "Edukasi penggunaan dan pendampingan pembuatan QRIS bagi pelaku UMKM dan masyarakat desa untuk mendorong adaptasi transaksi nontunai.",
+    timeline: "Dilaksanakan selama periode KKN Kelompok 44",
+    target: "Pelaku UMKM dan warga memahami proses serta manfaat transaksi nontunai.",
+    pj: "Kelpin Saktara",
   },
 ];
 
 export const potensiDesa: PotensiData[] = [
   {
-    id: 4,
-    title: "Pelatihan Batik Shibori Lansia",
-    category: "Ekonomi Kreatif",
-    categoryColor: "bg-purple-100 text-purple-700",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=500&fit=crop",
+    id: 8,
+    title: "Inovasi Olahan Hasil Laut Tahan Lama",
+    category: "Potensi Kelautan",
+    categoryColor: "bg-sky-100 text-sky-700",
+    image: "https://images.unsplash.com/photo-1510130387422-82bed34b37e9?w=800&h=500&fit=crop",
     shortDesc:
-      "Pelatihan teknik batik shibori untuk kelompok lansia sebagai upaya pemberdayaan ekonomi kreatif.",
+      "Optimalisasi tangkapan nelayan menjadi produk UMKM berumur simpan panjang.",
     fullDesc:
-      "Pelatihan Batik Shibori ini diselenggarakan khusus untuk kelompok lansia di Dusun Karangnongko. Teknik shibori dipilih karena prosesnya yang relatif mudah dan tidak memerlukan peralatan mahal. Peserta diajarkan mulai dari persiapan kain, teknik pelipatan dan pengikatan, proses pewarnaan menggunakan pewarna alami, hingga pengemasan produk. Hasil karya batik shibori diharapkan bisa dijual sebagai produk UMKM unggulan dusun.",
-    timeline: "Minggu ke-2 s/d Minggu ke-3 (Juni 2026)",
-    target: "20 lansia terlatih teknik shibori. 50 produk batik siap jual.",
-    pj: "Reynathania",
+      "Optimalisasi tangkapan nelayan Karangnongko menjadi produk UMKM berumur simpan panjang, seperti abon ikan atau ikan asin kemasan vakum (vacuum pack).",
+    timeline: "Rekomendasi pengembangan berkelanjutan",
+    target: "Produk olahan hasil laut memiliki nilai tambah dan daya simpan lebih lama.",
+    pj: "Rekomendasi KKN Kelompok 44",
   },
   {
-    id: 5,
-    title: "Senam Pengendalian Hipertensi",
-    category: "Kesehatan Publik",
-    categoryColor: "bg-pink-100 text-pink-700",
-    image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&h=500&fit=crop",
-    shortDesc:
-      "Program senam rutin dan edukasi kesehatan untuk pengendalian hipertensi pada warga lansia.",
-    fullDesc:
-      "Program ini menggabungkan aktivitas senam rutin dengan edukasi kesehatan tentang pengendalian hipertensi. Setiap sesi dimulai dengan pengecekan tekanan darah, dilanjutkan dengan senam khusus low-impact selama 30-45 menit, lalu diakhiri dengan sesi edukasi tentang pola makan sehat, pentingnya aktivitas fisik, dan pengelolaan stres. Data tekanan darah peserta dicatat secara berkala untuk monitoring.",
-    timeline: "Minggu ke-1 s/d Minggu ke-4 (Setiap Selasa & Kamis)",
-    target: "Penurunan rata-rata tekanan darah peserta. 30 warga aktif berpartisipasi.",
-    pj: "Elisabeth Liliana",
-  },
-  {
-    id: 6,
-    title: "Literasi Keuangan & Edukasi QRIS",
-    category: "Keuangan Digital",
+    id: 9,
+    title: "Modernisasi Rengginang Beras Ketan",
+    category: "Inovasi UMKM",
     categoryColor: "bg-amber-100 text-amber-700",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=800&h=500&fit=crop",
     shortDesc:
-      "Edukasi literasi keuangan digital dan pendampingan aktivasi QRIS untuk pelaku UMKM desa.",
+      "Peningkatan nilai jual rengginang lokal melalui kemasan dan varian rasa baru.",
     fullDesc:
-      "Program literasi keuangan ini bertujuan untuk meningkatkan pemahaman warga, khususnya pelaku UMKM, tentang pengelolaan keuangan digital. Materi mencakup: cara membuat rekening bank, penggunaan mobile banking, pendaftaran dan aktivasi QRIS untuk usaha, pencatatan keuangan sederhana, dan tips keamanan transaksi digital. Setiap peserta UMKM akan didampingi hingga berhasil mengaktifkan QRIS untuk usahanya.",
-    timeline: "Minggu ke-3 s/d Minggu ke-4 (Juli 2026)",
-    target: "15 pelaku UMKM memiliki QRIS aktif. 40 warga memahami dasar keuangan digital.",
-    pj: "Lidwina Cahya",
+      "Peningkatan nilai jual UMKM rengginang lokal melalui pembaruan kemasan (standing pouch ziplock) dan penambahan varian rasa kekinian untuk oleh-oleh wisatawan.",
+    timeline: "Rekomendasi pengembangan berkelanjutan",
+    target: "Rengginang lokal lebih menarik sebagai produk oleh-oleh wisatawan.",
+    pj: "Rekomendasi KKN Kelompok 44",
+  },
+  {
+    id: 10,
+    title: "Pengembangan Homestay Inklusif",
+    category: "Pariwisata",
+    categoryColor: "bg-emerald-100 text-emerald-700",
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=500&fit=crop",
+    shortDesc:
+      "Pemanfaatan kamar kosong warga menjadi penginapan transit sederhana dan terjangkau.",
+    fullDesc:
+      "Pemanfaatan letak geografis kawasan Watukarung dengan memberdayakan kamar kosong milik warga menjadi penginapan transit sederhana dan terjangkau.",
+    timeline: "Rekomendasi pengembangan berkelanjutan",
+    target: "Warga memiliki peluang pendapatan tambahan dari sektor pariwisata.",
+    pj: "Rekomendasi KKN Kelompok 44",
+  },
+  {
+    id: 11,
+    title: "Budi Daya Tanaman Anti-Hama (Empon-Empon)",
+    category: "Pertanian",
+    categoryColor: "bg-lime-100 text-lime-700",
+    image: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800&h=500&fit=crop",
+    shortDesc:
+      "Alih fungsi lahan rawan hama dengan komoditas jahe, kunyit, dan temulawak.",
+    fullDesc:
+      "Solusi alih fungsi lahan yang sering diserang hama monyet dan babi hutan dengan menanam komoditas jahe, kunyit, dan temulawak untuk bahan baku jamu.",
+    timeline: "Rekomendasi pengembangan berkelanjutan",
+    target: "Lahan rawan hama tetap produktif melalui komoditas empon-empon.",
+    pj: "Rekomendasi KKN Kelompok 44",
   },
 ];
 
 export const statsData = [
-  { label: "Total Proker", value: "7 Program", icon: "ClipboardList" as const },
-  { label: "Demografi Dusun", value: "50 Kepala Keluarga", icon: "Users" as const },
-  { label: "Mata Pencaharian", value: "Dominan Nelayan", icon: "Anchor" as const },
-  { label: "Durasi Aksi", value: "1 Bulan Penuh", icon: "Calendar" as const },
+  { label: "Total Proker", value: "7 Program Kerja", icon: "ClipboardList" as const },
+  { label: "Demografi Dusun", value: "± 50 Kepala Keluarga", icon: "Users" as const },
+  { label: "Mata Pencaharian", value: "Mayoritas Nelayan", icon: "Anchor" as const },
+  { label: "Kendala Pertanian", value: "Hama Monyet & Babi Hutan", icon: "Calendar" as const },
 ];
 
 export const navLinks = [
-  { label: "Beranda", href: "#beranda" },
-  { label: "Profil KKN", href: "#profil" },
-  { label: "Program Kerja", href: "#program" },
-  { label: "Potensi Desa", href: "#potensi" },
+  { label: "Beranda", href: "/" },
+  { label: "Profil Tim", href: "/tim" },
+  { label: "Program Kerja", href: "/#program" },
+  { label: "Potensi Desa", href: "/#potensi" },
 ];

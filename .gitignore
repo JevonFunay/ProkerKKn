@@ -20,9 +20,17 @@
 # production
 /build
 
+# local caches
+.turbo/
+.cache/
+
 # misc
 .DS_Store
+Thumbs.db
 *.pem
+
+# legacy files
+/index.html
 
 # debug
 npm-debug.log*
