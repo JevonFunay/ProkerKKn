@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "@/data/content";
 import { smoothScrollTo, smoothScrollToElement } from "@/lib/smoothScroll";
@@ -13,6 +13,8 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
+
+  const { scrollYProgress } = useScroll();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -46,6 +48,23 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
+      {/* Scroll Progress Bar */}
+      <AnimatePresence>
+        {isSolidNav && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute bottom-0 left-0 right-0 h-[3px] bg-slate-100 overflow-hidden"
+          >
+            <motion.div
+              className="h-full bg-gradient-to-r from-primary-500 via-primary-400 to-accent-400 origin-left"
+              style={{ scaleX: scrollYProgress }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
@@ -55,10 +74,12 @@ export default function Navbar() {
             onClick={(e) => handleLinkClick(e, "/")}
             className="flex items-center gap-2.5 group"
           >
-            <img 
-              src="/logotransparan.png" 
-              alt="Logo" 
-              className="h-10 w-auto object-contain group-hover:scale-105 transition-transform"
+            <motion.img
+              src="/logotransparan.png"
+              alt="Logo"
+              className="h-10 w-auto object-contain"
+              whileHover={{ scale: 1.08, rotate: -3 }}
+              transition={{ type: "spring", stiffness: 400, damping: 15 }}
             />
             <span
               className={`font-bold text-xl tracking-tight transition-colors ${
@@ -90,15 +111,38 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Hamburger */}
-          <button
+          <motion.button
+            whileTap={{ scale: 0.9 }}
             onClick={() => setMenuOpen(!menuOpen)}
             className={`md:hidden p-2 rounded-lg transition-colors ${
               isSolidNav ? "text-slate-700 hover:bg-slate-100" : "text-white hover:bg-white/10"
             }`}
             aria-label="Toggle menu"
           >
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            <AnimatePresence mode="wait" initial={false}>
+              {menuOpen ? (
+                <motion.span
+                  key="x"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X size={24} />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="menu"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Menu size={24} />
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </motion.button>
         </div>
       </div>
 

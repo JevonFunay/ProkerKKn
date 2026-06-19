@@ -108,3 +108,75 @@ body.modal-open {
 .cta-pulse {
   animation: gentle-pulse 2.5s ease-in-out infinite;
 }
+
+/* Floating blobs animation */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+  33%       { transform: translateY(-24px) rotate(6deg) scale(1.04); }
+  66%       { transform: translateY(-12px) rotate(-4deg) scale(0.97); }
+}
+@keyframes float-medium {
+  0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+  40%       { transform: translateY(-18px) rotate(-5deg) scale(1.03); }
+  70%       { transform: translateY(-8px) rotate(3deg) scale(0.98); }
+}
+@keyframes float-fast {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-14px) rotate(8deg); }
+}
+.float-slow   { animation: float-slow   9s ease-in-out infinite; }
+.float-medium { animation: float-medium 7s ease-in-out infinite 1.2s; }
+.float-fast   { animation: float-fast   5.5s ease-in-out infinite 2.5s; }
+
+/* Shimmer gradient text */
+@keyframes shimmer-move {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary-600) 0%,
+    var(--color-primary-400) 25%,
+    var(--color-accent-400)  50%,
+    var(--color-primary-400) 75%,
+    var(--color-primary-600) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer-move 4s linear infinite;
+}
+
+/* Dot grid background pattern */
+.bg-dot-grid {
+  background-image: radial-gradient(circle, var(--color-slate-200) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Card shine hover effect */
+@keyframes card-shine {
+  0%   { left: -100%; opacity: 0; }
+  20%  { opacity: 0.4; }
+  100% { left: 120%; opacity: 0; }
+}
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+.card-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transform: skewX(-20deg);
+  transition: none;
+  pointer-events: none;
+}
+.card-shine:hover::after {
+  animation: card-shine 0.6s ease-in-out;
+}

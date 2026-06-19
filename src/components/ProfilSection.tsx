@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { MapPin, ClipboardList, Users, Anchor, Calendar } from "lucide-react";
 import { statsData } from "@/data/content";
@@ -18,6 +18,27 @@ const iconColors = [
   "bg-amber-100 text-amber-600",
   "bg-rose-100 text-rose-600",
 ];
+
+function CountUp({ target, duration = 1.2 }: { target: number; duration?: number }) {
+  const [value, setValue] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (!isInView) return;
+    let start: number | null = null;
+    const step = (timestamp: number) => {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / (duration * 1000), 1);
+      setValue(Math.floor(progress * target));
+      if (progress < 1) requestAnimationFrame(step);
+      else setValue(target);
+    };
+    requestAnimationFrame(step);
+  }, [isInView, target, duration]);
+
+  return <span ref={ref}>{value}</span>;
+}
 
 export default function ProfilSection() {
   const ref = useRef(null);
@@ -51,29 +72,38 @@ export default function ProfilSection() {
             transition={{ duration: 0.7, delay: 0.2 }}
           >
             <div className="relative">
-              <img
-                src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=800&h=600&fit=crop"
-                alt="Aktivitas posko KKN"
-                className="w-full h-80 lg:h-[28rem] object-cover rounded-2xl shadow-xl"
-              />
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.4 }}
+                className="overflow-hidden rounded-2xl shadow-xl"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=800&h=600&fit=crop"
+                  alt="Aktivitas posko KKN"
+                  className="w-full h-80 lg:h-[28rem] object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </motion.div>
               {/* Decorative accent */}
               <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-primary-100 rounded-2xl -z-10" />
               <div className="absolute -top-4 -left-4 w-24 h-24 bg-amber-100 rounded-2xl -z-10" />
 
               {/* Floating badge */}
-              <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.7 }}
+                className="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg"
+              >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-primary-100 flex items-center justify-center">
                     <MapPin size={20} className="text-primary-600" />
                   </div>
                   <div>
                     <p className="text-xs text-slate-500 font-medium">Lokasi</p>
-                    <p className="text-sm font-bold text-slate-900">
-                      RT 02 / RW 01
-                    </p>
+                    <p className="text-sm font-bold text-slate-900">RT 02 / RW 01</p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
 
@@ -110,7 +140,13 @@ export default function ProfilSection() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
-                    className="flex items-center gap-3 p-3 bg-slate-50 rounded-xl"
+                    whileHover={{
+                      scale: 1.04,
+                      boxShadow: "0 8px 24px -4px rgba(5, 150, 105, 0.15)",
+                      transition: { duration: 0.2 },
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                    className="flex items-center gap-3 p-3 bg-slate-50 hover:bg-white rounded-xl border border-transparent hover:border-primary-100 transition-colors duration-200 cursor-default"
                   >
                     <div
                       className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${iconColors[i]}`}
@@ -120,7 +156,18 @@ export default function ProfilSection() {
                     <div>
                       <p className="text-xs text-slate-500">{stat.label}</p>
                       <p className="text-sm font-bold text-slate-900">
-                        {stat.value}
+                        {/* Count-up for stat with numeric prefix */}
+                        {i === 0 ? (
+                          <>
+                            <CountUp target={7} /> Program Kerja
+                          </>
+                        ) : i === 1 ? (
+                          <>
+                            ± <CountUp target={50} /> Kepala Keluarga
+                          </>
+                        ) : (
+                          stat.value
+                        )}
                       </p>
                     </div>
                   </motion.div>
