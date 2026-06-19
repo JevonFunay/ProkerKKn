@@ -5,21 +5,21 @@
   --color-foreground: #0f172a;
   --font-sans: var(--font-inter);
 
-  /* Primary Emerald/Green palette */
-  --color-primary-50: #ecfdf5;
-  --color-primary-100: #d1fae5;
-  --color-primary-200: #a7f3d0;
-  --color-primary-300: #6ee7b7;
-  --color-primary-400: #34d399;
-  --color-primary-500: #10b981;
-  --color-primary-600: #059669;
-  --color-primary-700: #047857;
-  --color-primary-800: #065f46;
-  --color-primary-900: #064e3b;
+  /* Primary Ocean Blue palette */
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-200: #bae6fd;
+  --color-primary-300: #7dd3fc;
+  --color-primary-400: #38bdf8;
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #0284c7;
+  --color-primary-700: #0369a1;
+  --color-primary-800: #075985;
+  --color-primary-900: #0c4a6e;
 
-  /* Accent Gold */
-  --color-accent-400: #fbbf24;
-  --color-accent-500: #f59e0b;
+  /* Accent Coral */
+  --color-accent-400: #fb923c;
+  --color-accent-500: #f97316;
 
   /* Slate palette for text */
   --color-slate-50: #f8fafc;
@@ -73,7 +73,7 @@ footer {
 
 /* Gradient text utility */
 .gradient-text {
-  background: linear-gradient(135deg, var(--color-primary-400) 0%, var(--color-primary-600) 50%, var(--color-accent-400) 100%);
+  background: linear-gradient(135deg, var(--color-primary-400) 0%, var(--color-primary-600) 50%, var(--color-accent-500) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -102,8 +102,8 @@ body.modal-open {
 
 /* Gentle pulse CTA */
 @keyframes gentle-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-  50% { box-shadow: 0 0 0 12px rgba(16, 185, 129, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(2, 132, 199, 0); }
 }
 .cta-pulse {
   animation: gentle-pulse 2.5s ease-in-out infinite;
@@ -139,8 +139,8 @@ body.modal-open {
     var(--color-primary-600) 0%,
     var(--color-primary-400) 25%,
     var(--color-accent-400)  50%,
-    var(--color-primary-400) 75%,
-    var(--color-primary-600) 100%
+    var(--color-primary-300) 75%,
+    var(--color-primary-500) 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;

@@ -45,21 +45,21 @@ export default function Hero() {
         <div
           className="float-slow absolute -top-20 -left-20 w-96 h-96 rounded-full opacity-20"
           style={{
-            background: "radial-gradient(circle, #34d399 0%, transparent 70%)",
+            background: "radial-gradient(circle, #38bdf8 0%, transparent 70%)",
             filter: "blur(60px)",
           }}
         />
         <div
           className="float-medium absolute top-1/3 -right-32 w-80 h-80 rounded-full opacity-15"
           style={{
-            background: "radial-gradient(circle, #fbbf24 0%, transparent 70%)",
+            background: "radial-gradient(circle, #fb923c 0%, transparent 70%)",
             filter: "blur(50px)",
           }}
         />
         <div
           className="float-fast absolute -bottom-10 left-1/4 w-64 h-64 rounded-full opacity-20"
           style={{
-            background: "radial-gradient(circle, #6ee7b7 0%, transparent 70%)",
+            background: "radial-gradient(circle, #7dd3fc 0%, transparent 70%)",
             filter: "blur(40px)",
           }}
         />

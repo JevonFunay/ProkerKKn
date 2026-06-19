@@ -51,7 +51,7 @@ export default function BackToTop() {
               cy="24"
               r={RADIUS}
               fill="none"
-              stroke="rgba(5,150,105,0.2)"
+              stroke="rgba(2,132,199,0.2)"
               strokeWidth="3"
             />
             {/* Progress */}
@@ -60,7 +60,7 @@ export default function BackToTop() {
               cy="24"
               r={RADIUS}
               fill="none"
-              stroke="#059669"
+              stroke="#0284c7"
               strokeWidth="3"
               strokeLinecap="round"
               strokeDasharray={CIRCUMFERENCE}
