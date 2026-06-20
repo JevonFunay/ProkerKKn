@@ -84,7 +84,7 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-2">
               <MapPin size={16} className="text-primary-400 flex-shrink-0" />
-              Dusun Karangnongko, Pacitan
+              Dusun Karangnongko, Desa Watukarung, Kec. Pringkuku, Kab. Pacitan
             </li>
           </ul>
         </div>

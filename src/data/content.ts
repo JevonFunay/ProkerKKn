@@ -37,7 +37,7 @@ export const programKerja: ProgramData[] = [
       "Edukasi kesiapsiagaan gempa bumi melalui sayembara penyusunan tas siaga bencana.",
     fullDesc:
       "Edukasi kesiapsiagaan masyarakat menghadapi gempa bumi melalui sayembara penyusunan tas siaga bencana yang berisi dokumen penting dan logistik darurat.",
-    timeline: "Dilaksanakan selama periode KKN Kelompok 44",
+    timeline: "Senin, 6 Juli 2026",
     target: "Masyarakat memahami isi dan fungsi tas siaga bencana gempa bumi.",
     pj: "Tim Kelompok 44",
   },
@@ -51,7 +51,7 @@ export const programKerja: ProgramData[] = [
       "Peningkatan literasi keuangan rumah tangga bagi ibu-ibu PKK melalui metode amplop.",
     fullDesc:
       "Peningkatan literasi keuangan rumah tangga bagi ibu-ibu PKK melalui metode amplop sederhana untuk mengatur pos pengeluaran, tabungan, dan dana darurat.",
-    timeline: "Dilaksanakan selama periode KKN Kelompok 44",
+    timeline: "Senin, 13 Juli 2026",
     target: "Ibu-ibu PKK mampu membagi pos keuangan rumah tangga secara sederhana.",
     pj: "Reynathania Nonie",
   },
@@ -65,7 +65,7 @@ export const programKerja: ProgramData[] = [
       "Rancang bangun sistem informasi berbasis web untuk dokumentasi pengabdian KKN.",
     fullDesc:
       "Rancang bangun sistem informasi berbasis web untuk mendokumentasikan rekam jejak pengabdian dan hasil pemetaan potensi berkelanjutan Dusun Karangnongko.",
-    timeline: "Dilaksanakan selama periode KKN Kelompok 44",
+    timeline: "Berlangsung selama periode KKN",
     target: "Tersedia arsip digital program kerja dan potensi Dusun Karangnongko.",
     pj: "Jevon Christian",
   },
@@ -79,7 +79,7 @@ export const programKerja: ProgramData[] = [
       "Pelatihan pewarnaan kain metode ikat-celup Shibori untuk ibu-ibu PKK.",
     fullDesc:
       "Pengembangan kreativitas dan produktivitas ibu-ibu PKK melalui pelatihan pewarnaan kain metode ikat-celup (Shibori) bernilai jual.",
-    timeline: "Dilaksanakan selama periode KKN Kelompok 44",
+    timeline: "Rabu, 15 Juli 2026",
     target: "Ibu-ibu PKK memiliki keterampilan dasar membuat produk kain Shibori.",
     pj: "Lidwina Cahya",
   },
@@ -93,7 +93,7 @@ export const programKerja: ProgramData[] = [
       "Upaya preventif kesehatan lansia melalui senam pengendalian tekanan darah.",
     fullDesc:
       "Upaya preventif kesehatan posyandu lansia melalui senam pengendalian tekanan darah dan edukasi gaya hidup sehat terukur.",
-    timeline: "Dilaksanakan selama periode KKN Kelompok 44",
+    timeline: "Kamis, 9 Juli 2026",
     target: "Lansia memperoleh edukasi gaya hidup sehat dan aktivitas fisik terukur.",
     pj: "Elisabeth Liliana",
   },
@@ -107,22 +107,22 @@ export const programKerja: ProgramData[] = [
       "Digitalisasi titik koordinat lokasi krusial Dusun Karangnongko ke Google Maps.",
     fullDesc:
       "Digitalisasi titik koordinat lokasi krusial seperti Pustu, Balai Dusun, fasilitas umum, dan toko kelontong ke dalam platform Google Maps global.",
-    timeline: "Dilaksanakan selama periode KKN Kelompok 44",
+    timeline: "Berlangsung selama periode KKN",
     target: "Lokasi krusial dusun lebih mudah ditemukan melalui Google Maps.",
     pj: "Gatot Subroto",
   },
   {
     id: 7,
-    title: "Sosialisasi Pembuatan QRIS",
-    category: "Ekonomi Digital",
+    title: "Peningkatan Kualitas Pelayanan UMKM",
+    category: "Pemberdayaan UMKM",
     categoryColor: "bg-cyan-100 text-cyan-700",
     image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=500&fit=crop",
     shortDesc:
-      "Edukasi penggunaan dan pendampingan pembuatan QRIS bagi pelaku UMKM.",
+      "Sosialisasi dan pelatihan kualitas pelayanan untuk membangun kepercayaan pelanggan UMKM desa.",
     fullDesc:
-      "Edukasi penggunaan dan pendampingan pembuatan QRIS bagi pelaku UMKM dan masyarakat desa untuk mendorong adaptasi transaksi nontunai.",
-    timeline: "Dilaksanakan selama periode KKN Kelompok 44",
-    target: "Pelaku UMKM dan warga memahami proses serta manfaat transaksi nontunai.",
+      "Sosialisasi dan pelatihan kualitas pelayanan bagi pelaku UMKM Dusun Karangnongko, mencakup teknik komunikasi, etika pelayanan, serta strategi menangani keluhan pelanggan untuk meningkatkan kepercayaan dan loyalitas.",
+    timeline: "Senin, 13 Juli 2026",
+    target: "Pelaku UMKM mampu menerapkan pelayanan prima secara konsisten dan berkelanjutan.",
     pj: "Kelpin Saktara",
   },
 ];
