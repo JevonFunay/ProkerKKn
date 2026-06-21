@@ -7,15 +7,8 @@ export function smoothScrollTo(targetY: number, duration?: number) {
     activeFrame = null;
   }
 
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const maxY = document.documentElement.scrollHeight - window.innerHeight;
   const endY = Math.max(0, Math.min(targetY, maxY));
-
-  if (reduceMotion) {
-    window.scrollTo(0, endY);
-    return;
-  }
-
   const startY = window.scrollY;
   const distance = endY - startY;
 
