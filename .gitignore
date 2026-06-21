@@ -29,6 +29,13 @@
 Thumbs.db
 *.pem
 
+# Claude Code context files
+CLAUDE.md
+AGENTS.md
+
+# IDE personal config
+.vscode/
+
 # legacy files
 /index.html
 

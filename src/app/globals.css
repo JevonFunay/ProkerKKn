@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #ffffff;
-  --color-foreground: #0f172a;
+  --color-background: #080808;
+  --color-foreground: #f1f5f9;
   --font-sans: var(--font-inter);
 
   /* Primary Ocean Blue palette */
@@ -45,7 +45,7 @@ html {
 
 body {
   background: var(--color-background);
-  color: var(--color-slate-700);
+  color: var(--color-foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
@@ -94,9 +94,9 @@ body.modal-open {
 .hero-overlay {
   background: linear-gradient(
     180deg,
-    rgba(15, 23, 42, 0.6) 0%,
-    rgba(15, 23, 42, 0.3) 40%,
-    rgba(15, 23, 42, 0.7) 100%
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.20) 40%,
+    rgba(0, 0, 0, 0.80) 100%
   );
 }
 
@@ -179,4 +179,13 @@ body.modal-open {
 }
 .card-shine:hover::after {
   animation: card-shine 0.6s ease-in-out;
+}
+
+/* Section gradient backgrounds */
+.section-program-bg {
+  background: #0a0a0a;
+}
+
+.section-potensi-bg {
+  background: #0f0f0f;
 }

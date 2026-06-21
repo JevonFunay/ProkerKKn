@@ -33,37 +33,12 @@ export default function Hero() {
         style={{ y: bgY }}
       >
         <img
-          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop"
-          alt="Pemandangan pesisir Karangnongko"
+          src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=1920&h=1080&fit=crop&q=85"
+          alt="Hutan tropis Dusun Karangnongko"
           className="w-full h-full object-cover scale-110"
         />
       </motion.div>
       <div className="hero-overlay absolute inset-0" />
-
-      {/* Floating Ambient Blobs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div
-          className="float-slow absolute -top-20 -left-20 w-96 h-96 rounded-full opacity-20"
-          style={{
-            background: "radial-gradient(circle, #38bdf8 0%, transparent 70%)",
-            filter: "blur(60px)",
-          }}
-        />
-        <div
-          className="float-medium absolute top-1/3 -right-32 w-80 h-80 rounded-full opacity-15"
-          style={{
-            background: "radial-gradient(circle, #fb923c 0%, transparent 70%)",
-            filter: "blur(50px)",
-          }}
-        />
-        <div
-          className="float-fast absolute -bottom-10 left-1/4 w-64 h-64 rounded-full opacity-20"
-          style={{
-            background: "radial-gradient(circle, #7dd3fc 0%, transparent 70%)",
-            filter: "blur(40px)",
-          }}
-        />
-      </div>
 
       {/* Content */}
       <motion.div
@@ -78,7 +53,7 @@ export default function Hero() {
           className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 mb-8"
         >
           <span className="w-2 h-2 rounded-full bg-primary-400 animate-pulse" />
-          <span className="text-sm text-white/90 font-medium">
+          <span className="text-sm text-white/90 font-medium tracking-wide">
             Dokumentasi Digital Pengabdian
           </span>
         </motion.div>
@@ -100,7 +75,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.6 }}
-          className="text-lg sm:text-xl text-white/75 max-w-2xl mx-auto mb-10 leading-relaxed font-light"
+          className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed font-light"
         >
           Pusat data realisasi program pengabdian masyarakat, edukasi mitigasi
           bencana, serta analisis potensi taktis wilayah oleh Kelompok 44.
@@ -114,7 +89,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <motion.button
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             onClick={() => scrollTo("#program")}
             className="cta-pulse inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary-600/30 cursor-pointer"
@@ -123,10 +98,10 @@ export default function Hero() {
             <ArrowRight size={18} />
           </motion.button>
           <motion.button
-            whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.2)" }}
+            whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             onClick={() => scrollTo("#potensi")}
-            className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/25 text-white font-semibold px-8 py-4 rounded-xl transition-colors duration-300 cursor-pointer"
+            className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/25 text-white font-semibold px-8 py-4 rounded-xl hover:bg-white/18 transition-colors duration-300 cursor-pointer"
           >
             Analisis Potensi
             <ChevronDown size={18} />
@@ -139,33 +114,18 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8 }}
-        className="absolute bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-white/50 text-xs tracking-widest uppercase">
+        <span className="text-white/40 text-xs tracking-widest uppercase">
           Scroll
         </span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
         >
-          <ChevronDown size={20} className="text-white/50" />
+          <ChevronDown size={20} className="text-white/40" />
         </motion.div>
       </motion.div>
-
-      {/* Wave Divider */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-        <svg
-          viewBox="0 0 1440 64"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-          className="w-full h-12 sm:h-16"
-        >
-          <path
-            d="M0,32 C240,64 480,0 720,32 C960,64 1200,0 1440,32 L1440,64 L0,64 Z"
-            fill="white"
-          />
-        </svg>
-      </div>
     </section>
   );
 }

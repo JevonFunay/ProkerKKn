@@ -11,7 +11,6 @@ interface DetailModalProps {
 }
 
 export default function DetailModal({ data, onClose }: DetailModalProps) {
-  // Lock body scroll
   useEffect(() => {
     if (data) {
       document.body.classList.add("modal-open");
@@ -21,7 +20,6 @@ export default function DetailModal({ data, onClose }: DetailModalProps) {
     return () => document.body.classList.remove("modal-open");
   }, [data]);
 
-  // Close on Escape
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -48,7 +46,7 @@ export default function DetailModal({ data, onClose }: DetailModalProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
             onClick={onClose}
           />
 
@@ -62,20 +60,21 @@ export default function DetailModal({ data, onClose }: DetailModalProps) {
               damping: 30,
               stiffness: 300,
             }}
-            className="relative z-10 w-full max-w-2xl max-h-[92vh] md:max-h-[85vh] bg-white rounded-t-3xl md:rounded-3xl overflow-hidden flex flex-col md:mx-4"
+            className="relative z-10 w-full max-w-2xl max-h-[92vh] md:max-h-[85vh] bg-[#1a1a1a] border border-white/[0.08] rounded-t-3xl md:rounded-3xl overflow-hidden flex flex-col md:mx-4"
+            style={{ boxShadow: "0 -8px 60px rgba(0,0,0,0.8)" }}
           >
             {/* Drag handle (mobile) */}
-            <div className="md:hidden flex justify-center pt-2 pb-1">
-              <div className="w-10 h-1 rounded-full bg-slate-300" />
+            <div className="md:hidden flex justify-center pt-3 pb-1">
+              <div className="w-10 h-1 rounded-full bg-white/15" />
             </div>
 
             {/* Close button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-20 w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white hover:rotate-90 hover:scale-110 transition-all duration-300 cursor-pointer"
+              className="absolute top-4 right-4 z-20 w-10 h-10 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full flex items-center justify-center hover:bg-white/20 hover:rotate-90 hover:scale-110 transition-all duration-300 cursor-pointer"
               aria-label="Tutup"
             >
-              <X size={20} className="text-slate-700" />
+              <X size={20} className="text-white/80" />
             </button>
 
             {/* Scrollable content */}
@@ -87,7 +86,7 @@ export default function DetailModal({ data, onClose }: DetailModalProps) {
                   alt={data.title}
                   className="w-full h-56 sm:h-72 md:h-80 object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a]/80 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-6 right-16">
                   <span
                     className={`inline-block text-xs font-bold px-3 py-1.5 rounded-full shadow ${data.categoryColor}`}
@@ -107,7 +106,7 @@ export default function DetailModal({ data, onClose }: DetailModalProps) {
                 >
                   <h2
                     id="modal-title"
-                    className="font-bold text-2xl sm:text-3xl text-slate-900 mb-1"
+                    className="font-bold text-2xl sm:text-3xl text-white mb-1"
                   >
                     {data.title}
                   </h2>
@@ -119,7 +118,7 @@ export default function DetailModal({ data, onClose }: DetailModalProps) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.25 }}
                 >
-                  <p className="text-slate-600 leading-relaxed">
+                  <p className="text-white/60 leading-relaxed">
                     {data.fullDesc}
                   </p>
                 </motion.div>
@@ -185,16 +184,16 @@ function InfoCard({
 }) {
   return (
     <div
-      className={`flex items-start gap-3 p-3 bg-slate-50 rounded-xl ${
+      className={`flex items-start gap-3 p-3 bg-white/[0.06] border border-white/[0.08] rounded-xl ${
         colSpan ? "sm:col-span-2" : ""
       }`}
     >
-      <div className="w-9 h-9 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0 mt-0.5 text-primary-600">
+      <div className="w-9 h-9 rounded-lg bg-primary-500/20 flex items-center justify-center flex-shrink-0 mt-0.5 text-primary-400">
         {icon}
       </div>
       <div className="min-w-0">
-        <p className="text-xs text-slate-500 font-medium">{label}</p>
-        <p className="text-sm font-semibold text-slate-800 mt-0.5">{value}</p>
+        <p className="text-xs text-white/45 font-medium">{label}</p>
+        <p className="text-sm font-semibold text-white mt-0.5">{value}</p>
       </div>
     </div>
   );

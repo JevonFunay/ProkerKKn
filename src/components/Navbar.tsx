@@ -44,7 +44,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         isSolidNav
-          ? "bg-white/80 glass-nav shadow-lg shadow-black/5"
+          ? "bg-black/85 glass-nav shadow-lg shadow-black/30"
           : "bg-transparent"
       }`}
     >
@@ -55,7 +55,7 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute bottom-0 left-0 right-0 h-[3px] bg-slate-100 overflow-hidden"
+            className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/[0.06] overflow-hidden"
           >
             <motion.div
               className="h-full bg-gradient-to-r from-primary-500 via-primary-400 to-accent-400 origin-left"
@@ -81,11 +81,7 @@ export default function Navbar() {
               whileHover={{ scale: 1.08, rotate: -3 }}
               transition={{ type: "spring", stiffness: 400, damping: 15 }}
             />
-            <span
-              className={`font-bold text-xl tracking-tight transition-colors ${
-                isSolidNav ? "text-slate-900" : "text-white"
-              }`}
-            >
+            <span className="font-bold text-xl tracking-tight text-white">
               Karangnongko Hub
             </span>
           </Link>
@@ -100,12 +96,12 @@ export default function Navbar() {
                 onClick={(e) => handleLinkClick(e, link.href)}
                 className={`relative text-sm font-medium transition-colors group ${
                   isSolidNav
-                    ? "text-slate-600 hover:text-primary-600"
-                    : "text-white/90 hover:text-white"
+                    ? "text-white/65 hover:text-white"
+                    : "text-white/85 hover:text-white"
                 }`}
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500 rounded-full transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-400 rounded-full transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
           </div>
@@ -114,9 +110,7 @@ export default function Navbar() {
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={() => setMenuOpen(!menuOpen)}
-            className={`md:hidden p-2 rounded-lg transition-colors ${
-              isSolidNav ? "text-slate-700 hover:bg-slate-100" : "text-white hover:bg-white/10"
-            }`}
+            className="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
             aria-label="Toggle menu"
           >
             <AnimatePresence mode="wait" initial={false}>
@@ -156,7 +150,7 @@ export default function Navbar() {
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="md:hidden overflow-hidden"
           >
-            <div className="px-6 pb-6 pt-2 space-y-1 bg-slate-900/95 glass-nav border-t border-white/10">
+            <div className="px-6 pb-6 pt-2 space-y-1 bg-black/95 glass-nav border-t border-white/[0.08]">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.href}
@@ -168,7 +162,7 @@ export default function Navbar() {
                     href={link.href}
                     scroll={false}
                     onClick={(e) => handleLinkClick(e, link.href)}
-                    className="block py-3 text-sm font-medium text-white/80 hover:text-primary-400 hover:pl-2 transition-all"
+                    className="block py-3 text-sm font-medium text-white/70 hover:text-primary-400 hover:pl-2 transition-all"
                   >
                     {link.label}
                   </Link>
