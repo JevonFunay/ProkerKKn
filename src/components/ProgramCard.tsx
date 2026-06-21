@@ -8,6 +8,7 @@ interface ProgramCardProps {
   data: ProgramData | PotensiData;
   index: number;
   onClick: () => void;
+  featured?: boolean;
 }
 
 const categoryGradient: Record<string, string> = {
@@ -22,7 +23,7 @@ const categoryGradient: Record<string, string> = {
   "bg-lime-100 text-lime-700":       "from-lime-500 to-green-600",
 };
 
-export default function ProgramCard({ data, index, onClick }: ProgramCardProps) {
+export default function ProgramCard({ data, index, onClick, featured = false }: ProgramCardProps) {
   const badgeNumber = String(index + 1).padStart(2, "0");
   const gradient = categoryGradient[data.categoryColor] ?? "from-primary-500 to-primary-700";
 
@@ -31,52 +32,52 @@ export default function ProgramCard({ data, index, onClick }: ProgramCardProps) 
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.5, delay: Math.min(index * 0.1, 0.5) }}
-      whileHover={{ y: -6, transition: { duration: 0.25 } }}
+      transition={{ duration: 0.5, delay: Math.min(index * 0.07, 0.4) }}
+      whileHover={{ y: -4, transition: { duration: 0.25 } }}
       onClick={onClick}
-      className="group cursor-pointer rounded-2xl overflow-hidden bg-[#1c1c1c] border border-white/[0.07] hover:border-white/15 transition-all duration-300"
+      className="group cursor-pointer rounded-2xl overflow-hidden bg-[#141414] border border-white/[0.07] hover:border-white/14 transition-all duration-300 flex flex-col h-full"
       style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.4)" }}
     >
-      {/* Colored accent strip */}
-      <div className={`h-1 bg-gradient-to-r ${gradient}`} />
+      {/* Top gradient strip */}
+      <div className={`h-px bg-gradient-to-r ${gradient} opacity-70`} />
 
       {/* Image */}
-      <div className="relative overflow-hidden h-48">
+      <div className={`relative overflow-hidden flex-shrink-0 ${featured ? "h-60 sm:h-72" : "h-44"}`}>
         <img
           src={data.image}
           alt={data.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#141414]/85 via-black/10 to-transparent" />
 
-        {/* Large decorative number watermark */}
-        <div className="absolute -right-1 top-0 text-8xl font-black text-white/[0.07] leading-none select-none pointer-events-none">
-          {badgeNumber}
-        </div>
-
-        {/* Small number badge */}
-        <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/60 backdrop-blur-sm flex items-center justify-center border border-white/10">
+        {/* Number badge */}
+        <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-black/55 backdrop-blur-sm flex items-center justify-center border border-white/10">
           <span className="text-white font-black text-xs">{badgeNumber}</span>
         </div>
 
         {/* Category badge */}
-        <div className={`absolute bottom-3 left-3 text-xs font-bold px-2.5 py-1 rounded-full bg-gradient-to-r ${gradient} text-white shadow-lg`}>
+        <div
+          className={`absolute bottom-3 left-3 text-xs font-bold px-2.5 py-1 rounded-full bg-gradient-to-r ${gradient} text-white shadow`}
+        >
           {data.category}
         </div>
       </div>
 
       {/* Content */}
-      <div className="p-5">
-        <h3 className="font-bold text-base text-white mb-2 group-hover:text-primary-400 transition-colors leading-snug line-clamp-2">
+      <div className="p-5 flex flex-col flex-1">
+        <h3
+          className={`font-bold text-white mb-2 group-hover:text-primary-400 transition-colors leading-snug line-clamp-2 ${
+            featured ? "text-base sm:text-lg" : "text-sm sm:text-base"
+          }`}
+        >
           {data.title}
         </h3>
-        <p className="text-white/50 text-sm leading-relaxed line-clamp-2 mb-4">
+        <p className="text-white/40 text-sm leading-relaxed line-clamp-2 flex-1 mb-4">
           {data.shortDesc}
         </p>
-        <div className="flex items-center justify-between pt-3 border-t border-white/[0.08]">
-          <span className="text-xs text-white/35">
-            PJ: <span className="text-white/60 font-semibold">{data.pj}</span>
+        <div className="flex items-center justify-between pt-3 border-t border-white/[0.07] mt-auto">
+          <span className="text-xs text-white/28">
+            PJ: <span className="text-white/50 font-semibold">{data.pj}</span>
           </span>
           <span className="text-xs font-semibold text-primary-400 flex items-center gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
             Detail <ArrowUpRight size={12} />

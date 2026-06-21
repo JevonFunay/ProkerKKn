@@ -15,48 +15,53 @@ export default function ProgramSection({ onCardClick }: ProgramSectionProps) {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="program" className="py-20 lg:py-28 section-program-bg relative overflow-hidden">
+    <section id="program" className="py-24 lg:py-32 bg-[#0a0a0a] relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" ref={ref}>
-        {/* Section Header */}
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-20 relative" ref={ref}>
+
+        {/* Editorial section header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-16"
         >
-          <div className="inline-flex items-center gap-2 bg-white/[0.06] border border-white/15 rounded-full px-4 py-2 mb-5">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary-400" />
-            <span className="text-primary-400 font-bold text-xs tracking-widest uppercase">
+          <span className="block font-black text-[7rem] lg:text-[10rem] leading-none text-white/[0.035] tracking-tighter select-none -mb-8 lg:-mb-12">
+            02
+          </span>
+          <div className="flex items-center gap-4 mb-4">
+            <span className="text-primary-400 font-black text-xs tracking-[0.25em] uppercase">
               Realisasi Aksi
             </span>
+            <div className="h-px flex-1 bg-white/[0.08]" />
           </div>
-          <h2 className="font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
-            Program Kerja <span className="gradient-text">Utama</span>
+          <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight">
+            Program Kerja{" "}
+            <span className="text-white/20">Utama</span>
           </h2>
-          <p className="text-white/45 max-w-2xl mx-auto">
-            Tujuh program kerja strategis yang menjadi fondasi pengabdian
-            masyarakat di Dusun Karangnongko.
-          </p>
-          <div className="flex items-center justify-center gap-1.5 mt-6">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary-600/50" />
-            <span className="w-1.5 h-1.5 rounded-full bg-primary-500/60" />
-            <span className="w-2 h-2 rounded-full bg-primary-400/80" />
-            <span className="w-1.5 h-1.5 rounded-full bg-primary-500/60" />
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-primary-600/50" />
-          </div>
         </motion.div>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* Bento Grid — card 0 and 6 span 2 cols on lg */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {programKerja.map((item, i) => (
-            <ProgramCard
+            <div
               key={item.id}
-              data={item}
-              index={i}
-              onClick={() => onCardClick(item)}
-            />
+              className={`flex ${
+                i === 0
+                  ? "md:col-span-2 lg:col-span-2"
+                  : i === 6
+                  ? "lg:col-span-2"
+                  : ""
+              }`}
+            >
+              <ProgramCard
+                data={item}
+                index={i}
+                onClick={() => onCardClick(item)}
+                featured={i === 0}
+              />
+            </div>
           ))}
         </div>
       </div>

@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { UserRound, UsersRound, X, Globe } from "lucide-react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 function IconInstagram({ size = 18 }: { size?: number }) {
   return (
@@ -19,8 +21,6 @@ function IconLinkedin({ size = 18 }: { size?: number }) {
     </svg>
   );
 }
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
 interface TeamMember {
   name: string;
@@ -31,66 +31,21 @@ interface TeamMember {
 }
 
 const teamMembers: TeamMember[] = [
-  {
-    name: "Lidwina Cahya Dewi",
-    role: "Ketua Kelompok",
-    instagram: "",
-    linkedin: "",
-    website: "",
-  },
-  {
-    name: "Reynathania Nonie Tangkedatu",
-    role: "Bendahara",
-    instagram: "",
-    linkedin: "",
-    website: "",
-  },
-  {
-    name: "Jevon Christian Putra Funay",
-    role: "PDD",
-    instagram: "",
-    linkedin: "",
-    website: "",
-  },
-  {
-    name: "Elisabeth Liliana Devi",
-    role: "Sekretaris",
-    instagram: "",
-    linkedin: "",
-    website: "",
-  },
-  {
-    name: "Gatot Subroto Simbolon",
-    role: "Humas",
-    instagram: "",
-    linkedin: "",
-    website: "",
-  },
-  {
-    name: "Kelpin Saktara Tirta",
-    role: "Perkap",
-    instagram: "",
-    linkedin: "",
-    website: "",
-  },
+  { name: "Lidwina Cahya Dewi",           role: "Ketua Kelompok", instagram: "", linkedin: "", website: "" },
+  { name: "Reynathania Nonie Tangkedatu", role: "Bendahara",       instagram: "", linkedin: "", website: "" },
+  { name: "Jevon Christian Putra Funay",  role: "PDD",             instagram: "", linkedin: "", website: "" },
+  { name: "Elisabeth Liliana Devi",       role: "Sekretaris",      instagram: "", linkedin: "", website: "" },
+  { name: "Gatot Subroto Simbolon",       role: "Humas",           instagram: "", linkedin: "", website: "" },
+  { name: "Kelpin Saktara Tirta",         role: "Perkap",          instagram: "", linkedin: "", website: "" },
 ];
 
 const memberGradients = [
-  "from-sky-400 to-blue-500",
-  "from-blue-400 to-indigo-500",
-  "from-orange-400 to-coral-500",
-  "from-rose-400 to-pink-500",
-  "from-cyan-400 to-sky-500",
-  "from-violet-400 to-purple-500",
-];
-
-const memberGradientsBg = [
-  "from-sky-50 to-blue-50",
-  "from-blue-50 to-indigo-50",
-  "from-orange-50 to-amber-50",
-  "from-rose-50 to-pink-50",
-  "from-cyan-50 to-sky-50",
-  "from-violet-50 to-purple-50",
+  "from-teal-400 to-cyan-600",
+  "from-blue-400 to-indigo-600",
+  "from-amber-400 to-orange-500",
+  "from-rose-400 to-pink-600",
+  "from-violet-400 to-purple-600",
+  "from-emerald-400 to-teal-600",
 ];
 
 interface MemberModalProps {
@@ -105,27 +60,9 @@ function MemberModal({ member, index, onClose }: MemberModalProps) {
   const hasSocial = member.instagram || member.linkedin || member.website;
 
   const socials = [
-    {
-      key: "instagram",
-      label: "Instagram",
-      url: member.instagram,
-      icon: IconInstagram,
-      color: "bg-gradient-to-br from-pink-500 to-orange-400",
-    },
-    {
-      key: "linkedin",
-      label: "LinkedIn",
-      url: member.linkedin,
-      icon: IconLinkedin,
-      color: "bg-blue-600",
-    },
-    {
-      key: "website",
-      label: "Website",
-      url: member.website,
-      icon: Globe,
-      color: "bg-slate-600",
-    },
+    { key: "instagram", label: "Instagram", url: member.instagram, icon: IconInstagram, color: "bg-gradient-to-br from-pink-500 to-orange-400" },
+    { key: "linkedin",  label: "LinkedIn",  url: member.linkedin,  icon: IconLinkedin,  color: "bg-blue-600" },
+    { key: "website",   label: "Website",   url: member.website,   icon: Globe,         color: "bg-white/10" },
   ];
 
   return (
@@ -135,7 +72,7 @@ function MemberModal({ member, index, onClose }: MemberModalProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.25 }}
+          transition={{ duration: 0.2 }}
           className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center"
           role="dialog"
           aria-modal="true"
@@ -145,7 +82,7 @@ function MemberModal({ member, index, onClose }: MemberModalProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/75 backdrop-blur-sm"
             onClick={onClose}
           />
 
@@ -155,48 +92,50 @@ function MemberModal({ member, index, onClose }: MemberModalProps) {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: "100%", opacity: 0 }}
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="relative z-10 w-full max-w-sm sm:mx-4 bg-white rounded-t-3xl sm:rounded-3xl overflow-hidden shadow-2xl"
+            className="relative z-10 w-full max-w-sm sm:mx-4 bg-[#141414] border border-white/[0.08] rounded-t-3xl sm:rounded-3xl overflow-hidden shadow-2xl"
+            style={{ boxShadow: "0 -8px 60px rgba(0,0,0,0.8)" }}
           >
-            {/* Drag handle (mobile) */}
+            {/* Drag handle */}
             <div className="sm:hidden flex justify-center pt-3 pb-1">
-              <div className="w-10 h-1 rounded-full bg-slate-200" />
+              <div className="w-10 h-1 rounded-full bg-white/10" />
             </div>
 
             {/* Close button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-20 w-9 h-9 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center transition-all duration-200 hover:rotate-90 cursor-pointer"
+              className="absolute top-4 right-4 z-20 w-9 h-9 bg-white/[0.06] hover:bg-white/10 border border-white/[0.08] rounded-full flex items-center justify-center transition-all duration-200 hover:rotate-90 cursor-pointer"
               aria-label="Tutup"
             >
-              <X size={18} className="text-slate-600" />
+              <X size={16} className="text-white/60" />
             </button>
 
-            {/* Header gradient strip */}
-            <div
-              className={`bg-gradient-to-br ${memberGradientsBg[index % memberGradients.length]} px-6 pt-6 pb-8 text-center`}
-            >
+            {/* Header */}
+            <div className="px-6 pt-8 pb-6 text-center border-b border-white/[0.06]">
+              {/* Gradient strip accent */}
+              <div className={`h-px w-16 mx-auto bg-gradient-to-r ${memberGradients[index % memberGradients.length]} mb-6 rounded-full`} />
+
               {/* Avatar */}
               <div
-                className={`w-24 h-24 mx-auto rounded-full bg-gradient-to-br ${memberGradients[index % memberGradients.length]} flex items-center justify-center shadow-lg mb-4`}
+                className={`w-20 h-20 mx-auto rounded-full bg-gradient-to-br ${memberGradients[index % memberGradients.length]} flex items-center justify-center shadow-lg mb-4`}
               >
-                <UserRound size={44} className="text-white" strokeWidth={1.6} />
+                <UserRound size={38} className="text-white" strokeWidth={1.6} />
               </div>
-              <h2 className="font-bold text-xl text-slate-900 leading-snug">
+              <h2 className="font-bold text-xl text-white leading-snug">
                 {member.name}
               </h2>
-              <span className="inline-block mt-2 text-xs font-semibold text-primary-600 bg-primary-50 border border-primary-100 px-3 py-1 rounded-full">
+              <span className="inline-block mt-2 text-xs font-semibold text-primary-400 bg-primary-500/10 border border-primary-500/20 px-3 py-1 rounded-full">
                 {member.role}
               </span>
             </div>
 
-            {/* Social Media Links */}
+            {/* Social links */}
             <div className="px-6 py-6">
-              <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-4">
+              <p className="text-[10px] font-bold text-white/25 uppercase tracking-[0.3em] mb-4">
                 Social Media
               </p>
 
               {hasSocial ? (
-                <div className="space-y-3">
+                <div className="space-y-2">
                   {socials
                     .filter((s) => s.url)
                     .map((social) => {
@@ -209,18 +148,16 @@ function MemberModal({ member, index, onClose }: MemberModalProps) {
                           rel="noopener noreferrer"
                           whileHover={{ x: 4 }}
                           whileTap={{ scale: 0.97 }}
-                          className="flex items-center gap-3 p-3 rounded-xl border border-slate-100 hover:border-primary-200 hover:bg-primary-50 transition-colors duration-200 group"
+                          className="flex items-center gap-3 p-3 rounded-xl border border-white/[0.06] hover:border-primary-500/30 hover:bg-primary-500/5 transition-colors duration-200 group"
                         >
-                          <div
-                            className={`w-9 h-9 ${social.color} rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm`}
-                          >
-                            <Icon size={18} className="text-white" />
+                          <div className={`w-9 h-9 ${social.color} rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm`}>
+                            <Icon size={16} className="text-white" />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <p className="text-xs text-slate-400 font-medium">
+                            <p className="text-[10px] text-white/30 font-medium uppercase tracking-wider">
                               {social.label}
                             </p>
-                            <p className="text-sm font-semibold text-slate-700 group-hover:text-primary-600 truncate transition-colors">
+                            <p className="text-sm font-semibold text-white/70 group-hover:text-primary-400 truncate transition-colors">
                               {social.url.replace(/^https?:\/\/(www\.)?/, "")}
                             </p>
                           </div>
@@ -229,11 +166,13 @@ function MemberModal({ member, index, onClose }: MemberModalProps) {
                     })}
                 </div>
               ) : (
-                <div className="text-center py-6 text-slate-400">
-                  <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Globe size={22} className="text-slate-300" />
+                <div className="text-center py-6">
+                  <div className="w-12 h-12 bg-white/[0.04] border border-white/[0.06] rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Globe size={20} className="text-white/20" />
                   </div>
-                  <p className="text-sm">Belum ada social media yang ditambahkan.</p>
+                  <p className="text-sm text-white/25">
+                    Belum ada social media yang ditambahkan.
+                  </p>
                 </div>
               )}
             </div>
@@ -251,99 +190,95 @@ export default function TimContent() {
     <>
       <Navbar />
 
-      {/* Member detail modal */}
       <MemberModal
         member={selected?.member ?? null}
         index={selected?.index ?? 0}
         onClose={() => setSelected(null)}
       />
 
-      <main className="min-h-screen bg-slate-50 pt-24 lg:pt-28">
-        {/* Header */}
-        <section className="bg-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-dot-grid opacity-60 pointer-events-none" />
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-18 text-center">
+      <main className="min-h-screen bg-[#080808] pt-20 lg:pt-24">
+
+        {/* Page header — dark editorial */}
+        <section className="relative overflow-hidden border-b border-white/[0.06] py-20 lg:py-24">
+          {/* Watermark */}
+          <span className="absolute right-6 lg:right-16 top-1/2 -translate-y-1/2 text-[18vw] font-black text-white/[0.025] uppercase tracking-tighter select-none pointer-events-none leading-none">
+            TIM
+          </span>
+
+          <div className="relative max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-20">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.6 }}
             >
-              <span className="inline-flex items-center gap-2 text-primary-600 font-semibold text-sm tracking-widest uppercase mb-4">
-                <UsersRound size={16} />
-                Profil Tim
-              </span>
+              <div className="flex items-center gap-4 mb-4">
+                <UsersRound size={14} className="text-primary-400 flex-shrink-0" />
+                <span className="text-primary-400 font-black text-xs tracking-[0.25em] uppercase">
+                  Profil Tim
+                </span>
+                <div className="h-px w-16 bg-white/[0.08]" />
+              </div>
+              <h1 className="font-black text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight">
+                Profil{" "}
+                <span className="text-white/20">Kelompok 44</span>
+              </h1>
+              <p className="text-white/35 mt-4 max-w-lg text-sm leading-relaxed">
+                Mahasiswa Kuliah Kerja Nyata Universitas Kristen Duta Wacana —
+                Periode Genap 2025/2026
+              </p>
             </motion.div>
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-bold text-3xl sm:text-4xl lg:text-5xl text-slate-900 mb-4"
-            >
-              Profil <span className="gradient-text">Kelompok 44</span>
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-slate-500 max-w-2xl mx-auto leading-relaxed"
-            >
-              Mahasiswa Kuliah Kerja Nyata Universitas Kristen Duta Wacana —
-              Periode Genap 2025/2026
-            </motion.p>
           </div>
         </section>
 
-        {/* Team Members */}
-        <section className="py-16 lg:py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-10"
-            >
-              <h2 className="font-bold text-2xl sm:text-3xl text-slate-900">
-                Anggota Tim
-              </h2>
-              <p className="text-slate-400 text-sm mt-2">
-                Klik kartu untuk melihat detail & social media
-              </p>
-              <div className="w-14 h-1 bg-primary-500 rounded-full mx-auto mt-4" />
-            </motion.div>
+        {/* Member cards */}
+        <section className="py-20 lg:py-28">
+          <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-20">
 
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-[10px] font-bold text-white/20 uppercase tracking-[0.3em] mb-10"
+            >
+              Klik kartu untuk melihat detail & social media
+            </motion.p>
+
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
               {teamMembers.map((member, i) => (
                 <motion.button
                   key={member.name}
-                  initial={{ opacity: 0, y: 32 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
-                  whileHover={{
-                    y: -6,
-                    boxShadow: "0 16px 32px -8px rgba(2,132,199,0.18)",
-                    transition: { duration: 0.25 },
-                  }}
+                  whileHover={{ y: -4, transition: { duration: 0.2 } }}
                   whileTap={{ scale: 0.97 }}
                   onClick={() => setSelected({ member, index: i })}
-                  className="bg-white border border-slate-100 rounded-2xl shadow-sm p-5 sm:p-6 text-center cursor-pointer w-full group hover:border-primary-200 transition-colors duration-200"
+                  className="bg-[#141414] border border-white/[0.07] hover:border-white/14 rounded-2xl p-6 sm:p-8 text-center cursor-pointer w-full group transition-colors duration-300"
+                  style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.35)" }}
                 >
-                  {/* Colored gradient avatar */}
+                  {/* Avatar */}
                   <div
-                    className={`w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full bg-gradient-to-br ${memberGradients[i % memberGradients.length]} flex items-center justify-center mb-4 shadow-md group-hover:scale-105 transition-transform duration-300`}
+                    className={`w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-gradient-to-br ${memberGradients[i % memberGradients.length]} flex items-center justify-center mb-5 shadow-lg group-hover:scale-105 transition-transform duration-300`}
                   >
-                    <UserRound size={38} className="text-white" strokeWidth={1.8} />
+                    <UserRound size={32} className="text-white" strokeWidth={1.6} />
                   </div>
-                  <h3 className="font-bold text-sm sm:text-base text-slate-900 leading-snug break-words">
+
+                  {/* Name */}
+                  <h3 className="font-bold text-sm sm:text-base text-white leading-snug break-words">
                     {member.name}
                   </h3>
-                  <p className="text-xs sm:text-sm text-primary-600 font-medium mt-2">
+
+                  {/* Role */}
+                  <p className="text-xs text-primary-400 font-semibold mt-2">
                     {member.role}
                   </p>
-                  <p className="text-xs text-slate-400 mt-3 flex items-center justify-center gap-1">
-                    <span>Lihat profil</span>
-                    <span className="group-hover:translate-x-1 transition-transform duration-200 inline-block">→</span>
+
+                  {/* CTA hint */}
+                  <p className="text-[10px] text-white/20 mt-4 uppercase tracking-widest">
+                    Lihat profil{" "}
+                    <span className="group-hover:translate-x-1 transition-transform duration-200 inline-block">
+                      →
+                    </span>
                   </p>
                 </motion.button>
               ))}
@@ -351,6 +286,7 @@ export default function TimContent() {
           </div>
         </section>
       </main>
+
       <Footer />
     </>
   );

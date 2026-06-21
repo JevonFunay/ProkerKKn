@@ -2,8 +2,19 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ChevronDown, ArrowRight } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 import { smoothScrollToElement } from "@/lib/smoothScroll";
+
+const marqueeItems = [
+  "Dusun Karangnongko",
+  "KKN Kelompok 44",
+  "Mitigasi Bencana Gempa Bumi",
+  "Pemetaan Digital Google Maps",
+  "Pemberdayaan Ibu PKK",
+  "Pesisir Selatan Pacitan",
+  "UKDW Genap 2025/2026",
+  "7 Program Kerja",
+];
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -17,114 +28,134 @@ export default function Hero() {
   const contentOpacity = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
   const contentY = useTransform(scrollYProgress, [0, 0.65], ["0%", "-12%"]);
 
-  const scrollTo = (href: string) => {
-    smoothScrollToElement(href, 80);
-  };
-
   return (
     <section
       id="beranda"
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col overflow-hidden bg-black"
     >
-      {/* Parallax Background Image */}
-      <motion.div
-        className="absolute inset-0 w-full h-full"
-        style={{ y: bgY }}
-      >
+      {/* Parallax Background */}
+      <motion.div className="absolute inset-0 w-full h-full" style={{ y: bgY }}>
         <img
-          src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=1920&h=1080&fit=crop&q=85"
-          alt="Hutan tropis Dusun Karangnongko"
+          src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1920&h=1080&fit=crop"
+          alt="Suasana Dusun Karangnongko"
           className="w-full h-full object-cover scale-110"
         />
       </motion.div>
-      <div className="hero-overlay absolute inset-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-black/92" />
 
-      {/* Content */}
+      {/* Oversized watermark */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none select-none flex items-center">
+        <span className="text-[32vw] font-black text-white/[0.03] uppercase tracking-tighter whitespace-nowrap leading-none pl-4">
+          KKN
+        </span>
+      </div>
+
+      {/* Main editorial content */}
       <motion.div
-        className="relative z-10 text-center px-4 max-w-4xl mx-auto"
+        className="relative z-10 flex-1 flex flex-col justify-center px-6 sm:px-10 lg:px-20 max-w-[1400px] mx-auto w-full"
         style={{ opacity: contentOpacity, y: contentY }}
       >
-        {/* Badge */}
+        {/* Location line */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -16 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 mb-8"
+          className="flex items-center gap-3 mb-10"
         >
-          <span className="w-2 h-2 rounded-full bg-primary-400 animate-pulse" />
-          <span className="text-sm text-white/90 font-medium tracking-wide">
-            Dokumentasi Digital Pengabdian
+          <span className="h-px w-10 bg-primary-500 flex-shrink-0" />
+          <MapPin size={12} className="text-primary-400 flex-shrink-0" />
+          <span className="text-white/40 text-xs font-semibold tracking-[0.2em] uppercase">
+            Desa Watukarung · Kec. Pringkuku · Kab. Pacitan
           </span>
         </motion.div>
 
-        {/* Headline */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight tracking-tight mb-6"
-        >
-          E-Portofolio KKN
-          <br />
-          <span className="shimmer-text">Dusun Karangnongko</span>
-        </motion.h1>
+        {/* Headline with clipped reveal */}
+        <div className="overflow-hidden mb-1">
+          <motion.h1
+            initial={{ y: "110%" }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="font-black text-[clamp(2.6rem,8vw,7.5rem)] text-white leading-[0.85] tracking-tight"
+          >
+            E-Portofolio
+          </motion.h1>
+        </div>
+        <div className="overflow-hidden mb-10">
+          <motion.h1
+            initial={{ y: "110%" }}
+            animate={{ y: 0 }}
+            transition={{ duration: 0.9, delay: 0.42, ease: [0.22, 1, 0.36, 1] }}
+            className="font-black text-[clamp(2.6rem,8vw,7.5rem)] leading-[0.85] tracking-tight"
+          >
+            <span className="shimmer-text">KKN</span>
+            <span className="text-white/10"> ×</span>
+          </motion.h1>
+        </div>
 
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.6 }}
-          className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed font-light"
-        >
-          Pusat data realisasi program pengabdian masyarakat, edukasi mitigasi
-          bencana, serta analisis potensi taktis wilayah oleh Kelompok 44.
-        </motion.p>
-
-        {/* CTA Buttons */}
+        {/* Description + CTA row */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.8 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          transition={{ duration: 0.7, delay: 0.65 }}
+          className="flex flex-col sm:flex-row sm:items-end gap-8 sm:gap-20 max-w-5xl"
         >
-          <motion.button
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
-            onClick={() => scrollTo("#program")}
-            className="cta-pulse inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary-600/30 cursor-pointer"
-          >
-            Eksplorasi Program
-            <ArrowRight size={18} />
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
-            onClick={() => scrollTo("#potensi")}
-            className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/25 text-white font-semibold px-8 py-4 rounded-xl hover:bg-white/18 transition-colors duration-300 cursor-pointer"
-          >
-            Analisis Potensi
-            <ChevronDown size={18} />
-          </motion.button>
+          <p className="text-white/40 text-sm leading-relaxed max-w-[280px]">
+            Pusat data pengabdian masyarakat, mitigasi bencana, dan potensi
+            wilayah Dusun Karangnongko — UKDW 2026.
+          </p>
+          <div className="flex items-center gap-6 flex-shrink-0">
+            <motion.button
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => smoothScrollToElement("#program", 80)}
+              className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-400 text-white font-bold px-7 py-3.5 rounded-full transition-colors duration-200 cursor-pointer text-sm tracking-wide"
+            >
+              Lihat Program <ArrowRight size={14} />
+            </motion.button>
+            <motion.button
+              whileHover={{ x: 3 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => smoothScrollToElement("#profil", 80)}
+              className="text-white/40 hover:text-white/80 font-semibold text-sm transition-colors cursor-pointer"
+            >
+              Profil KKN →
+            </motion.button>
+          </div>
+        </motion.div>
+
+        {/* UKDW stamp */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.6 }}
+          className="mt-14 flex items-center gap-3"
+        >
+          <div className="h-px w-8 bg-white/10" />
+          <span className="text-white/20 text-[10px] tracking-[0.4em] uppercase font-medium">
+            Universitas Kristen Duta Wacana · Semester Genap 2025/2026
+          </span>
         </motion.div>
       </motion.div>
 
-      {/* Scroll indicator */}
+      {/* Marquee strip */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.8 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        transition={{ delay: 1.1, duration: 0.5 }}
+        className="relative z-10 border-t border-white/[0.07] py-3 overflow-hidden"
       >
-        <span className="text-white/40 text-xs tracking-widest uppercase">
-          Scroll
-        </span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-        >
-          <ChevronDown size={20} className="text-white/40" />
-        </motion.div>
+        <div className="marquee-track">
+          {[...marqueeItems, ...marqueeItems].map((item, i) => (
+            <span
+              key={i}
+              className="flex-shrink-0 px-8 text-white/20 text-[10px] font-bold tracking-[0.3em] uppercase"
+            >
+              {item}
+              <span className="ml-8 text-primary-600/40">◆</span>
+            </span>
+          ))}
+        </div>
       </motion.div>
     </section>
   );

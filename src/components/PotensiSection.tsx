@@ -15,41 +15,35 @@ export default function PotensiSection({ onCardClick }: PotensiSectionProps) {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="potensi" className="py-20 lg:py-28 section-potensi-bg relative overflow-hidden">
+    <section id="potensi" className="py-24 lg:py-32 bg-[#0f0f0f] relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" ref={ref}>
-        {/* Section Header */}
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-20 relative" ref={ref}>
+
+        {/* Editorial section header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-16"
         >
-          <div className="inline-flex items-center gap-2 bg-white/[0.06] border border-white/15 rounded-full px-4 py-2 mb-5">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-            <span className="text-emerald-400 font-bold text-xs tracking-widest uppercase">
+          <span className="block font-black text-[7rem] lg:text-[10rem] leading-none text-white/[0.035] tracking-tighter select-none -mb-8 lg:-mb-12">
+            03
+          </span>
+          <div className="flex items-center gap-4 mb-4">
+            <span className="text-emerald-400 font-black text-xs tracking-[0.25em] uppercase">
               Potensi Berkelanjutan
             </span>
+            <div className="h-px flex-1 bg-white/[0.08]" />
           </div>
-          <h2 className="font-bold text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
-            Potensi Desa & <span className="gradient-text">Keberlanjutan</span>
+          <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight">
+            Potensi Desa &{" "}
+            <span className="text-white/20">Keberlanjutan</span>
           </h2>
-          <p className="text-white/45 max-w-2xl mx-auto">
-            Ide pengembangan berkelanjutan di luar program kerja yang dapat
-            menunjang potensi Dusun Karangnongko.
-          </p>
-          <div className="flex items-center justify-center gap-1.5 mt-6">
-            <div className="h-px w-12 bg-gradient-to-r from-transparent to-emerald-600/50" />
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/60" />
-            <span className="w-2 h-2 rounded-full bg-emerald-400/80" />
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500/60" />
-            <div className="h-px w-12 bg-gradient-to-l from-transparent to-emerald-600/50" />
-          </div>
         </motion.div>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* 2×2 grid for 4 items */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {potensiDesa.map((item, i) => (
             <ProgramCard
               key={item.id}
