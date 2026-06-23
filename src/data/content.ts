@@ -187,10 +187,10 @@ export const potensiDesa: PotensiData[] = [
 ];
 
 export const statsData = [
-  { label: "Total Proker", value: "7 Program Kerja", icon: "ClipboardList" as const },
-  { label: "Demografi Dusun", value: "± 50 Kepala Keluarga", icon: "Users" as const },
-  { label: "Mata Pencaharian", value: "Mayoritas Nelayan", icon: "Anchor" as const },
-  { label: "Kendala Pertanian", value: "Hama Monyet & Babi Hutan", icon: "Calendar" as const },
+  { label: "Kepala Keluarga", value: "50 KK", icon: "Users" as const },
+  { label: "Jumlah Penduduk", value: "± 150 Jiwa", icon: "ClipboardList" as const },
+  { label: "Mata Pencaharian Utama", value: "Mayoritas Nelayan", icon: "Anchor" as const },
+  { label: "Zona Wilayah", value: "Pesisir Selatan Jawa", icon: "MapPin" as const },
 ];
 
 export const navLinks = [

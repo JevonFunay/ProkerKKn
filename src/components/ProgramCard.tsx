@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import type { ProgramData, PotensiData } from "@/data/content";
 
@@ -9,6 +9,8 @@ interface ProgramCardProps {
   index: number;
   onClick: () => void;
   featured?: boolean;
+  compact?: boolean;
+  variants?: Variants;
 }
 
 const categoryGradient: Record<string, string> = {
@@ -23,66 +25,105 @@ const categoryGradient: Record<string, string> = {
   "bg-lime-100 text-lime-700":       "from-lime-500 to-green-600",
 };
 
-export default function ProgramCard({ data, index, onClick, featured = false }: ProgramCardProps) {
+// Own entrance: pure opacity fade, zero transform to prevent GPU layer blink
+const ownAnimation = {
+  initial: { opacity: 0 },
+  whileInView: { opacity: 1 },
+  viewport: { once: true, margin: "-40px" } as const,
+  transition: { duration: 0.45 },
+};
+
+export default function ProgramCard({
+  data,
+  index,
+  onClick,
+  featured = false,
+  compact = false,
+  variants,
+}: ProgramCardProps) {
   const badgeNumber = String(index + 1).padStart(2, "0");
   const gradient = categoryGradient[data.categoryColor] ?? "from-primary-600 to-primary-800";
 
+  const motionProps = variants ? { variants } : ownAnimation;
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.5, delay: Math.min(index * 0.07, 0.4) }}
-      whileHover={{ y: -5, transition: { duration: 0.25 } }}
+    // CSS-only hover lift — no Framer Motion transform means no GPU layer blink
+    <div
       onClick={onClick}
-      className="group cursor-pointer rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-900/8 transition-all duration-300 flex flex-col h-full"
+      className="group cursor-pointer hover:-translate-y-1.5 transition-transform duration-300 ease-out"
     >
-      {/* Top gradient accent strip */}
-      <div className={`h-1 bg-gradient-to-r ${gradient}`} />
+      <motion.div
+        {...motionProps}
+        className="rounded-2xl overflow-hidden bg-white border border-slate-200 group-hover:border-primary-300 group-hover:shadow-lg group-hover:shadow-primary-900/10 transition-all duration-300 flex flex-col h-full"
+      >
+        {/* Top gradient accent strip */}
+        <div className={`h-1 bg-gradient-to-r ${gradient}`} />
 
-      {/* Image */}
-      <div className={`relative overflow-hidden flex-shrink-0 ${featured ? "h-60 sm:h-72" : "h-44"}`}>
-        <img
-          src={data.image}
-          alt={data.title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/5 to-transparent" />
+        {/* Image */}
+        <div className={`relative overflow-hidden flex-shrink-0 bg-slate-100 ${
+          compact ? "h-28 sm:h-32" : featured ? "h-60 sm:h-72" : "h-44"
+        }`}>
+          <img
+            src={data.image}
+            alt={data.title}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/5 to-transparent" />
 
-        {/* Number badge */}
-        <div className="absolute top-3 left-3 w-8 h-8 rounded-lg bg-white/90 backdrop-blur-sm flex items-center justify-center border border-white/60 shadow-sm">
-          <span className="text-slate-700 font-black text-xs">{badgeNumber}</span>
+          {/* Number badge */}
+          <div className={`absolute top-2.5 left-2.5 ${
+            compact ? "w-6 h-6 rounded-md" : "w-8 h-8 rounded-lg"
+          } bg-white/90 backdrop-blur-sm flex items-center justify-center border border-white/60 shadow-sm`}>
+            <span className={`text-slate-700 font-black ${compact ? "text-[10px]" : "text-xs"}`}>
+              {badgeNumber}
+            </span>
+          </div>
+
+          {!compact && (
+            <div className={`absolute bottom-3 left-3 text-xs font-bold px-2.5 py-1 rounded-full bg-gradient-to-r ${gradient} text-white shadow`}>
+              {data.category}
+            </div>
+          )}
         </div>
 
-        {/* Category badge */}
-        <div
-          className={`absolute bottom-3 left-3 text-xs font-bold px-2.5 py-1 rounded-full bg-gradient-to-r ${gradient} text-white shadow`}
-        >
-          {data.category}
-        </div>
-      </div>
+        {/* Content */}
+        <div className={`flex flex-col flex-1 ${compact ? "p-3.5" : "p-5"}`}>
+          <h3
+            className={`font-bold text-slate-900 group-hover:text-primary-700 transition-colors leading-snug line-clamp-2 ${
+              compact
+                ? "text-xs sm:text-sm mb-1.5"
+                : featured
+                ? "text-base sm:text-lg mb-2"
+                : "text-sm sm:text-base mb-2"
+            }`}
+          >
+            {data.title}
+          </h3>
 
-      {/* Content */}
-      <div className="p-5 flex flex-col flex-1">
-        <h3
-          className={`font-bold text-slate-900 mb-2 group-hover:text-primary-700 transition-colors leading-snug line-clamp-2 ${
-            featured ? "text-base sm:text-lg" : "text-sm sm:text-base"
-          }`}
-        >
-          {data.title}
-        </h3>
-        <p className="text-slate-500 text-sm leading-relaxed line-clamp-2 flex-1 mb-4">
-          {data.shortDesc}
-        </p>
-        <div className="flex items-center justify-between pt-3 border-t border-slate-100 mt-auto">
-          <span className="text-xs text-slate-400">
-            PJ: <span className="text-slate-600 font-semibold">{data.pj}</span>
-          </span>
-          <span className="text-xs font-semibold text-primary-600 flex items-center gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-            Detail <ArrowUpRight size={12} />
-          </span>
+          {compact ? (
+            <span className={`self-start text-[10px] font-bold px-2 py-0.5 rounded-full ${data.categoryColor} mb-auto`}>
+              {data.category}
+            </span>
+          ) : (
+            <p className="text-slate-500 text-sm leading-relaxed line-clamp-2 flex-1 mb-4">
+              {data.shortDesc}
+            </p>
+          )}
+
+          <div className={`flex items-center justify-between border-t border-slate-100 ${compact ? "pt-2.5 mt-2.5" : "pt-3 mt-auto"}`}>
+            {compact ? (
+              <span className="text-[10px] text-slate-400">Klik untuk detail</span>
+            ) : (
+              <span className="text-xs text-slate-400">
+                PJ: <span className="text-slate-600 font-semibold">{data.pj}</span>
+              </span>
+            )}
+            <span className="text-xs font-semibold text-primary-600 flex items-center gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+              {compact ? "+" : "Detail"} <ArrowUpRight size={12} />
+            </span>
+          </div>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 }

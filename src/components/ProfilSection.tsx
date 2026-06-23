@@ -2,10 +2,10 @@
 
 import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { MapPin, ClipboardList, Users, Anchor, Calendar } from "lucide-react";
+import { MapPin, ClipboardList, Users, Anchor } from "lucide-react";
 import { statsData } from "@/data/content";
 
-const iconMap = { ClipboardList, Users, Anchor, Calendar };
+const iconMap = { ClipboardList, Users, Anchor, MapPin };
 
 function CountUp({ target, duration = 1.2 }: { target: number; duration?: number }) {
   const [value, setValue] = useState(0);
@@ -28,7 +28,7 @@ function CountUp({ target, duration = 1.2 }: { target: number; duration?: number
   return <span ref={ref}>{value}</span>;
 }
 
-const tags = ["Mitigasi Gempa", "Pemetaan Digital", "Batik Shibori", "Senam Lansia", "Literasi Finansial"];
+const tags = ["Kab. Pacitan", "Pesisir Selatan Jawa", "Komunitas Nelayan", "UMKM Rengginang", "Rawan Gempa Bumi"];
 
 export default function ProfilSection() {
   const ref = useRef(null);
@@ -36,7 +36,6 @@ export default function ProfilSection() {
 
   return (
     <section id="profil" className="py-24 lg:py-32 bg-white relative overflow-hidden">
-      {/* Top rule */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
 
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-20 relative" ref={ref}>
@@ -51,17 +50,17 @@ export default function ProfilSection() {
           <div className="flex items-center gap-3 mb-4">
             <span className="w-2 h-2 rounded-full bg-primary-500 flex-shrink-0" />
             <span className="text-xs font-bold text-primary-700 tracking-[0.22em] uppercase">
-              Tentang Kami
+              Tentang Desa
             </span>
             <div className="h-px flex-1 bg-slate-200" />
           </div>
           <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight">
-            Profil KKN{" "}
-            <span className="text-slate-300">Kelompok 44</span>
+            Profil Dusun{" "}
+            <span className="text-slate-300">Karangnongko</span>
           </h2>
         </motion.div>
 
-        {/* Stats strip — gap-px dividers */}
+        {/* Stats strip */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -77,11 +76,12 @@ export default function ProfilSection() {
                 </div>
                 {i === 0 ? (
                   <p className="text-4xl lg:text-5xl font-black text-primary-700 leading-none mb-2">
-                    <CountUp target={7} />
+                    <CountUp target={50} /> <span className="text-2xl lg:text-3xl">KK</span>
                   </p>
                 ) : i === 1 ? (
                   <p className="text-4xl lg:text-5xl font-black text-primary-700 leading-none mb-2">
-                    ±<CountUp target={50} />
+                    ±<CountUp target={150} />{" "}
+                    <span className="text-2xl lg:text-3xl">Jiwa</span>
                   </p>
                 ) : (
                   <p className="text-base lg:text-lg font-black text-slate-900 leading-snug mb-2">
@@ -107,15 +107,14 @@ export default function ProfilSection() {
           >
             <div className="overflow-hidden rounded-3xl shadow-xl shadow-slate-200/80 border border-slate-100">
               <img
-                src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=800&h=600&fit=crop"
-                alt="Aktivitas KKN"
+                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&h=600&fit=crop"
+                alt="Dusun Karangnongko"
                 className="w-full h-72 lg:h-[380px] object-cover"
               />
-              {/* Overlay strip bottom */}
               <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/80 to-transparent" />
             </div>
 
-            {/* Floating badge */}
+            {/* Floating badge — Kepala Dusun */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -128,9 +127,9 @@ export default function ProfilSection() {
                 </div>
                 <div>
                   <p className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">
-                    Lokasi Posko
+                    Kepala Dusun
                   </p>
-                  <p className="text-sm font-bold text-slate-800">Dusun Karangnongko</p>
+                  <p className="text-sm font-bold text-slate-800">Bpk. Arif Fiyanto</p>
                 </div>
               </div>
             </motion.div>
@@ -144,20 +143,26 @@ export default function ProfilSection() {
             className="order-1 lg:order-2"
           >
             <h3 className="font-bold text-2xl sm:text-3xl text-slate-900 mb-6 leading-snug">
-              Penguatan Mitigasi Bencana &{" "}
-              <span className="text-slate-400">Digitalisasi Pesisir</span>
+              Dusun Pesisir di Kawasan{" "}
+              <span className="text-slate-400">Selatan Jawa</span>
             </h3>
             <div className="space-y-4 text-slate-500 leading-relaxed text-sm sm:text-base">
               <p>
-                KKN Kelompok 44 dilaksanakan di Dusun Karangnongko, Desa
-                Watukarung, Kec. Pringkuku, Kabupaten Pacitan — wilayah pesisir
-                selatan Jawa yang rentan terhadap bencana gempa bumi dan tsunami.
+                Dusun Karangnongko terletak di Desa Watukarung, Kecamatan Pringkuku,
+                Kabupaten Pacitan — kawasan pesisir selatan Pulau Jawa yang berada
+                di atas zona aktif lempeng tektonik, menjadikan wilayah ini rentan
+                terhadap bencana gempa bumi.
               </p>
               <p>
-                Selama satu bulan penuh, tim melaksanakan 7 program kerja
-                mencakup edukasi kebencanaan, digitalisasi pemetaan, pemberdayaan
-                ekonomi kreatif, literasi keuangan, serta promosi kesehatan
-                masyarakat.
+                Dari sekitar 50 kepala keluarga (±150 jiwa), mayoritas penduduk
+                bermata pencaharian sebagai nelayan. Pertanian menjadi usaha sampingan,
+                meski kerap terkendala serangan hama monyet dan babi hutan di
+                lahan-lahan pertanian warga.
+              </p>
+              <p>
+                Masyarakat juga mengembangkan Usaha Mikro, Kecil, dan Menengah
+                (UMKM) seperti olahan rengginang beras ketan yang menjadi produk
+                lokal unggulan dengan potensi pasar wisata.
               </p>
             </div>
 

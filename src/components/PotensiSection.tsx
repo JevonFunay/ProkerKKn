@@ -6,6 +6,17 @@ import ProgramCard from "./ProgramCard";
 import { potensiDesa } from "@/data/content";
 import type { PotensiData } from "@/data/content";
 
+// Module-level constants = stable references across re-renders
+const gridVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.45 } },
+};
+
 interface PotensiSectionProps {
   onCardClick: (data: PotensiData) => void;
 }
@@ -13,6 +24,9 @@ interface PotensiSectionProps {
 export default function PotensiSection({ onCardClick }: PotensiSectionProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+
+  const gridRef = useRef(null);
+  const gridInView = useInView(gridRef, { once: true, margin: "-60px" });
 
   return (
     <section id="potensi" className="py-24 lg:py-32 bg-white relative overflow-hidden">
@@ -40,16 +54,24 @@ export default function PotensiSection({ onCardClick }: PotensiSectionProps) {
           </h2>
         </motion.div>
 
-        {/* 2×2 grid for 4 items */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {potensiDesa.map((item, i) => (
-            <ProgramCard
-              key={item.id}
-              data={item}
-              index={i}
-              onClick={() => onCardClick(item)}
-            />
-          ))}
+        {/* Grid */}
+        <div ref={gridRef}>
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            variants={gridVariants}
+            initial="hidden"
+            animate={gridInView ? "visible" : "hidden"}
+          >
+            {potensiDesa.map((item, i) => (
+              <ProgramCard
+                key={item.id}
+                data={item}
+                index={i}
+                onClick={() => onCardClick(item)}
+                variants={cardVariants}
+              />
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>

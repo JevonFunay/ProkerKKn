@@ -45,12 +45,12 @@ export default function Hero() {
                 E-Portofolio
               </motion.h1>
             </div>
-            <div className="overflow-hidden mb-8">
+            <div className="overflow-hidden pb-3 mb-8">
               <motion.h1
                 initial={{ y: "110%" }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.85, delay: 0.36, ease: [0.22, 1, 0.36, 1] }}
-                className="font-black text-[clamp(2.6rem,7vw,6.5rem)] leading-[0.87] tracking-tight text-primary-700"
+                className="font-black text-[clamp(1.8rem,4.5vw,4.5rem)] leading-[0.9] tracking-tight text-primary-700"
               >
                 Karangnongko
               </motion.h1>

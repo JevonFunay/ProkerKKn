@@ -149,6 +149,22 @@ body.modal-open {
   animation: shimmer-move 4s linear infinite;
 }
 
+/* Image loading skeleton shimmer */
+@keyframes skeleton-shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    #e7e5e4 25%,
+    #f5f5f4 50%,
+    #e7e5e4 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
 /* Dot grid background pattern */
 .bg-dot-grid {
   background-image: radial-gradient(circle, var(--color-slate-200) 1px, transparent 1px);
