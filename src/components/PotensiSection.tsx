@@ -15,30 +15,28 @@ export default function PotensiSection({ onCardClick }: PotensiSectionProps) {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="potensi" className="py-24 lg:py-32 bg-[#0f0f0f] relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent" />
+    <section id="potensi" className="py-24 lg:py-32 bg-white relative overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
 
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-20 relative" ref={ref}>
 
-        {/* Editorial section header */}
+        {/* Section header */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
+          initial={{ opacity: 0, y: 16 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <span className="block font-black text-[7rem] lg:text-[10rem] leading-none text-white/[0.035] tracking-tighter select-none -mb-8 lg:-mb-12">
-            03
-          </span>
-          <div className="flex items-center gap-4 mb-4">
-            <span className="text-emerald-400 font-black text-xs tracking-[0.25em] uppercase">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="w-2 h-2 rounded-full bg-primary-500 flex-shrink-0" />
+            <span className="text-xs font-bold text-primary-700 tracking-[0.22em] uppercase">
               Potensi Berkelanjutan
             </span>
-            <div className="h-px flex-1 bg-white/[0.08]" />
+            <div className="h-px flex-1 bg-slate-200" />
           </div>
-          <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight">
+          <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight">
             Potensi Desa &{" "}
-            <span className="text-white/20">Keberlanjutan</span>
+            <span className="text-slate-300">Keberlanjutan</span>
           </h2>
         </motion.div>
 
