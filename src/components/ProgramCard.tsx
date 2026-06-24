@@ -47,10 +47,9 @@ export default function ProgramCard({
   const motionProps = variants ? { variants } : ownAnimation;
 
   return (
-    // CSS-only hover lift — no Framer Motion transform means no GPU layer blink
     <div
       onClick={onClick}
-      className="group cursor-pointer hover:-translate-y-1.5 transition-transform duration-300 ease-out"
+      className="group cursor-pointer transform-gpu hover:-translate-y-1.5 transition-transform duration-300 ease-out"
     >
       <motion.div
         {...motionProps}
@@ -73,7 +72,7 @@ export default function ProgramCard({
           {/* Number badge */}
           <div className={`absolute top-2.5 left-2.5 ${
             compact ? "w-6 h-6 rounded-md" : "w-8 h-8 rounded-lg"
-          } bg-white/90 backdrop-blur-sm flex items-center justify-center border border-white/60 shadow-sm`}>
+          } bg-white/90 flex items-center justify-center border border-white/60 shadow-sm`}>
             <span className={`text-slate-700 font-black ${compact ? "text-[10px]" : "text-xs"}`}>
               {badgeNumber}
             </span>

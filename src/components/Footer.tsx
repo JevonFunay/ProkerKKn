@@ -80,7 +80,7 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-2">
               <CalendarDays size={16} className="text-primary-400 flex-shrink-0" />
-              KKN Genap 2026 — Juni s/d Juli
+              KKN Reguler 2026 — Juni s/d Juli
             </li>
             <li className="flex items-center gap-2">
               <MapPin size={16} className="text-primary-400 flex-shrink-0" />
@@ -122,7 +122,7 @@ export default function Footer() {
             &copy; 2026 Kelompok 44 KKN UKDW. Seluruh hak cipta dilindungi.
           </p>
           <p className="text-xs text-white/25">
-            Dibuat dengan ❤️ oleh Tim Kelompok 44
+            Dibuat oleh Jevon Funay dari Kelompok 44
           </p>
         </div>
       </motion.div>

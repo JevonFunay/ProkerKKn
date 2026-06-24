@@ -206,6 +206,16 @@ body.modal-open {
   background: #f5f5f4;
 }
 
+/* Team member photos — tone down HDR on wide-gamut displays */
+.team-photo {
+  filter: brightness(0.88);
+}
+@media (dynamic-range: high) {
+  .team-photo {
+    filter: brightness(0.80) saturate(0.88);
+  }
+}
+
 /* Marquee animation */
 @keyframes marquee {
   from { transform: translateX(0); }

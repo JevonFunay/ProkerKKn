@@ -8,7 +8,8 @@ export default function Hero() {
   return (
     <section
       id="beranda"
-      className="min-h-screen bg-[#faf9f6] flex items-center pt-20 pb-16 relative overflow-hidden"
+      className="min-h-screen bg-[#faf9f6] flex items-center pb-16 relative overflow-hidden"
+      style={{ paddingTop: "calc(env(safe-area-inset-top) + 5rem)" }}
     >
       {/* Decorative background blobs */}
       <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-primary-50 rounded-full -translate-y-1/3 translate-x-1/3 pointer-events-none opacity-70" />

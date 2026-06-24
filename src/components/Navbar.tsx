@@ -26,7 +26,10 @@ export default function Navbar() {
   };
 
   return (
-    <div className="fixed top-5 left-1/2 -translate-x-1/2 z-50">
+    <div
+      className="fixed left-1/2 -translate-x-1/2 z-50"
+      style={{ top: "calc(env(safe-area-inset-top) + 14px)" }}
+    >
       {/* Border-radius tetap 28px di semua state — tidak pernah berubah */}
       <div
         className="rounded-[28px] bg-slate-900/96 backdrop-blur-xl border border-white/[0.09] shadow-2xl shadow-black/50 overflow-hidden"
