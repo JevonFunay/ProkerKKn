@@ -35,6 +35,10 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+  },
   title: {
     default: "Dusun Karangnongko, Pacitan — Profil & Potensi Desa",
     template: "%s | Dusun Karangnongko",

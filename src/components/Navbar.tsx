@@ -32,7 +32,7 @@ export default function Navbar() {
     >
       {/* Border-radius tetap 28px di semua state — tidak pernah berubah */}
       <div
-        className="rounded-[28px] bg-slate-900/96 backdrop-blur-xl border border-white/[0.09] shadow-2xl shadow-black/50 overflow-hidden"
+        className="rounded-[28px] bg-slate-900/60 backdrop-blur-2xl border border-white/[0.12] shadow-2xl shadow-black/40 overflow-hidden"
       >
         {/* Main pill row */}
         <div className="flex items-center gap-3 px-5 py-3.5 whitespace-nowrap">
