@@ -26,18 +26,19 @@ interface TeamMember {
   name: string;
   role: string;
   photo: string;
+  photoPosition: string;
   instagram: string;
   linkedin: string;
   website: string;
 }
 
 const teamMembers: TeamMember[] = [
-  { name: "Lidwina Cahya Dewi",           role: "Ketua Kelompok", photo: "/lidwina.jpg",  instagram: "", linkedin: "", website: "" },
-  { name: "Reynathania Nonie Tangkedatu", role: "Bendahara",       photo: "/reyna.jpeg",  instagram: "", linkedin: "", website: "" },
-  { name: "Jevon Christian Putra Funay",  role: "PDD",             photo: "/jevon.jpg",   instagram: "", linkedin: "", website: "" },
-  { name: "Elisabeth Liliana Devi",       role: "Sekretaris",      photo: "/lili.jpg",    instagram: "", linkedin: "", website: "" },
-  { name: "Gatot Subroto Simbolon",       role: "Humas",           photo: "/gatot.jpg",   instagram: "", linkedin: "", website: "" },
-  { name: "Kelpin Saktara Tirta",         role: "Perkap",          photo: "/Kelpin.jpg",  instagram: "", linkedin: "", website: "" },
+  { name: "Lidwina Cahya Dewi",           role: "Ketua Kelompok", photo: "/lidwina.jpg", photoPosition: "50% 12%", instagram: "", linkedin: "", website: "" },
+  { name: "Reynathania Nonie Tangkedatu", role: "Bendahara",       photo: "/reyna.jpeg", photoPosition: "50% 8%",  instagram: "", linkedin: "", website: "" },
+  { name: "Jevon Christian Putra Funay",  role: "PDD",             photo: "/jevon.jpg",  photoPosition: "50% 42%", instagram: "", linkedin: "", website: "" },
+  { name: "Elisabeth Liliana Devi",       role: "Sekretaris",      photo: "/lili.jpg",   photoPosition: "50% 18%", instagram: "", linkedin: "", website: "" },
+  { name: "Gatot Subroto Simbolon",       role: "Humas",           photo: "/gatot.jpg",  photoPosition: "50% 28%", instagram: "", linkedin: "", website: "" },
+  { name: "Kelpin Saktara Tirta",         role: "Perkap",          photo: "/Kelpin.jpg", photoPosition: "50% 22%", instagram: "", linkedin: "", website: "" },
 ];
 
 const memberGradients = [
@@ -109,25 +110,31 @@ function MemberModal({ member, index, onClose }: MemberModalProps) {
               <X size={16} className="text-slate-500" />
             </button>
 
-            {/* Gradient top strip */}
-            <div className={`h-1.5 bg-gradient-to-r ${memberGradients[index % memberGradients.length]}`} />
-
-            {/* Header */}
-            <div className="px-6 pt-8 pb-6 text-center border-b border-slate-100">
-              {/* Avatar */}
-              <div className="w-28 h-36 mx-auto rounded-2xl overflow-hidden shadow-md mb-4">
-                {member.photo ? (
-                  <img src={member.photo} alt={member.name} className="team-photo w-full h-full object-cover object-top" />
-                ) : (
-                  <div className={`w-full h-full bg-gradient-to-br ${memberGradients[index % memberGradients.length]} flex items-center justify-center`}>
-                    <UserRound size={38} className="text-white" strokeWidth={1.6} />
-                  </div>
-                )}
+            {/* Header — full-width portrait photo */}
+            {member.photo ? (
+              <div className="relative w-full overflow-hidden bg-slate-100" style={{ aspectRatio: "3/4" }}>
+                <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${memberGradients[index % memberGradients.length]} z-10`} />
+                <img
+                  src={member.photo}
+                  alt={member.name}
+                  className="team-photo w-full h-full object-cover"
+                  style={{ objectPosition: member.photoPosition }}
+                />
+                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent" />
+                <div className="absolute bottom-4 left-0 right-0 text-center px-6">
+                  <h2 className="font-bold text-xl text-slate-900 leading-snug drop-shadow-sm">{member.name}</h2>
+                </div>
               </div>
-              <h2 className="font-bold text-xl text-slate-900 leading-snug">
-                {member.name}
-              </h2>
-              <span className="inline-block mt-2 text-xs font-semibold text-primary-700 bg-primary-50 border border-primary-200 px-3 py-1 rounded-full">
+            ) : (
+              <div className={`w-full h-40 bg-gradient-to-br ${memberGradients[index % memberGradients.length]} flex items-center justify-center`}>
+                <UserRound size={48} className="text-white" strokeWidth={1.4} />
+              </div>
+            )}
+            <div className="px-6 pt-4 pb-5 text-center border-b border-slate-100">
+              {!member.photo && (
+                <h2 className="font-bold text-xl text-slate-900 leading-snug mb-2">{member.name}</h2>
+              )}
+              <span className="inline-block text-xs font-semibold text-primary-700 bg-primary-50 border border-primary-200 px-3 py-1 rounded-full">
                 {member.role}
               </span>
             </div>
@@ -203,7 +210,7 @@ export default function TimContent() {
       <main className="min-h-screen bg-[#faf9f6] lg:pt-24" style={{ paddingTop: "calc(env(safe-area-inset-top) + 5rem)" }}>
 
         {/* Page header */}
-        <section className="bg-white border-b border-slate-200 py-16 lg:py-20 relative overflow-hidden">
+        <section className="bg-white border-b border-slate-200 py-8 lg:py-12 relative overflow-hidden">
           {/* Decorative background blob */}
           <div className="absolute top-0 right-0 w-80 h-80 bg-primary-50 rounded-full -translate-y-1/2 translate-x-1/3 pointer-events-none opacity-70" />
 
@@ -221,7 +228,7 @@ export default function TimContent() {
                 </span>
                 <div className="h-px w-16 bg-slate-200" />
               </div>
-              <h1 className="font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight">
+              <h1 className="font-black text-3xl sm:text-4xl lg:text-5xl text-slate-900 tracking-tight">
                 Profil{" "}
                 <span className="text-slate-300">Kelompok 44</span>
               </h1>
@@ -234,14 +241,14 @@ export default function TimContent() {
         </section>
 
         {/* Member cards */}
-        <section className="py-20 lg:py-28">
-          <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-20">
+        <section className="py-8 lg:py-12">
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-10 lg:px-20">
 
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex items-center gap-3 mb-10"
+              className="flex items-center gap-3 mb-5"
             >
               <Leaf size={12} className="text-primary-500" />
               <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.3em]">
@@ -249,7 +256,7 @@ export default function TimContent() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
               {teamMembers.map((member, i) => (
                 <motion.button
                   key={member.name}
@@ -259,42 +266,36 @@ export default function TimContent() {
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
                   whileTap={{ scale: 0.97 }}
                   onClick={() => setSelected({ member, index: i })}
-                  className="bg-white border border-slate-200 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-900/8 rounded-2xl overflow-hidden cursor-pointer w-full group transition-all duration-300 flex flex-col text-left"
+                  className="bg-white border border-slate-200 hover:border-primary-300 hover:shadow-lg hover:shadow-primary-900/8 rounded-2xl cursor-pointer w-full group transition-all duration-300 flex flex-col items-center text-center p-4 sm:p-5"
                 >
-                  {/* Portrait photo */}
-                  <div className="relative w-full overflow-hidden bg-slate-100" style={{ aspectRatio: "3/4" }}>
-                    {/* Top gradient strip */}
-                    <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${memberGradients[i % memberGradients.length]} z-10`} />
+                  {/* Gradient accent line */}
+                  <div className={`w-8 h-0.5 bg-gradient-to-r ${memberGradients[i % memberGradients.length]} rounded-full mb-4 opacity-60 group-hover:opacity-100 group-hover:w-12 transition-all duration-300`} />
 
+                  {/* Circular photo */}
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden ring-2 ring-slate-100 group-hover:ring-primary-200 group-hover:scale-105 transition-all duration-300 mb-3 flex-shrink-0">
                     {member.photo ? (
                       <img
                         src={member.photo}
                         alt={member.name}
-                        className="team-photo w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                        className="team-photo w-full h-full object-cover"
+                        style={{ objectPosition: member.photoPosition }}
                       />
                     ) : (
                       <div className={`w-full h-full bg-gradient-to-br ${memberGradients[i % memberGradients.length]} flex items-center justify-center`}>
-                        <UserRound size={48} className="text-white" strokeWidth={1.4} />
+                        <UserRound size={28} className="text-white" strokeWidth={1.6} />
                       </div>
                     )}
-
-                    {/* Bottom fade */}
-                    <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white to-transparent" />
                   </div>
 
-                  {/* Info */}
-                  <div className="px-4 pb-5 pt-3 flex flex-col flex-1 text-center">
-                    <h3 className="font-bold text-sm sm:text-base text-slate-900 leading-snug break-words group-hover:text-primary-700 transition-colors">
-                      {member.name}
-                    </h3>
-                    <p className="text-xs text-primary-600 font-semibold mt-1.5">
-                      {member.role}
-                    </p>
-                    <p className="text-[10px] text-slate-400 mt-3 uppercase tracking-widest">
-                      Lihat profil{" "}
-                      <span className="group-hover:translate-x-1 transition-transform duration-200 inline-block">→</span>
-                    </p>
-                  </div>
+                  <h3 className="font-bold text-xs sm:text-sm text-slate-900 leading-snug break-words group-hover:text-primary-700 transition-colors">
+                    {member.name}
+                  </h3>
+                  <p className="text-[10px] text-primary-600 font-semibold mt-1">
+                    {member.role}
+                  </p>
+                  <p className="text-[9px] text-slate-400 mt-2 uppercase tracking-widest">
+                    Lihat profil <span className="group-hover:translate-x-1 transition-transform duration-200 inline-block">→</span>
+                  </p>
                 </motion.button>
               ))}
             </div>
