@@ -10,7 +10,6 @@ export interface ProgramData {
   fullDesc: string;
   highlights: string[];
   timeline: string;
-  target: string;
   pj: string;
 }
 
@@ -24,7 +23,6 @@ export interface PotensiData {
   fullDesc: string;
   highlights: string[];
   timeline: string;
-  target: string;
   pj: string;
 }
 
@@ -43,10 +41,8 @@ export const programKerja: ProgramData[] = [
       "Simulasi langsung penyusunan tas siaga bersama warga",
       "Edukasi dokumen prioritas: KTP, KK, akta, buku tabungan",
       "Pengenalan jalur evakuasi dan titik kumpul terdekat",
-      "Sasaran: kepala keluarga dan anggota dewasa Dusun Karangnongko",
     ],
     timeline: "Senin, 6 Juli 2026",
-    target: "Masyarakat memahami isi, fungsi, dan cara mengaktifkan tas siaga bencana gempa bumi.",
     pj: "Tim Kelompok 44",
   },
   {
@@ -58,15 +54,13 @@ export const programKerja: ProgramData[] = [
     shortDesc:
       "Peningkatan literasi keuangan rumah tangga bagi ibu-ibu PKK melalui metode amplop.",
     fullDesc:
-      "Banyak keluarga di Dusun Karangnongko yang berpenghasilan tidak tetap dari hasil tangkapan nelayan, sehingga pengelolaan keuangan yang sederhana dan konsisten menjadi sangat penting. Metode amplop memisahkan anggaran ke dalam pos-pos fisik yang mudah dipahami tanpa membutuhkan aplikasi digital.",
+      "Sebagian besar penduduk Dusun Karangnongko bermata pencaharian sebagai nelayan dengan penghasilan yang tidak tetap (tidak menentu). Fluktuasi pendapatan harian, mingguan, atau musiman membuat pengelolaan keuangan menjadi tantangan tersendiri. Banyak keluarga kesulitan mengatur pengeluaran karena pendapatan yang tidak pasti, sehingga seringkali terjadi kehabisan uang sebelum akhir bulan atau kesulitan menyisihkan untuk kebutuhan darurat. Metode amplop membantu memisahkan anggaran ke dalam pos-pos fisik (kebutuhan pokok, tabungan, dana tak terduga) agar pengeluaran lebih terkontrol dan teratur meskipun pendapatan tidak stabil.",
     highlights: [
       "Pembagian pos: kebutuhan pokok, tabungan, dan dana darurat",
       "Praktik langsung menggunakan amplop berlabel per kategori",
       "Tidak memerlukan literasi digital — metode fisik sederhana",
-      "Sasaran: ibu-ibu PKK dan ibu rumah tangga Dusun Karangnongko",
     ],
-    timeline: "Senin, 13 Juli 2026",
-    target: "Ibu-ibu PKK mampu membagi pos keuangan rumah tangga secara mandiri dan konsisten.",
+    timeline: "Senin, 8 Juli 2026",
     pj: "Reynathania Nonie",
   },
   {
@@ -86,7 +80,6 @@ export const programKerja: ProgramData[] = [
       "Dirancang berkelanjutan untuk KKN periode berikutnya",
     ],
     timeline: "Berlangsung selama periode KKN",
-    target: "Tersedia arsip digital interaktif program kerja dan potensi Dusun Karangnongko.",
     pj: "Jevon Christian",
   },
   {
@@ -103,10 +96,8 @@ export const programKerja: ProgramData[] = [
       "Pelatihan teknik ikat, lipat, dan celup kain (Shibori)",
       "Menggunakan pewarna alami dan bahan ramah lingkungan",
       "Produk jadi berpotensi dijual sebagai oleh-oleh wisata",
-      "Sasaran: ibu-ibu PKK yang berminat berwirausaha kreatif",
     ],
     timeline: "Rabu, 15 Juli 2026",
-    target: "Ibu-ibu PKK memiliki keterampilan dasar membuat produk kain Shibori bernilai jual.",
     pj: "Lidwina Cahya",
   },
   {
@@ -123,10 +114,8 @@ export const programKerja: ProgramData[] = [
       "Senam gerakan ringan khusus pengendalian tekanan darah",
       "Edukasi makanan rendah garam dan gaya hidup aktif",
       "Dilaksanakan bersama kader Posyandu Lansia setempat",
-      "Sasaran: warga lansia (55+ tahun) Dusun Karangnongko",
     ],
     timeline: "Kamis, 9 Juli 2026",
-    target: "Lansia memperoleh edukasi dan keterampilan menjaga kesehatan secara mandiri.",
     pj: "Elisabeth Liliana",
   },
   {
@@ -146,7 +135,6 @@ export const programKerja: ProgramData[] = [
       "Meningkatkan visibilitas dusun di platform digital global",
     ],
     timeline: "Berlangsung selama periode KKN",
-    target: "Lokasi-lokasi krusial Dusun Karangnongko mudah ditemukan via Google Maps.",
     pj: "Gatot Subroto",
   },
   {
@@ -163,10 +151,8 @@ export const programKerja: ProgramData[] = [
       "Pelatihan teknik senyum, sapa, dan sopan dalam melayani",
       "Strategi menangani keluhan pelanggan secara efektif",
       "Cara membangun loyalitas dan word-of-mouth positif",
-      "Sasaran: pelaku warung dan UMKM kecil Dusun Karangnongko",
     ],
     timeline: "Senin, 13 Juli 2026",
-    target: "Pelaku UMKM menerapkan standar pelayanan prima secara konsisten dan berkelanjutan.",
     pj: "Kelpin Saktara",
   },
 ];
@@ -189,7 +175,6 @@ export const potensiDesa: PotensiData[] = [
       "Butuh pelatihan pengolahan dan pengemasan higienis",
     ],
     timeline: "Rekomendasi pengembangan berkelanjutan",
-    target: "Produk olahan hasil laut Karangnongko memiliki nilai tambah dan daya saing pasar.",
     pj: "Rekomendasi KKN Kelompok 44",
   },
   {
@@ -209,7 +194,6 @@ export const potensiDesa: PotensiData[] = [
       "Potensi sebagai produk oleh-oleh khas wisata pantai Pacitan",
     ],
     timeline: "Rekomendasi pengembangan berkelanjutan",
-    target: "Rengginang Karangnongko dikenal dan diminati sebagai oleh-oleh wisatawan.",
     pj: "Rekomendasi KKN Kelompok 44",
   },
   {
@@ -229,7 +213,6 @@ export const potensiDesa: PotensiData[] = [
       "Perlu dukungan desa wisata dan pendampingan standar hospitality",
     ],
     timeline: "Rekomendasi pengembangan berkelanjutan",
-    target: "Warga memiliki pendapatan tambahan dari sektor pariwisata berbasis komunitas.",
     pj: "Rekomendasi KKN Kelompok 44",
   },
   {
@@ -249,7 +232,6 @@ export const potensiDesa: PotensiData[] = [
       "Berpotensi menjadi komoditas unggulan dusun jangka panjang",
     ],
     timeline: "Rekomendasi pengembangan berkelanjutan",
-    target: "Lahan rawan hama tetap produktif dan menghasilkan komoditas bernilai ekonomi.",
     pj: "Rekomendasi KKN Kelompok 44",
   },
 ];

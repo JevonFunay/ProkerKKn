@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { useRouter } from "next/navigation";
 import { motion, useInView } from "framer-motion";
 import { CalendarDays, UserCheck, ArrowUpRight } from "lucide-react";
 import ProgramCard from "./ProgramCard";
@@ -33,6 +34,7 @@ export default function ProgramSection({ onCardClick }: ProgramSectionProps) {
   // Separate ref for the card grid so it animates when the grid itself is in view
   const gridRef = useRef(null);
   const gridInView = useInView(gridRef, { once: true, margin: "-60px" });
+  const router = useRouter();
   const featured = programKerja[0];
   const rest = programKerja.slice(1);
 
@@ -72,7 +74,7 @@ export default function ProgramSection({ onCardClick }: ProgramSectionProps) {
           <TiltCard>
           <div
             className="group cursor-pointer rounded-3xl overflow-hidden bg-white border border-slate-200 hover:border-primary-300 hover:shadow-2xl hover:shadow-primary-900/8 transition-all duration-300"
-            onClick={() => onCardClick(featured)}
+            onClick={() => router.push("/proker/utama")}
           >
             {/* Top gradient strip */}
             <div className={`h-1.5 bg-gradient-to-r ${featuredGradient}`} />
@@ -139,7 +141,7 @@ export default function ProgramSection({ onCardClick }: ProgramSectionProps) {
                 {/* CTA */}
                 <button
                   className="self-start flex items-center gap-1.5 text-sm font-bold text-primary-700 hover:text-primary-800 transition-colors group/btn"
-                  onClick={(e) => { e.stopPropagation(); onCardClick(featured); }}
+                  onClick={(e) => { e.stopPropagation(); router.push("/proker/utama"); }}
                 >
                   Lihat Detail Lengkap
                   <ArrowUpRight size={15} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
@@ -158,7 +160,7 @@ export default function ProgramSection({ onCardClick }: ProgramSectionProps) {
           className="flex items-center gap-3 mb-6"
         >
           <span className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.3em] whitespace-nowrap">
-            Program Kerja Lainnya
+            Proker Individu
           </span>
           <div className="h-px flex-1 bg-slate-200" />
         </motion.div>

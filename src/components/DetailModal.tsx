@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, CalendarDays, Target, UserCheck, CheckCircle2, Tag } from "lucide-react";
+import { X, CalendarDays, UserCheck, CheckCircle2, Tag } from "lucide-react";
 import type { ProgramData, PotensiData } from "@/data/content";
 
 interface DetailModalProps {
@@ -158,12 +158,6 @@ export default function DetailModal({ data, onClose }: DetailModalProps) {
                     icon={<CalendarDays size={16} />}
                     label="Timeline"
                     value={data.timeline}
-                  />
-                  <InfoCard
-                    icon={<Target size={16} />}
-                    label="Target Luaran"
-                    value={data.target}
-                    wide
                   />
                   <InfoCard
                     icon={<UserCheck size={16} />}
