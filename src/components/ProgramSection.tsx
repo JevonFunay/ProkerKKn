@@ -4,10 +4,11 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { CalendarDays, UserCheck, ArrowUpRight } from "lucide-react";
 import ProgramCard from "./ProgramCard";
+import TiltCard from "./TiltCard";
 import { programKerja } from "@/data/content";
 import type { ProgramData } from "@/data/content";
 
-const featuredGradient = "from-red-500 to-rose-600";
+const featuredGradient = "from-orange-500 to-orange-700";
 
 // Module-level constants = stable references across re-renders
 // Framer Motion never sees these as "changed", preventing animation resets
@@ -32,7 +33,6 @@ export default function ProgramSection({ onCardClick }: ProgramSectionProps) {
   // Separate ref for the card grid so it animates when the grid itself is in view
   const gridRef = useRef(null);
   const gridInView = useInView(gridRef, { once: true, margin: "-60px" });
-  console.log(gridInView, "gridInView");
   const featured = programKerja[0];
   const rest = programKerja.slice(1);
 
@@ -69,6 +69,7 @@ export default function ProgramSection({ onCardClick }: ProgramSectionProps) {
           transition={{ duration: 0.65, delay: 0.2 }}
           className="mb-12"
         >
+          <TiltCard>
           <div
             className="group cursor-pointer rounded-3xl overflow-hidden bg-white border border-slate-200 hover:border-primary-300 hover:shadow-2xl hover:shadow-primary-900/8 transition-all duration-300"
             onClick={() => onCardClick(featured)}
@@ -146,6 +147,7 @@ export default function ProgramSection({ onCardClick }: ProgramSectionProps) {
               </div>
             </div>
           </div>
+          </TiltCard>
         </motion.div>
 
         {/* ── Sub-header ── */}
@@ -171,14 +173,15 @@ export default function ProgramSection({ onCardClick }: ProgramSectionProps) {
             animate={gridInView ? "visible" : "hidden"}
           >
             {rest.map((item, i) => (
-              <ProgramCard
-                key={item.id}
-                data={item}
-                index={i + 1}
-                onClick={() => onCardClick(item)}
-                compact
-                variants={cardVariants}
-              />
+              <TiltCard key={item.id}>
+                <ProgramCard
+                  data={item}
+                  index={i + 1}
+                  onClick={() => onCardClick(item)}
+                  compact
+                  variants={cardVariants}
+                />
+              </TiltCard>
             ))}
           </motion.div>
         </div>

@@ -43,10 +43,10 @@ const teamMembers: TeamMember[] = [
 
 const memberGradients = [
   "from-primary-500 to-primary-700",
-  "from-blue-400 to-indigo-600",
+  "from-teal-400 to-teal-600",
   "from-amber-400 to-orange-500",
-  "from-rose-400 to-pink-600",
-  "from-violet-400 to-purple-600",
+  "from-amber-500 to-orange-600",
+  "from-lime-400 to-lime-700",
   "from-emerald-400 to-teal-600",
 ];
 
@@ -62,8 +62,8 @@ function MemberModal({ member, index, onClose }: MemberModalProps) {
   const hasSocial = member.instagram || member.linkedin || member.website;
 
   const socials = [
-    { key: "instagram", label: "Instagram", url: member.instagram, icon: IconInstagram, color: "bg-gradient-to-br from-pink-500 to-orange-400" },
-    { key: "linkedin",  label: "LinkedIn",  url: member.linkedin,  icon: IconLinkedin,  color: "bg-blue-600" },
+    { key: "instagram", label: "Instagram", url: member.instagram, icon: IconInstagram, color: "bg-gradient-to-br from-primary-600 to-teal-600" },
+    { key: "linkedin",  label: "LinkedIn",  url: member.linkedin,  icon: IconLinkedin,  color: "bg-teal-700" },
     { key: "website",   label: "Website",   url: member.website,   icon: Globe,         color: "bg-slate-600" },
   ];
 

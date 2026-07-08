@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, CalendarDays, Target, UserCheck } from "lucide-react";
+import { X, CalendarDays, Target, UserCheck, CheckCircle2, Tag } from "lucide-react";
 import type { ProgramData, PotensiData } from "@/data/content";
 
 interface DetailModalProps {
@@ -12,21 +12,17 @@ interface DetailModalProps {
 
 export default function DetailModal({ data, onClose }: DetailModalProps) {
   useEffect(() => {
-    if (data) {
-      document.body.classList.add("modal-open");
-    } else {
-      document.body.classList.remove("modal-open");
-    }
+    document.body.classList.toggle("modal-open", !!data);
     return () => document.body.classList.remove("modal-open");
   }, [data]);
 
   useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
+    const handleKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
   }, [onClose]);
+
+  const isPotensi = data ? data.id >= 8 : false;
 
   return (
     <AnimatePresence>
@@ -35,7 +31,7 @@ export default function DetailModal({ data, onClose }: DetailModalProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.25 }}
           className="fixed inset-0 z-[100] flex items-end md:items-center justify-center"
           role="dialog"
           aria-modal="true"
@@ -46,7 +42,7 @@ export default function DetailModal({ data, onClose }: DetailModalProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm"
+            className="absolute inset-0 bg-slate-900/55 backdrop-blur-sm"
             onClick={onClose}
           />
 
@@ -56,94 +52,132 @@ export default function DetailModal({ data, onClose }: DetailModalProps) {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: "100%", opacity: 0 }}
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="relative z-10 w-full max-w-2xl max-h-[92vh] md:max-h-[85vh] bg-white border border-slate-200 rounded-t-3xl md:rounded-3xl overflow-hidden flex flex-col md:mx-4 shadow-2xl shadow-slate-900/20"
+            className="relative z-10 w-full max-w-2xl max-h-[94vh] md:max-h-[88vh] bg-white border border-slate-200 rounded-t-3xl md:rounded-3xl overflow-hidden flex flex-col md:mx-4 shadow-2xl shadow-slate-900/25"
           >
             {/* Drag handle (mobile) */}
-            <div className="md:hidden flex justify-center pt-3 pb-1">
+            <div className="md:hidden flex justify-center pt-3 pb-1 flex-shrink-0">
               <div className="w-10 h-1 rounded-full bg-slate-200" />
             </div>
 
             {/* Close button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-20 w-10 h-10 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-full flex items-center justify-center hover:rotate-90 hover:scale-110 transition-all duration-300 cursor-pointer"
+              className="absolute top-4 right-4 z-20 w-10 h-10 bg-white/90 hover:bg-slate-100 border border-slate-200 rounded-full flex items-center justify-center hover:rotate-90 hover:scale-110 transition-all duration-300 cursor-pointer shadow-sm"
               aria-label="Tutup"
             >
-              <X size={20} className="text-slate-500" />
+              <X size={18} className="text-slate-500" />
             </button>
 
             {/* Scrollable content */}
             <div className="overflow-y-auto overscroll-contain flex-1">
+
               {/* Hero Image */}
-              <div className="relative overflow-hidden" style={{ maxHeight: 320 }}>
+              <div className="relative overflow-hidden flex-shrink-0" style={{ height: 220 }}>
                 <img
                   src={data.image}
                   alt={data.title}
-                  className="w-full h-56 sm:h-72 md:h-80 object-cover"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-6 right-16">
-                  <span className={`inline-block text-xs font-bold px-3 py-1.5 rounded-full shadow ${data.categoryColor}`}>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/10 to-transparent" />
+
+                {/* Type badge */}
+                <div className="absolute top-4 left-4 flex items-center gap-2">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/70 bg-black/30 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                    {isPotensi ? "Potensi Desa" : "Program Kerja"}
+                  </span>
+                </div>
+
+                {/* Category + title overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <span className={`inline-flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded-full mb-2 ${data.categoryColor}`}>
+                    <Tag size={10} />
                     {data.category}
                   </span>
+                  <h2 id="modal-title" className="font-black text-xl sm:text-2xl text-white leading-tight">
+                    {data.title}
+                  </h2>
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="p-6 sm:p-8 space-y-6">
-                {/* Title */}
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.15 }}
-                >
-                  <h2 id="modal-title" className="font-bold text-2xl sm:text-3xl text-slate-900 mb-1">
-                    {data.title}
-                  </h2>
-                </motion.div>
+              {/* Content body */}
+              <div className="p-5 sm:p-7 space-y-5">
 
-                {/* Description */}
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
+                {/* Tagline */}
+                <motion.p
+                  initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.25 }}
+                  transition={{ delay: 0.1 }}
+                  className="text-primary-700 font-semibold text-sm leading-relaxed border-l-2 border-primary-400 pl-3"
                 >
-                  <p className="text-slate-500 leading-relaxed">
-                    {data.fullDesc}
+                  {data.shortDesc}
+                </motion.p>
+
+                {/* Full description */}
+                <motion.p
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.18 }}
+                  className="text-slate-500 leading-relaxed text-sm sm:text-base"
+                >
+                  {data.fullDesc}
+                </motion.p>
+
+                {/* Highlights */}
+                <motion.div
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.26 }}
+                >
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-3">
+                    {isPotensi ? "Poin Peluang" : "Poin Pelaksanaan"}
                   </p>
+                  <ul className="space-y-2.5">
+                    {data.highlights.map((point, i) => (
+                      <li key={i} className="flex items-start gap-2.5">
+                        <CheckCircle2
+                          size={16}
+                          className="text-primary-500 flex-shrink-0 mt-0.5"
+                        />
+                        <span className="text-sm text-slate-600 leading-snug">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </motion.div>
 
-                {/* Info Grid */}
+                {/* Divider */}
+                <div className="h-px bg-slate-100" />
+
+                {/* Info grid */}
                 <motion.div
-                  initial={{ opacity: 0, y: 16 }}
+                  initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.35 }}
+                  transition={{ delay: 0.34 }}
                   className="grid grid-cols-1 sm:grid-cols-2 gap-3"
                 >
                   <InfoCard
-                    icon={<CalendarDays size={18} />}
-                    label="Timeline Pelaksanaan"
+                    icon={<CalendarDays size={16} />}
+                    label="Timeline"
                     value={data.timeline}
                   />
                   <InfoCard
-                    icon={<Target size={18} />}
+                    icon={<Target size={16} />}
                     label="Target Luaran"
                     value={data.target}
+                    wide
                   />
                   <InfoCard
-                    icon={<UserCheck size={18} />}
+                    icon={<UserCheck size={16} />}
                     label="Penanggung Jawab"
                     value={data.pj}
-                    colSpan
                   />
                 </motion.div>
 
-                {/* CTA */}
+                {/* Close CTA */}
                 <motion.div
-                  initial={{ opacity: 0, y: 16 }}
+                  initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.45 }}
-                  className="pt-2"
+                  transition={{ delay: 0.42 }}
+                  className="pt-1 pb-2"
                 >
                   <button
                     onClick={onClose}
@@ -152,6 +186,7 @@ export default function DetailModal({ data, onClose }: DetailModalProps) {
                     Tutup Detail
                   </button>
                 </motion.div>
+
               </div>
             </div>
           </motion.div>
@@ -165,25 +200,21 @@ function InfoCard({
   icon,
   label,
   value,
-  colSpan,
+  wide,
 }: {
   icon: React.ReactNode;
   label: string;
   value: string;
-  colSpan?: boolean;
+  wide?: boolean;
 }) {
   return (
-    <div
-      className={`flex items-start gap-3 p-3 bg-slate-50 border border-slate-100 rounded-xl ${
-        colSpan ? "sm:col-span-2" : ""
-      }`}
-    >
-      <div className="w-9 h-9 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0 mt-0.5 text-primary-700">
+    <div className={`flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl ${wide ? "sm:col-span-2" : ""}`}>
+      <div className="w-8 h-8 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0 mt-0.5 text-primary-700">
         {icon}
       </div>
       <div className="min-w-0">
-        <p className="text-xs text-slate-400 font-medium">{label}</p>
-        <p className="text-sm font-semibold text-slate-800 mt-0.5">{value}</p>
+        <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">{label}</p>
+        <p className="text-sm font-semibold text-slate-800 mt-0.5 leading-snug">{value}</p>
       </div>
     </div>
   );

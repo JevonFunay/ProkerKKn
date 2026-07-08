@@ -14,15 +14,14 @@ interface ProgramCardProps {
 }
 
 const categoryGradient: Record<string, string> = {
-  "bg-red-100 text-red-700":         "from-red-500 to-rose-600",
-  "bg-amber-100 text-amber-700":     "from-amber-400 to-orange-500",
-  "bg-emerald-100 text-emerald-700": "from-emerald-500 to-teal-600",
-  "bg-purple-100 text-purple-700":   "from-purple-500 to-violet-600",
-  "bg-pink-100 text-pink-700":       "from-pink-500 to-rose-400",
-  "bg-blue-100 text-blue-700":       "from-blue-500 to-sky-600",
-  "bg-cyan-100 text-cyan-700":       "from-cyan-500 to-teal-500",
-  "bg-sky-100 text-sky-700":         "from-sky-500 to-blue-600",
-  "bg-lime-100 text-lime-700":       "from-lime-500 to-green-600",
+  "bg-orange-100 text-orange-700":    "from-orange-500 to-orange-700",
+  "bg-amber-100 text-amber-700":      "from-amber-400 to-amber-600",
+  "bg-teal-100 text-teal-700":        "from-teal-500 to-teal-700",
+  "bg-primary-100 text-primary-700":  "from-primary-600 to-primary-800",
+  "bg-lime-100 text-lime-700":        "from-lime-500 to-lime-700",
+  "bg-stone-100 text-stone-700":      "from-stone-400 to-stone-600",
+  "bg-yellow-100 text-yellow-800":    "from-yellow-500 to-amber-600",
+  "bg-emerald-100 text-emerald-700":  "from-emerald-500 to-emerald-700",
 };
 
 // Own entrance: pure opacity fade, zero transform to prevent GPU layer blink

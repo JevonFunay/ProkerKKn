@@ -158,7 +158,7 @@ export default function ProfilSection() {
                 href="https://www.instagram.com/kknreguler2026_karangnongko/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white font-semibold text-sm px-6 py-3.5 rounded-2xl transition-all duration-300 shadow-md hover:shadow-lg"
+                className="group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary-700 to-teal-600 hover:from-primary-800 hover:to-teal-700 text-white font-semibold text-sm px-6 py-3.5 rounded-2xl transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 <IconInstagram />
                 Dokumentasi Lengkap

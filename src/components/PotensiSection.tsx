@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import ProgramCard from "./ProgramCard";
+import TiltCard from "./TiltCard";
 import { potensiDesa } from "@/data/content";
 import type { PotensiData } from "@/data/content";
 
@@ -63,13 +64,14 @@ export default function PotensiSection({ onCardClick }: PotensiSectionProps) {
             animate={gridInView ? "visible" : "hidden"}
           >
             {potensiDesa.map((item, i) => (
-              <ProgramCard
-                key={item.id}
-                data={item}
-                index={i}
-                onClick={() => onCardClick(item)}
-                variants={cardVariants}
-              />
+              <TiltCard key={item.id}>
+                <ProgramCard
+                  data={item}
+                  index={i}
+                  onClick={() => onCardClick(item)}
+                  variants={cardVariants}
+                />
+              </TiltCard>
             ))}
           </motion.div>
         </div>

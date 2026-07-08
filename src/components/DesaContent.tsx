@@ -6,6 +6,11 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+// pb param: references CID 0x2e7bddcd63ba8b79:0x59c29dad64bd3216
+// → Google Maps renders administrative boundary outline for this place
+const MAPS_EMBED =
+  "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4000!2d110.9836164!3d-8.2189295!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7bddcd63ba8b79%3A0x59c29dad64bd3216!2sKarangnongko%2C%20Watukarung%2C%20Kec.%20Pringkuku%2C%20Kabupaten%20Pacitan%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1751980000000!5m2!1sid!2sid";
+
 const infoCards = [
   {
     icon: MapPin,
@@ -17,7 +22,7 @@ const infoCards = [
     icon: Home,
     label: "Kepala Keluarga",
     value: "±50 KK",
-    color: "bg-blue-50 text-blue-700",
+    color: "bg-teal-50 text-teal-700",
   },
   {
     icon: Users,
@@ -29,7 +34,7 @@ const infoCards = [
     icon: Anchor,
     label: "Mata Pencaharian",
     value: "Nelayan & UMKM",
-    color: "bg-rose-50 text-rose-700",
+    color: "bg-orange-50 text-orange-700",
   },
 ];
 
@@ -136,15 +141,30 @@ export default function DesaContent() {
                 <span className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em]">Peta Lokasi</span>
               </div>
 
-              {/* Google Maps placeholder — ganti dengan iframe embed */}
-              <div className="w-full rounded-3xl overflow-hidden border border-slate-200 bg-slate-100 flex items-center justify-center" style={{ height: 400 }}>
-                <div className="text-center">
-                  <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 flex items-center justify-center mx-auto mb-3 shadow-sm">
-                    <MapPin size={20} className="text-primary-600" />
-                  </div>
-                  <p className="text-sm font-semibold text-slate-500">Google Maps akan ditambahkan di sini</p>
-                  <p className="text-xs text-slate-400 mt-1">Ganti div ini dengan iframe embed Google Maps</p>
-                </div>
+              <div className="w-full rounded-3xl overflow-hidden border border-slate-200 shadow-sm" style={{ height: 420 }}>
+                <iframe
+                  title="Peta Dusun Karangnongko"
+                  src={MAPS_EMBED}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+
+              {/* Tombol buka di Google Maps */}
+              <div className="mt-3 flex justify-end">
+                <a
+                  href="https://maps.app.goo.gl/E2bttjCJmwN5L3o96"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-white border border-slate-200 hover:border-primary-300 hover:bg-primary-50 text-slate-600 hover:text-primary-700 text-xs font-semibold px-4 py-2.5 rounded-xl transition-all duration-200 shadow-sm"
+                >
+                  <Navigation size={13} />
+                  Buka di Google Maps
+                </a>
               </div>
             </motion.div>
           </div>
