@@ -134,7 +134,7 @@ export default function Hero() {
                 style={{ borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%" }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&h=900&fit=crop"
+                  src="/hero.jpg"
                   alt="Suasana Dusun Karangnongko"
                   className="w-full h-full object-cover"
                 />

@@ -46,7 +46,7 @@ export const programKerja: ProgramData[] = [
     title: "Edukasi Keuangan Metode Amplop",
     category: "Literasi Finansial",
     categoryColor: "bg-amber-100 text-amber-700",
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=500&fit=crop",
+    image: "/ProkerReynaKelpin.jpg",
     shortDesc:
       "Peningkatan literasi keuangan rumah tangga bagi ibu-ibu PKK melalui metode amplop.",
     fullDesc:
@@ -74,7 +74,7 @@ export const programKerja: ProgramData[] = [
     title: "Batik Jumputan Teknik Shibori",
     category: "Pemberdayaan",
     categoryColor: "bg-purple-100 text-purple-700",
-    image: "https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=800&h=500&fit=crop",
+    image: "/ProkerWina.jpg",
     shortDesc:
       "Pelatihan pewarnaan kain metode ikat-celup Shibori untuk ibu-ibu PKK.",
     fullDesc:
@@ -116,7 +116,7 @@ export const programKerja: ProgramData[] = [
     title: "Peningkatan Kualitas Pelayanan UMKM",
     category: "Pemberdayaan UMKM",
     categoryColor: "bg-cyan-100 text-cyan-700",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=500&fit=crop",
+    image: "/ProkerReynaKelpin.jpg",
     shortDesc:
       "Sosialisasi dan pelatihan kualitas pelayanan untuk membangun kepercayaan pelanggan UMKM desa.",
     fullDesc:
