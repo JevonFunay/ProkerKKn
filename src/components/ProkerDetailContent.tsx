@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CalendarDays, UserCheck, ArrowLeft, CheckCircle2 } from "lucide-react";
+import { CalendarDays, UserCheck, ArrowLeft, CheckCircle2, ListOrdered } from "lucide-react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -100,6 +100,27 @@ export default function ProkerDetailContent({ program }: { program: ProgramData 
                     ))}
                   </ul>
                 </motion.div>
+
+                {program.mekanisme && program.mekanisme.length > 0 && (
+                  <motion.div {...fadeUp(0.34)}>
+                    <div className="flex items-center gap-2 mb-4">
+                      <ListOrdered size={15} className="text-primary-600" />
+                      <span className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em]">
+                        Mekanisme Pelaksanaan
+                      </span>
+                    </div>
+                    <ol className="space-y-3">
+                      {program.mekanisme.map((step, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                          <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 text-primary-700 text-[11px] font-black flex items-center justify-center mt-0.5">
+                            {i + 1}
+                          </span>
+                          <span className="text-sm text-slate-600 leading-snug pt-0.5">{step}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  </motion.div>
+                )}
               </div>
 
               {/* Right: sidebar */}

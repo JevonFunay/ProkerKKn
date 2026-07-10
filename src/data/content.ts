@@ -9,6 +9,7 @@ export interface ProgramData {
   shortDesc: string;
   fullDesc: string;
   highlights: string[];
+  mekanisme?: string[];
   timeline: string;
   pj: string;
 }
@@ -50,7 +51,7 @@ export const programKerja: ProgramData[] = [
     title: "Edukasi Keuangan Metode Amplop",
     category: "Literasi Finansial",
     categoryColor: "bg-amber-100 text-amber-700",
-    image: "/ProkerReynaKelpin.webp",
+    image: "/prokerreyna.webp",
     shortDesc:
       "Peningkatan literasi keuangan rumah tangga bagi ibu-ibu PKK melalui metode amplop.",
     fullDesc:
@@ -105,15 +106,28 @@ export const programKerja: ProgramData[] = [
     title: "Senam Hipertensi Lansia Happy",
     category: "Kesehatan",
     categoryColor: "bg-lime-100 text-lime-700",
-    image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&h=500&fit=crop",
+    image: "/prokerlili.webp",
     shortDesc:
-      "Upaya preventif kesehatan lansia melalui senam pengendalian tekanan darah.",
+      "Posyandu Lansia dan Cek Kesehatan Gratis sebagai upaya deteksi dini dan pencegahan komplikasi hipertensi pada lansia Dusun Karangnongko.",
     fullDesc:
-      "Hipertensi merupakan salah satu masalah kesehatan yang umum dialami lansia di Dusun Karangnongko. Program ini mengadakan senam khusus hipertensi yang menyenangkan dan aman bagi lansia, dilengkapi edukasi pola makan sehat sebagai upaya preventif jangka panjang.",
+      "Dusun Karangnongko memiliki jumlah penduduk lanjut usia yang cukup tinggi sehingga pelayanan kesehatan lansia menjadi salah satu kebutuhan utama masyarakat. Mayoritas lansia memiliki riwayat hipertensi yang memerlukan pemantauan tekanan darah secara rutin agar komplikasi seperti stroke, penyakit jantung, dan gagal ginjal dapat dicegah sedini mungkin. Melalui kegiatan Posyandu Lansia dan Cek Kesehatan Gratis, program ini bertujuan memantau kondisi kesehatan lansia, mendeteksi penyakit secara dini, serta memberikan edukasi mengenai pola hidup sehat agar kualitas hidup lansia tetap optimal.",
     highlights: [
-      "Senam gerakan ringan khusus pengendalian tekanan darah",
-      "Edukasi makanan rendah garam dan gaya hidup aktif",
-      "Dilaksanakan bersama kader Posyandu Lansia setempat",
+      "Senam anti-hipertensi bersama peserta",
+      "Edukasi terkait hipertensi dan pencegahannya",
+      "Pemeriksaan berat badan, tinggi badan, dan lingkar perut",
+      "Pemeriksaan tekanan darah",
+      "Pemeriksaan gula darah",
+      "Pengisian skrining formulir Cek Kesehatan Gratis",
+    ],
+    mekanisme: [
+      "Peserta melakukan registrasi dan mengambil nomor urut antrian.",
+      "Peserta melakukan senam anti-hipertensi bersama.",
+      "Peserta mengikuti edukasi mengenai hipertensi, pola makan rendah garam, dan aktivitas fisik.",
+      "Peserta melakukan pengisian identitas diri sesuai nomor urut.",
+      "Dilakukan pemeriksaan berat badan, tinggi badan, dan lingkar perut.",
+      "Peserta melakukan pemeriksaan tekanan darah.",
+      "Peserta menjalani pemeriksaan gula darah.",
+      "Kegiatan diakhiri dengan pengisian formulir Cek Kesehatan Gratis bagi peserta yang belum mengisi.",
     ],
     timeline: "Kamis, 9 Juli 2026",
     pj: "Elisabeth Liliana",
@@ -142,7 +156,7 @@ export const programKerja: ProgramData[] = [
     title: "Peningkatan Kualitas Pelayanan UMKM",
     category: "Pemberdayaan UMKM",
     categoryColor: "bg-yellow-100 text-yellow-800",
-    image: "/ProkerReynaKelpin.webp",
+    image: "/prokerkelpin.webp",
     shortDesc:
       "Sosialisasi dan pelatihan kualitas pelayanan untuk membangun kepercayaan pelanggan UMKM desa.",
     fullDesc:

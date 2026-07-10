@@ -1,9 +1,8 @@
 "use client";
 
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { CalendarDays, ArrowUpRight } from "lucide-react";
-import Link from "next/link";
+import { CalendarDays } from "lucide-react";
 
 interface BeritaItem {
   id: number;
@@ -13,11 +12,9 @@ interface BeritaItem {
   kategoriColor: string;
   ringkasan: string;
   image: string;
-  href?: string;
 }
 
 const berita: BeritaItem[] = [
-  // --- Proker yang sudah berjalan ---
   {
     id: 1,
     judul: "Pelatihan Batik Jumputan Teknik Shibori Berhasil Digelar untuk Ibu-Ibu PKK",
@@ -30,35 +27,48 @@ const berita: BeritaItem[] = [
   },
   {
     id: 2,
-    judul: "Edukasi Keuangan Metode Amplop Disambut Positif Ibu-Ibu PKK",
+    judul: "Posyandu Lansia & Cek Kesehatan Gratis Disambut Antusias Warga",
+    tanggal: "9 Juli 2026",
+    kategori: "Laporan Kegiatan",
+    kategoriColor: "bg-primary-100 text-primary-700",
+    ringkasan:
+      "Elisabeth Liliana bersama tim Kelompok 44 menggelar senam anti-hipertensi dan cek kesehatan gratis untuk lansia Dusun Karangnongko. Kegiatan mencakup pemeriksaan tekanan darah, gula darah, serta edukasi pola hidup sehat guna mencegah komplikasi hipertensi.",
+    image: "/prokerlili2.webp",
+  },
+  {
+    id: 3,
+    judul: "Dua Program Berjalan Bersamaan: Edukasi Keuangan & Pelatihan Pelayanan UMKM",
     tanggal: "8 Juli 2026",
     kategori: "Laporan Kegiatan",
     kategoriColor: "bg-primary-100 text-primary-700",
     ringkasan:
-      "Ibu-ibu PKK Dusun Karangnongko antusias mengikuti pelatihan pengelolaan keuangan rumah tangga dengan metode amplop — teknik sederhana yang memisahkan pos pengeluaran secara fisik tanpa memerlukan aplikasi digital.",
-    image: "/ProkerReynaKelpin.webp",
-  },
-  {
-    id: 3,
-    judul: "Pelatihan Kualitas Pelayanan UMKM: Pelaku Usaha Dusun Sambut Antusias",
-    tanggal: "13 Juli 2026",
-    kategori: "Laporan Kegiatan",
-    kategoriColor: "bg-primary-100 text-primary-700",
-    ringkasan:
-      "Kelpin Saktara memandu sesi pelatihan pelayanan prima bagi pelaku warung dan UMKM Dusun Karangnongko. Peserta belajar teknik komunikasi, etika melayani, dan strategi menangani keluhan pelanggan secara efektif.",
-    image: "/ProkerReynaKelpin.webp",
+      "Reynathania Nonie dan Kelpin Saktara menyelenggarakan dua program secara bersamaan dalam satu kegiatan: edukasi pengelolaan keuangan metode amplop dan pelatihan kualitas pelayanan UMKM. Ibu-ibu PKK dan pelaku usaha Dusun Karangnongko antusias mengikuti keduanya.",
+    image: "/prokerreyna.webp",
   },
 ];
 
-const featured = berita[0];
-const rest = berita.slice(1);
+// Overdamped spring: no bounce, smooth glide
+const SPRING = { type: "spring", damping: 50, stiffness: 280, mass: 1 } as const;
+
+// Fixed row heights so the grid wrapper never changes size → footer stays put.
+// Row 1 (featured): 440px  |  Row 2 (compact): 265px  |  gap: 16px  →  total: 721px
+const ROW_FEATURED = 440;
+const ROW_COMPACT = 265;
+const IMG_FEATURED = 250;
+const IMG_COMPACT = 155;
 
 export default function BeritaSection() {
+  const [selectedId, setSelectedId] = useState<number>(berita[0].id);
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
-  const gridRef = useRef(null);
-  const gridInView = useInView(gridRef, { once: true, margin: "-60px" });
+  // Selected card is always first → CSS grid auto-places it in row 1 (col-span-2).
+  // The other two cards fall into row 2 (col-span-1 each).
+  const sorted = [
+    berita.find((b) => b.id === selectedId)!,
+    ...berita.filter((b) => b.id !== selectedId),
+  ];
 
   return (
     <section id="berita" className="py-24 lg:py-32 bg-[#faf9f6] relative overflow-hidden">
@@ -81,145 +91,112 @@ export default function BeritaSection() {
             <div className="h-px flex-1 bg-slate-200" />
           </div>
           <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight">
-            Berita &{" "}
-            <span className="text-slate-300">Dokumentasi</span>
+            Berita{" "}
+            <span className="text-slate-300">Terbaru</span>
           </h2>
         </motion.div>
 
-        {/* Featured article */}
+        {/* Grid — gridTemplateRows pins the total height to a constant value.
+            Cards animate position+size with `layout`; footer never moves.        */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.65, delay: 0.15 }}
-          className="mb-8"
+          transition={{ duration: 0.65, delay: 0.2 }}
+          className="grid grid-cols-2 gap-4"
+          style={{ gridTemplateRows: `${ROW_FEATURED}px ${ROW_COMPACT}px` }}
         >
-          <FeaturedCard item={featured} />
+          {sorted.map((item, i) => {
+            const featured = i === 0;
+
+            return (
+              <motion.div
+                key={item.id}
+                layout
+                transition={SPRING}
+                style={{ borderRadius: featured ? 24 : 16 }}
+                className={`flex flex-col overflow-hidden bg-white border ${
+                  featured
+                    ? "col-span-2 border-slate-200 shadow-sm"
+                    : "col-span-1 border-slate-200 hover:border-primary-300 hover:shadow-md cursor-pointer transition-colors duration-200"
+                }`}
+                onClick={() => !featured && setSelectedId(item.id)}
+              >
+                {/* Image — nested layout syncs height animation with the card's layout animation */}
+                <motion.div
+                  layout
+                  transition={SPRING}
+                  style={{ height: featured ? IMG_FEATURED : IMG_COMPACT }}
+                  className="relative overflow-hidden bg-slate-100 flex-shrink-0"
+                >
+                  <img
+                    src={item.image}
+                    alt={item.judul}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent" />
+
+                  <span className={`absolute top-3 left-3 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${item.kategoriColor}`}>
+                    {item.kategori}
+                  </span>
+
+                  {/* Badge fades via opacity — no layout impact */}
+                  <motion.span
+                    animate={{ opacity: featured ? 1 : 0 }}
+                    transition={{ duration: 0.22, delay: featured ? 0.2 : 0 }}
+                    className="absolute bottom-3 left-3 text-[10px] font-semibold px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm text-slate-600 pointer-events-none select-none"
+                  >
+                    Sedang Ditampilkan
+                  </motion.span>
+                </motion.div>
+
+                {/* Content area — flex-1 fills the row height remainder.
+                    overflow-hidden clips any internal layout changes so they
+                    never propagate to the grid or the page.                   */}
+                <div className={`flex-1 overflow-hidden flex flex-col ${featured ? "p-6" : "p-3.5"}`}>
+
+                  <div className={`flex items-center gap-1 text-slate-400 mb-1.5 flex-shrink-0 ${featured ? "text-xs" : "text-[9px]"}`}>
+                    <CalendarDays size={featured ? 12 : 9} />
+                    {item.tanggal}
+                  </div>
+
+                  <h3 className={`font-black text-slate-900 leading-snug flex-shrink-0 ${
+                    featured
+                      ? "text-xl sm:text-2xl mb-3"
+                      : "text-xs sm:text-sm line-clamp-2 mb-auto"
+                  }`}>
+                    {item.judul}
+                  </h3>
+
+                  {/* Description: h-0 in compact so it takes no space (clipped by parent
+                      overflow-hidden). Switches to flex-1 in featured to fill remaining
+                      content height. Opacity cross-fades independently.               */}
+                  <motion.p
+                    animate={{ opacity: featured ? 1 : 0 }}
+                    transition={{ duration: 0.3, delay: featured ? 0.15 : 0 }}
+                    className={`text-slate-500 text-sm leading-relaxed overflow-hidden ${
+                      featured ? "flex-1" : "h-0"
+                    }`}
+                  >
+                    {item.ringkasan}
+                  </motion.p>
+
+                  {/* Hint: h-0 in featured (no space), visible in compact */}
+                  <motion.p
+                    animate={{ opacity: featured ? 0 : 1 }}
+                    transition={{ duration: 0.18 }}
+                    className={`text-[9px] sm:text-[10px] text-primary-600 font-semibold flex-shrink-0 ${
+                      featured ? "h-0 pointer-events-none" : "mt-auto"
+                    }`}
+                  >
+                    Ketuk untuk tampilkan ↑
+                  </motion.p>
+
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
-
-        {/* Grid */}
-        <div ref={gridRef}>
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
-            initial="hidden"
-            animate={gridInView ? "visible" : "hidden"}
-            variants={{
-              hidden: {},
-              visible: { transition: { staggerChildren: 0.07, delayChildren: 0.05 } },
-            }}
-          >
-            {rest.map((item) => (
-              <NewsCard key={item.id} item={item} />
-            ))}
-          </motion.div>
-        </div>
-
       </div>
     </section>
-  );
-}
-
-function FeaturedCard({ item }: { item: BeritaItem }) {
-  const Wrapper = item.href ? Link : "div";
-  const wrapperProps = item.href ? { href: item.href } : {};
-
-  return (
-    // @ts-expect-error — dynamic tag typing
-    <Wrapper
-      {...wrapperProps}
-      className="group cursor-pointer block rounded-3xl overflow-hidden bg-white border border-slate-200 hover:border-primary-300 hover:shadow-2xl hover:shadow-primary-900/8 transition-all duration-300"
-    >
-      <div className="grid grid-cols-1 md:grid-cols-5">
-        {/* Image */}
-        <div className="md:col-span-2 relative overflow-hidden h-56 md:h-auto min-h-[260px] bg-slate-100">
-          <img
-            src={item.image}
-            alt={item.judul}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/5 to-transparent" />
-          <span className={`absolute top-4 left-4 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${item.kategoriColor}`}>
-            {item.kategori}
-          </span>
-        </div>
-
-        {/* Content */}
-        <div className="md:col-span-3 p-8 lg:p-10 flex flex-col">
-          <div className="flex items-center gap-1.5 text-xs text-slate-400 mb-4">
-            <CalendarDays size={12} />
-            {item.tanggal}
-          </div>
-
-          <h3 className="font-black text-xl sm:text-2xl lg:text-[1.6rem] text-slate-900 mb-4 leading-snug group-hover:text-primary-700 transition-colors">
-            {item.judul}
-          </h3>
-
-          <p className="text-slate-500 leading-relaxed text-sm sm:text-base mb-8 flex-1">
-            {item.ringkasan}
-          </p>
-
-          {item.href && (
-            <span className="self-start flex items-center gap-1.5 text-sm font-bold text-primary-700 group-hover:text-primary-800 transition-colors">
-              Baca Selengkapnya
-              <ArrowUpRight size={15} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </span>
-          )}
-        </div>
-      </div>
-    </Wrapper>
-  );
-}
-
-function NewsCard({ item }: { item: BeritaItem }) {
-  const Wrapper = item.href ? Link : "div";
-  const wrapperProps = item.href ? { href: item.href } : {};
-
-  return (
-    <motion.div
-      variants={{
-        hidden: { opacity: 0 },
-        visible: { opacity: 1, transition: { duration: 0.45 } },
-      }}
-    >
-      {/* @ts-expect-error — dynamic tag typing */}
-      <Wrapper
-        {...wrapperProps}
-        className="group cursor-pointer block rounded-2xl overflow-hidden bg-white border border-slate-200 hover:border-primary-300 hover:shadow-lg hover:shadow-primary-900/10 transition-all duration-300 h-full flex flex-col"
-      >
-        {/* Image */}
-        <div className="relative overflow-hidden h-40 bg-slate-100 flex-shrink-0">
-          <img
-            src={item.image}
-            alt={item.judul}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-          <span className={`absolute top-2.5 left-2.5 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${item.kategoriColor}`}>
-            {item.kategori}
-          </span>
-        </div>
-
-        {/* Content */}
-        <div className="p-4 flex flex-col flex-1">
-          <div className="flex items-center gap-1.5 text-[10px] text-slate-400 mb-2">
-            <CalendarDays size={10} />
-            {item.tanggal}
-          </div>
-
-          <h3 className="font-bold text-sm text-slate-900 group-hover:text-primary-700 transition-colors leading-snug line-clamp-3 flex-1 mb-3">
-            {item.judul}
-          </h3>
-
-          <p className="text-xs text-slate-500 leading-relaxed line-clamp-2 mb-3">
-            {item.ringkasan}
-          </p>
-
-          <div className="flex items-center justify-end border-t border-slate-100 pt-2.5">
-            <span className="text-[10px] font-semibold text-primary-600 flex items-center gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
-              Selengkapnya <ArrowUpRight size={10} />
-            </span>
-          </div>
-        </div>
-      </Wrapper>
-    </motion.div>
   );
 }

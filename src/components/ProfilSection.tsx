@@ -27,6 +27,13 @@ const progressPhotos = [
   { src: "/IMG20260626161949.webp" },
   { src: "/IMG20260627160316.webp" },
   { src: "/IMG20260702202526.webp" },
+  { src: "/ProkerWina.webp" },
+  { src: "/prokerlili.webp" },
+  { src: "/prokerlili2.webp" },
+  { src: "/prokerreyna.webp" },
+  { src: "/prokerkelpin.webp" },
+  { src: "/ProkerReynaKelpin.webp" },
+  { src: "/team.webp" },
 ];
 // ──────────────────────────────────────────────────────────────────────────────
 
