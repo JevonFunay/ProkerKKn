@@ -7,8 +7,6 @@ import { CalendarDays, UserCheck, ArrowUpRight } from "lucide-react";
 import ProgramCard from "./ProgramCard";
 import TiltCard from "./TiltCard";
 import { programKerja } from "@/data/content";
-import type { ProgramData } from "@/data/content";
-
 const featuredGradient = "from-orange-500 to-orange-700";
 
 // Module-level constants = stable references across re-renders
@@ -23,11 +21,7 @@ const cardVariants = {
   visible: { opacity: 1, transition: { duration: 0.45 } },
 };
 
-interface ProgramSectionProps {
-  onCardClick: (data: ProgramData) => void;
-}
-
-export default function ProgramSection({ onCardClick }: ProgramSectionProps) {
+export default function ProgramSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -179,7 +173,7 @@ export default function ProgramSection({ onCardClick }: ProgramSectionProps) {
                 <ProgramCard
                   data={item}
                   index={i + 1}
-                  onClick={() => onCardClick(item)}
+                  onClick={() => router.push(`/proker/${item.id}`)}
                   compact
                   variants={cardVariants}
                 />

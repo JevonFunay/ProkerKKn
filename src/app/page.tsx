@@ -21,7 +21,7 @@ export default function Home() {
       <main>
         <Hero />
         <ProfilSection />
-        <ProgramSection onCardClick={(data) => setModalData(data)} />
+        <ProgramSection />
         <PotensiSection onCardClick={(data) => setModalData(data)} />
         <BeritaSection />
       </main>

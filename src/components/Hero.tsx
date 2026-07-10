@@ -118,7 +118,7 @@ export default function Hero() {
           </div>
 
           {/* Right: Photo with organic blob frame */}
-          <div className="order-1 lg:order-2 relative flex justify-center lg:justify-end">
+          <div className="order-1 lg:order-2 relative flex justify-center lg:justify-end pt-16 lg:pt-0">
             {/* Decorative circles behind photo */}
             <div className="absolute -z-10 -top-10 -right-4 lg:-right-8 w-64 h-64 bg-primary-100 rounded-full opacity-60" />
             <div className="absolute -z-10 -bottom-10 -left-4 w-48 h-48 bg-amber-100/70 rounded-full" />

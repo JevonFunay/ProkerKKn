@@ -48,47 +48,6 @@ const berita: BeritaItem[] = [
       "Kelpin Saktara memandu sesi pelatihan pelayanan prima bagi pelaku warung dan UMKM Dusun Karangnongko. Peserta belajar teknik komunikasi, etika melayani, dan strategi menangani keluhan pelanggan secara efektif.",
     image: "/ProkerReynaKelpin.webp",
   },
-  // --- Berita umum KKN ---
-  {
-    id: 4,
-    judul: "KKN Kelompok 44 UKDW Resmi Bertugas di Dusun Karangnongko",
-    tanggal: "2 Juli 2026",
-    kategori: "Kedatangan",
-    kategoriColor: "bg-amber-100 text-amber-700",
-    ringkasan:
-      "Delapan mahasiswa UKDW dari Kelompok 44 resmi memulai pengabdian di Dusun Karangnongko, Desa Watukarung, Kecamatan Pringkuku, Kabupaten Pacitan selama periode Juli 2026.",
-    image: "/IMG20260702202526.webp",
-  },
-  {
-    id: 5,
-    judul: "Website E-Portofolio KKN Kelompok 44 Resmi Diluncurkan",
-    tanggal: "4 Juli 2026",
-    kategori: "Teknologi",
-    kategoriColor: "bg-teal-100 text-teal-700",
-    ringkasan:
-      "Platform dokumentasi digital KKN Kelompok 44 UKDW kini dapat diakses publik sebagai arsip interaktif yang memuat program kerja, potensi desa, dan profil tim pengabdi.",
-    image: "/IMG20260626161949.webp",
-  },
-  {
-    id: 6,
-    judul: "Perkenalan Awal: Tim KKN Berdialog Langsung dengan Warga Dusun",
-    tanggal: "27 Juni 2026",
-    kategori: "Sosial",
-    kategoriColor: "bg-stone-100 text-stone-700",
-    ringkasan:
-      "Hari-hari pertama di Dusun Karangnongko dimanfaatkan Tim KKN untuk bersilaturahmi, mendengarkan kebutuhan warga, dan memetakan prioritas program kerja bersama kepala dusun.",
-    image: "/IMG20260627160316.webp",
-  },
-  {
-    id: 7,
-    judul: "Observasi Lapangan: Mengenal Potensi dan Tantangan Dusun Karangnongko",
-    tanggal: "26 Juni 2026",
-    kategori: "Observasi",
-    kategoriColor: "bg-lime-100 text-lime-700",
-    ringkasan:
-      "Tim KKN Kelompok 44 melakukan observasi lapangan perdana untuk memahami kondisi geografis, sosial, dan ekonomi Dusun Karangnongko sebagai dasar penyusunan program kerja.",
-    image: "/IMG20260626145924.webp",
-  },
 ];
 
 const featured = berita[0];
