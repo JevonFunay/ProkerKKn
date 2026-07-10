@@ -17,17 +17,16 @@ interface BeritaItem {
 }
 
 const berita: BeritaItem[] = [
-  // --- Proker yang sudah berjalan (dengan dokumentasi nyata) ---
+  // --- Proker yang sudah berjalan ---
   {
     id: 1,
-    judul: "Sayembara Tas Siaga Bencana: Warga Karangnongko Antusias Ikut Serta",
-    tanggal: "6 Juli 2026",
+    judul: "Pelatihan Batik Jumputan Teknik Shibori Berhasil Digelar untuk Ibu-Ibu PKK",
+    tanggal: "15 Juli 2026",
     kategori: "Laporan Kegiatan",
     kategoriColor: "bg-primary-100 text-primary-700",
     ringkasan:
-      "Kegiatan sayembara penyusunan tas siaga bencana gempa bumi berlangsung meriah di Dusun Karangnongko. Warga aktif berpartisipasi menyusun tas berisi dokumen penting, obat-obatan, dan logistik darurat sesuai panduan fasilitator KKN.",
-    image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&h=500&fit=crop",
-    href: "/proker/utama",
+      "Ibu-ibu PKK Dusun Karangnongko mengikuti pelatihan pewarnaan kain teknik Shibori yang dipandu Lidwina Cahya. Peserta antusias mempraktikkan teknik ikat, lipat, dan celup untuk menghasilkan kain bermotif indah bernilai jual tinggi.",
+    image: "/ProkerWina.webp",
   },
   {
     id: 2,
@@ -41,15 +40,15 @@ const berita: BeritaItem[] = [
   },
   {
     id: 3,
-    judul: "Senam Hipertensi Lansia Happy Digelar Bersama Kader Posyandu",
-    tanggal: "9 Juli 2026",
+    judul: "Pelatihan Kualitas Pelayanan UMKM: Pelaku Usaha Dusun Sambut Antusias",
+    tanggal: "13 Juli 2026",
     kategori: "Laporan Kegiatan",
     kategoriColor: "bg-primary-100 text-primary-700",
     ringkasan:
-      "Warga lansia Dusun Karangnongko bersemangat mengikuti senam khusus pengendalian tekanan darah yang dipandu Tim KKN Kelompok 44 bersama kader Posyandu Lansia setempat.",
-    image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&h=500&fit=crop",
+      "Kelpin Saktara memandu sesi pelatihan pelayanan prima bagi pelaku warung dan UMKM Dusun Karangnongko. Peserta belajar teknik komunikasi, etika melayani, dan strategi menangani keluhan pelanggan secara efektif.",
+    image: "/ProkerReynaKelpin.webp",
   },
-  // --- Berita dummy ---
+  // --- Berita umum KKN ---
   {
     id: 4,
     judul: "KKN Kelompok 44 UKDW Resmi Bertugas di Dusun Karangnongko",
@@ -62,16 +61,6 @@ const berita: BeritaItem[] = [
   },
   {
     id: 5,
-    judul: "Tim KKN Mulai Pemetaan Lokasi Dusun ke Google Maps",
-    tanggal: "5 Juli 2026",
-    kategori: "Kegiatan",
-    kategoriColor: "bg-teal-100 text-teal-700",
-    ringkasan:
-      "Tim KKN Kelompok 44 melakukan pemetaan titik-titik penting di Dusun Karangnongko — mulai dari Pustu, Balai Dusun, hingga warung dan UMKM lokal — agar mudah ditemukan di Google Maps.",
-    image: "https://images.unsplash.com/photo-1569336415962-a4bd9f69c07b?w=800&h=500&fit=crop",
-  },
-  {
-    id: 6,
     judul: "Website E-Portofolio KKN Kelompok 44 Resmi Diluncurkan",
     tanggal: "4 Juli 2026",
     kategori: "Teknologi",
@@ -81,7 +70,7 @@ const berita: BeritaItem[] = [
     image: "/IMG20260626161949.webp",
   },
   {
-    id: 7,
+    id: 6,
     judul: "Perkenalan Awal: Tim KKN Berdialog Langsung dengan Warga Dusun",
     tanggal: "27 Juni 2026",
     kategori: "Sosial",
@@ -91,7 +80,7 @@ const berita: BeritaItem[] = [
     image: "/IMG20260627160316.webp",
   },
   {
-    id: 8,
+    id: 7,
     judul: "Observasi Lapangan: Mengenal Potensi dan Tantangan Dusun Karangnongko",
     tanggal: "26 Juni 2026",
     kategori: "Observasi",
