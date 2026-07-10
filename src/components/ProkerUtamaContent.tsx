@@ -75,10 +75,7 @@ export default function ProkerUtamaContent() {
                 Kembali ke Program Kerja
               </Link>
 
-              <div className="flex flex-wrap items-center gap-2 mb-4">
-                <span className="text-[10px] font-bold uppercase tracking-widest bg-orange-100 text-orange-700 px-3 py-1 rounded-full">
-                  {program.category}
-                </span>
+              <div className="flex items-center gap-2 mb-4">
                 <span className="text-[10px] font-bold uppercase tracking-widest bg-primary-100 text-primary-700 px-3 py-1 rounded-full">
                   Proker Utama
                 </span>

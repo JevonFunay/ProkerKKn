@@ -33,12 +33,12 @@ interface TeamMember {
 }
 
 const teamMembers: TeamMember[] = [
-  { name: "Lidwina Cahya Dewi",           role: "Ketua Kelompok", photo: "/lidwina.jpg", photoPosition: "50% 12%", instagram: "", linkedin: "", website: "" },
-  { name: "Reynathania Nonie Tangkedatu", role: "Bendahara",       photo: "/reyna.jpeg", photoPosition: "50% 8%",  instagram: "", linkedin: "", website: "" },
-  { name: "Jevon Christian Putra Funay",  role: "PDD",             photo: "/jevon.jpg",  photoPosition: "50% 42%", instagram: "", linkedin: "", website: "" },
-  { name: "Elisabeth Liliana Devi",       role: "Sekretaris",      photo: "/lili.jpg",   photoPosition: "50% 18%", instagram: "", linkedin: "", website: "" },
-  { name: "Gatot Subroto Simbolon",       role: "Humas",           photo: "/gatot.jpg",  photoPosition: "50% 28%", instagram: "", linkedin: "", website: "" },
-  { name: "Kelpin Saktara Tirta",         role: "Perkap",          photo: "/Kelpin.jpg", photoPosition: "50% 22%", instagram: "", linkedin: "", website: "" },
+  { name: "Lidwina Cahya Dewi",           role: "Ketua Kelompok", photo: "/lidwina.webp", photoPosition: "50% 12%", instagram: "", linkedin: "", website: "" },
+  { name: "Reynathania Nonie Tangkedatu", role: "Bendahara",       photo: "/reyna.webp", photoPosition: "50% 8%",  instagram: "", linkedin: "", website: "" },
+  { name: "Jevon Christian Putra Funay",  role: "PDD",             photo: "/jevon.webp",  photoPosition: "50% 42%", instagram: "", linkedin: "", website: "" },
+  { name: "Elisabeth Liliana Devi",       role: "Sekretaris",      photo: "/lili.webp",   photoPosition: "50% 18%", instagram: "", linkedin: "", website: "" },
+  { name: "Gatot Subroto Simbolon",       role: "Humas",           photo: "/gatot.webp",  photoPosition: "50% 28%", instagram: "", linkedin: "", website: "" },
+  { name: "Kelpin Saktara Tirta",         role: "Perkap",          photo: "/Kelpin.webp", photoPosition: "50% 22%", instagram: "", linkedin: "", website: "" },
 ];
 
 const memberGradients = [

@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 import ProfilSection from "@/components/ProfilSection";
 import ProgramSection from "@/components/ProgramSection";
 import PotensiSection from "@/components/PotensiSection";
+import BeritaSection from "@/components/BeritaSection";
 import Footer from "@/components/Footer";
 import DetailModal from "@/components/DetailModal";
 import BackToTop from "@/components/BackToTop";
@@ -22,6 +23,7 @@ export default function Home() {
         <ProfilSection />
         <ProgramSection onCardClick={(data) => setModalData(data)} />
         <PotensiSection onCardClick={(data) => setModalData(data)} />
+        <BeritaSection />
       </main>
       <Footer />
       <BackToTop />

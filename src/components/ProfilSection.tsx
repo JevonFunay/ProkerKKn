@@ -22,11 +22,11 @@ const slideVariants = {
 // ── Tambah foto kegiatan KKN di sini ──────────────────────────────────────────
 // Upload foto ke folder public/ (jalankan ./convert-photos.sh), lalu tambah entry.
 const progressPhotos = [
-  { src: "/IMG20260626052844.jpg" },
-  { src: "/IMG20260626145924.jpg" },
-  { src: "/IMG20260626161949.jpg" },
-  { src: "/IMG20260627160316.jpg" },
-  { src: "/IMG20260702202526.jpg" },
+  { src: "/IMG20260626052844.webp" },
+  { src: "/IMG20260626145924.webp" },
+  { src: "/IMG20260626161949.webp" },
+  { src: "/IMG20260627160316.webp" },
+  { src: "/IMG20260702202526.webp" },
 ];
 // ──────────────────────────────────────────────────────────────────────────────
 

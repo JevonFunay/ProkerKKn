@@ -33,7 +33,7 @@ export default function Footer() {
       content: (
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <img src="/logotransparan.png" alt="Logo" className="h-10 w-auto object-contain brightness-0 invert" />
+            <img src="/logotransparan.webp" alt="Logo" className="h-10 w-auto object-contain brightness-0 invert" />
             <span className="font-bold text-xl text-white">Dusun Karangnongko</span>
           </div>
           <p className="text-sm leading-relaxed text-white/50">
@@ -74,10 +74,6 @@ export default function Footer() {
             Program KKN
           </h4>
           <ul className="space-y-3 text-sm text-white/50">
-            <li className="flex items-center gap-2">
-              <BookOpen size={16} className="text-primary-400 flex-shrink-0" />
-              LPPM Universitas Kristen Duta Wacana
-            </li>
             <li className="flex items-center gap-2">
               <CalendarDays size={16} className="text-primary-400 flex-shrink-0" />
               KKN Reguler 2026 — Juni s/d Juli

@@ -44,7 +44,7 @@ export default function Navbar() {
             className="flex items-center gap-2.5 pr-1"
           >
             <motion.img
-              src="/logotransparan.png"
+              src="/logotransparan.webp"
               alt="Logo"
               className="h-8 w-auto brightness-0 invert"
               whileHover={{ scale: 1.08, rotate: -5 }}

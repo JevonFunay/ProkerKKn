@@ -50,7 +50,7 @@ export const programKerja: ProgramData[] = [
     title: "Edukasi Keuangan Metode Amplop",
     category: "Literasi Finansial",
     categoryColor: "bg-amber-100 text-amber-700",
-    image: "/ProkerReynaKelpin.jpg",
+    image: "/ProkerReynaKelpin.webp",
     shortDesc:
       "Peningkatan literasi keuangan rumah tangga bagi ibu-ibu PKK melalui metode amplop.",
     fullDesc:
@@ -87,7 +87,7 @@ export const programKerja: ProgramData[] = [
     title: "Batik Jumputan Teknik Shibori",
     category: "Pemberdayaan",
     categoryColor: "bg-primary-100 text-primary-700",
-    image: "/ProkerWina.jpg",
+    image: "/ProkerWina.webp",
     shortDesc:
       "Pelatihan pewarnaan kain metode ikat-celup Shibori untuk ibu-ibu PKK.",
     fullDesc:
@@ -142,7 +142,7 @@ export const programKerja: ProgramData[] = [
     title: "Peningkatan Kualitas Pelayanan UMKM",
     category: "Pemberdayaan UMKM",
     categoryColor: "bg-yellow-100 text-yellow-800",
-    image: "/ProkerReynaKelpin.jpg",
+    image: "/ProkerReynaKelpin.webp",
     shortDesc:
       "Sosialisasi dan pelatihan kualitas pelayanan untuk membangun kepercayaan pelanggan UMKM desa.",
     fullDesc:

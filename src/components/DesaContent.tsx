@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 // pb param: references CID 0x2e7bddcd63ba8b79:0x59c29dad64bd3216
 // → Google Maps renders administrative boundary outline for this place
 const MAPS_EMBED =
-  "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4000!2d110.9836164!3d-8.2189295!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7bddcd63ba8b79%3A0x59c29dad64bd3216!2sKarangnongko%2C%20Watukarung%2C%20Kec.%20Pringkuku%2C%20Kabupaten%20Pacitan%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1751980000000!5m2!1sid!2sid";
+  "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4000!2d110.9836164!3d-8.2189295!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7bddcd63ba8b79%3A0x59c29dad64bd3216!2sKarangnongko%2C%20Watukarung%2C%20Kec.%20Pringkuku%2C%20Kabupaten%20Pacitan%2C%20Jawa%20Timur!5e1!3m2!1sid!2sid!4v1751980000000!5m2!1sid!2sid";
 
 const infoCards = [
   {
@@ -21,7 +21,7 @@ const infoCards = [
   {
     icon: Home,
     label: "Kepala Keluarga",
-    value: "±50 KK",
+    value: "77 KK",
     color: "bg-teal-50 text-teal-700",
   },
   {
@@ -33,7 +33,7 @@ const infoCards = [
   {
     icon: Anchor,
     label: "Mata Pencaharian",
-    value: "Nelayan & UMKM",
+    value: "Nelayan & Berkebun",
     color: "bg-orange-50 text-orange-700",
   },
 ];
@@ -42,7 +42,7 @@ const infoSections = [
   {
     title: "Kondisi Geografis",
     content:
-      "Dusun Karangnongko terletak di kawasan pesisir selatan Pulau Jawa yang berada di atas zona aktif lempeng tektonik Indo-Australia, menjadikan wilayah ini rentan terhadap bencana gempa bumi dan tsunami. Topografi wilayah berupa perbukitan dan lahan pesisir sempit.",
+      "Dusun Karangnongko terletak di kawasan pesisir selatan Pulau Jawa yang berada di atas zona aktif lempeng tektonik Indo-Australia, menjadikan wilayah ini rentan terhadap bencana gempa bumi, namun untuk tsunami itu tidak terlalu rentan karena memngingat dsun ini berada di antara gunung jadi sulit untuk sampai. Topografi wilayah berupa perbukitan dan lahan pesisir sempit yang dipenuhi oleh batu karang alami.",
   },
   {
     title: "Mata Pencaharian",
@@ -52,12 +52,12 @@ const infoSections = [
   {
     title: "UMKM & Potensi Lokal",
     content:
-      "Salah satu produk unggulan Dusun Karangnongko adalah rengginang beras ketan — makanan tradisional yang diproduksi secara rumahan dan memiliki potensi besar sebagai oleh-oleh wisata. Kawasan pesisir juga menyimpan potensi wisata bahari yang belum sepenuhnya dikembangkan.",
+      "Salah satu produk unggulan Dusun Karangnongko adalah rengginang beras ketan — makanan tradisional yang diproduksi secara rumahan.",
   },
   {
     title: "Mitigasi Bencana",
     content:
-      "Sebagai wilayah rawan bencana, Dusun Karangnongko membutuhkan sistem mitigasi gempa dan tsunami yang memadai. Program KKN Kelompok 44 UKDW turut berfokus pada penyuluhan dan pemetaan jalur evakuasi sebagai bagian dari upaya pengurangan risiko bencana.",
+      "Sebagai wilayah rawan bencana, Dusun Karangnongko membutuhkan sistem mitigasi gempa yang memadai. Program KKN Kelompok 44 UKDW turut berfokus pada penyuluhan dan pembuatan Tas Siaga Bencana.",
   },
 ];
 
