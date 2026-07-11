@@ -43,8 +43,8 @@ export default function ProfilDusunSection() {
           </h2>
           <p className="mt-4 text-slate-500 leading-relaxed text-base sm:text-lg max-w-2xl">
             Dusun Karangnongko terletak di Desa Watukarung, Kecamatan Pringkuku, Kabupaten Pacitan —
-            sebuah kawasan pesisir selatan Jawa dengan mayoritas penduduk bermata pencaharian
-            sebagai nelayan dan memiliki potensi wisata yang terus berkembang.
+            dengan mayoritas penduduk bermata pencaharian sebagai nelayan dan memiliki potensi wisata
+            yang terus berkembang.
           </p>
         </motion.div>
 

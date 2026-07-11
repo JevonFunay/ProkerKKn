@@ -46,15 +46,15 @@ const berita: BeritaItem[] = [
   },
   {
     id: 3,
-    judul: "Dua Program Berjalan Bersamaan: Edukasi Keuangan & Pelatihan Pelayanan UMKM",
-    hari: "Senin",
+    judul: "Dua Program Berjalan Bersamaan: Edukasi Keuangan & Edukasi QRIS untuk UMKM",
+    hari: "Rabu",
     tanggal: "8 Juli 2026",
     jam: "09.00 – 12.00 WIB",
     lokasi: "Balai Dusun Karangnongko",
     kategori: "Laporan Kegiatan",
     kategoriColor: "bg-primary-100 text-primary-700",
     penjelasan:
-      "Reynathania Nonie dan Kelpin Saktara menyelenggarakan dua program secara bersamaan dalam satu kegiatan: edukasi pengelolaan keuangan metode amplop dan pelatihan kualitas pelayanan UMKM. Ibu-ibu PKK dan pelaku usaha Dusun Karangnongko antusias mengikuti keduanya. Metode amplop membantu warga memisahkan pos pengeluaran secara fisik, sementara pelatihan pelayanan berfokus pada komunikasi, etika, dan penanganan keluhan pelanggan.",
+      "Reynathania Nonie dan Kelpin Saktara Tirta menyelenggarakan dua program dalam satu sesi: edukasi pengelolaan keuangan metode amplop dan sosialisasi QRIS untuk UMKM dan masyarakat. Ibu-ibu PKK dan pelaku usaha Dusun Karangnongko antusias mengikuti keduanya. Metode amplop membantu warga memisahkan pos pengeluaran secara fisik, sementara edukasi QRIS memperkenalkan cara bertransaksi digital yang praktis menggunakan satu kode QR untuk berbagai aplikasi pembayaran.",
     image: "/prokerreyna.webp",
   },
 ];

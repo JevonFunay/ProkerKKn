@@ -21,13 +21,13 @@ const infoCards = [
   {
     icon: Home,
     label: "Kepala Keluarga",
-    value: "77 KK",
+    value: "66 KK",
     color: "bg-teal-50 text-teal-700",
   },
   {
     icon: Users,
     label: "Jumlah Jiwa",
-    value: "±150 Jiwa",
+    value: "±200 Jiwa",
     color: "bg-amber-50 text-amber-700",
   },
   {
@@ -42,7 +42,7 @@ const infoSections = [
   {
     title: "Kondisi Geografis",
     content:
-      "Dusun Karangnongko terletak di kawasan pesisir selatan Pulau Jawa yang berada di atas zona aktif lempeng tektonik Indo-Australia, menjadikan wilayah ini rentan terhadap bencana gempa bumi, namun untuk tsunami itu tidak terlalu rentan karena memngingat dsun ini berada di antara gunung jadi sulit untuk sampai. Topografi wilayah berupa perbukitan dan lahan pesisir sempit yang dipenuhi oleh batu karang alami.",
+      "Dusun Karangnongko terletak di kawasan pesisir selatan Pulau Jawa yang berada di atas zona aktif lempeng tektonik Indo-Australia, menjadikan wilayah ini rentan terhadap bencana gempa bumi, namun untuk tsunami itu tidak terlalu rentan karena mengingat dusun ini berada di antara gunung jadi sulit untuk sampai. Topografi wilayah berupa perbukitan dan lahan pesisir sempit yang dipenuhi oleh batu karang alami.",
   },
   {
     title: "Mata Pencaharian",

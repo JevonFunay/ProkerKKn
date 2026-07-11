@@ -106,7 +106,7 @@ export default function Hero() {
               </div>
               <div className="hidden sm:block h-8 w-px bg-slate-200 flex-shrink-0" />
               <div>
-                <p className="text-xl sm:text-2xl font-black text-slate-900">±50</p>
+                <p className="text-xl sm:text-2xl font-black text-slate-900">66</p>
                 <p className="text-[10px] sm:text-xs text-slate-400 font-medium mt-0.5 uppercase tracking-wider leading-tight">Kepala KK</p>
               </div>
               <div className="hidden sm:block h-8 w-px bg-slate-200 flex-shrink-0" />

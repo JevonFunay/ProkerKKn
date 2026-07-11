@@ -153,21 +153,31 @@ export const programKerja: ProgramData[] = [
   },
   {
     id: 7,
-    title: "Peningkatan Kualitas Pelayanan UMKM",
-    category: "Pemberdayaan UMKM",
-    categoryColor: "bg-yellow-100 text-yellow-800",
+    title: "Edukasi QRIS: Cara Mudah Bertransaksi Digital untuk UMKM dan Masyarakat",
+    category: "Literasi Digital",
+    categoryColor: "bg-sky-100 text-sky-700",
     image: "/prokerkelpin.webp",
     shortDesc:
-      "Sosialisasi dan pelatihan kualitas pelayanan untuk membangun kepercayaan pelanggan UMKM desa.",
+      "Sosialisasi penggunaan QRIS bagi pelaku UMKM, Ibu PKK, dan masyarakat Dusun Karangnongko agar lebih percaya diri bertransaksi digital.",
     fullDesc:
-      "UMKM Dusun Karangnongko memiliki produk dan jasa yang potensial, namun kualitas pelayanan yang belum terstandar membuat kepercayaan pelanggan sulit dibangun secara konsisten. Program ini melatih pelaku usaha dalam komunikasi, etika, dan strategi menangani keluhan pelanggan.",
+      "Saat ini pembayaran digital semakin sering digunakan dalam kehidupan sehari-hari. Namun, masih banyak pelaku UMKM dan masyarakat yang belum memahami cara menggunakan QRIS, terutama di daerah yang memiliki keterbatasan sinyal. Padahal, QRIS dapat membantu proses pembayaran menjadi lebih praktis karena cukup menggunakan satu kode QR untuk berbagai aplikasi pembayaran. Program ini memberikan pemahaman mengenai apa itu QRIS, manfaatnya, cara membuat QRIS, cara menggunakannya dengan benar, serta solusi saat jaringan internet kurang stabil dan tips agar transaksi digital tetap aman.",
     highlights: [
-      "Pelatihan teknik senyum, sapa, dan sopan dalam melayani",
-      "Strategi menangani keluhan pelanggan secara efektif",
-      "Cara membangun loyalitas dan word-of-mouth positif",
+      "Pengenalan apa itu QRIS dan manfaatnya bagi UMKM maupun masyarakat",
+      "Edukasi cara membuat QRIS melalui aplikasi merchant",
+      "Demonstrasi cara menerima dan melakukan pembayaran menggunakan QRIS",
+      "Tanya jawab mengenai kendala penggunaan QRIS, termasuk saat sinyal kurang baik",
+      "Praktik langsung menggunakan QRIS bersama peserta",
     ],
-    timeline: "Senin, 13 Juli 2026",
-    pj: "Kelpin Saktara",
+    mekanisme: [
+      "Peserta mengikuti penyampaian materi mengenai QRIS oleh mahasiswa KKN Kelompok 44.",
+      "Peserta diperkenalkan manfaat QRIS bagi UMKM maupun masyarakat.",
+      "Demonstrasi cara membuat QRIS Merchant menggunakan aplikasi GoPay Merchant.",
+      "Simulasi pembayaran menggunakan QRIS antara peserta dan pemateri.",
+      "Sesi tanya jawab mengenai penggunaan QRIS serta solusi ketika mengalami kendala sinyal.",
+      "Penutupan dan dokumentasi bersama.",
+    ],
+    timeline: "Rabu, 8 Juli 2026",
+    pj: "Kelpin Saktara Tirta",
   },
 ];
 
@@ -251,10 +261,9 @@ export const potensiDesa: PotensiData[] = [
 ];
 
 export const statsData = [
-  { label: "Kepala Keluarga", value: "50 KK", icon: "Users" as const },
-  { label: "Jumlah Penduduk", value: "± 150 Jiwa", icon: "ClipboardList" as const },
+  { label: "Kepala Keluarga", value: "66 KK", icon: "Users" as const },
+  { label: "Jumlah Penduduk", value: "± 200 Jiwa", icon: "ClipboardList" as const },
   { label: "Mata Pencaharian Utama", value: "Mayoritas Nelayan", icon: "Anchor" as const },
-  { label: "Zona Wilayah", value: "Pesisir Selatan Jawa", icon: "MapPin" as const },
 ];
 
 export const navLinks = [
