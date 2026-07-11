@@ -98,21 +98,21 @@ export default function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.75 }}
-              className="flex items-center gap-8 pt-8 border-t border-slate-200"
+              className="flex items-center gap-5 sm:gap-8 pt-8 border-t border-slate-200 overflow-hidden"
             >
-              <div>
-                <p className="text-2xl font-black text-slate-900">7</p>
-                <p className="text-xs text-slate-400 font-medium mt-0.5 uppercase tracking-wider">Program Kerja</p>
+              <div className="flex-shrink-0">
+                <p className="text-xl sm:text-2xl font-black text-slate-900">7</p>
+                <p className="text-[10px] sm:text-xs text-slate-400 font-medium mt-0.5 uppercase tracking-wider">Program Kerja</p>
               </div>
-              <div className="h-8 w-px bg-slate-200" />
-              <div>
-                <p className="text-2xl font-black text-slate-900">±50</p>
-                <p className="text-xs text-slate-400 font-medium mt-0.5 uppercase tracking-wider">Kepala Keluarga</p>
+              <div className="h-8 w-px bg-slate-200 flex-shrink-0" />
+              <div className="flex-shrink-0">
+                <p className="text-xl sm:text-2xl font-black text-slate-900">±50</p>
+                <p className="text-[10px] sm:text-xs text-slate-400 font-medium mt-0.5 uppercase tracking-wider">Kepala Keluarga</p>
               </div>
-              <div className="h-8 w-px bg-slate-200" />
-              <div>
-                <p className="text-2xl font-black text-slate-900">Pacitan</p>
-                <p className="text-xs text-slate-400 font-medium mt-0.5 uppercase tracking-wider">Lokasi KKN</p>
+              <div className="h-8 w-px bg-slate-200 flex-shrink-0" />
+              <div className="flex-shrink-0">
+                <p className="text-xl sm:text-2xl font-black text-slate-900">Pacitan</p>
+                <p className="text-[10px] sm:text-xs text-slate-400 font-medium mt-0.5 uppercase tracking-wider">Lokasi KKN</p>
               </div>
             </motion.div>
           </div>

@@ -26,22 +26,22 @@ export default function Navbar() {
   };
 
   return (
+    /* Outer wrapper: constrained width on mobile so the pill has room to breathe */
     <div
-      className="fixed left-1/2 -translate-x-1/2 z-50"
+      className="fixed left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-[400px] md:w-auto"
       style={{ top: "calc(env(safe-area-inset-top) + 14px)" }}
     >
-      {/* Border-radius tetap 28px di semua state — tidak pernah berubah */}
-      <div
-        className="rounded-[28px] bg-slate-900/60 backdrop-blur-2xl border border-white/[0.12] shadow-2xl shadow-black/40 overflow-hidden w-[min(calc(100vw-2rem),400px)] md:w-auto"
-      >
-        {/* Main pill row */}
-        <div className="flex items-center gap-3 px-5 py-3.5 whitespace-nowrap">
+      {/* Pill — w-full on mobile so it fills the constrained wrapper */}
+      <div className="rounded-[28px] bg-slate-900/60 backdrop-blur-2xl border border-white/[0.12] shadow-2xl shadow-black/40 overflow-hidden w-full md:w-auto">
+
+        {/* Main pill row: justify-between on mobile pushes burger to far right */}
+        <div className="flex items-center px-5 py-3.5 gap-3 justify-between md:justify-start whitespace-nowrap">
           {/* Logo */}
           <Link
             href="/"
             scroll={!isHome}
             onClick={(e) => handleLinkClick(e, "/")}
-            className="flex items-center gap-2.5 pr-1"
+            className="flex items-center gap-2.5 flex-shrink-0"
           >
             <motion.img
               src="/logotransparan.webp"
@@ -55,13 +55,10 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Spacer — pushes burger to far right on mobile */}
-          <span className="flex-1 md:hidden" />
+          {/* Divider — desktop only */}
+          <div className="h-4 w-px bg-white/10 hidden md:block flex-shrink-0" />
 
-          {/* Divider desktop */}
-          <div className="h-4 w-px bg-white/10 hidden md:block" />
-
-          {/* Desktop links */}
+          {/* Desktop nav links */}
           <nav className="hidden md:flex items-center gap-0.5">
             {navLinks.map((link) => (
               <Link
@@ -109,7 +106,7 @@ export default function Navbar() {
           </motion.button>
         </div>
 
-        {/* Island blooms downward — stagger reveal */}
+        {/* Dropdown menu — same width as pill, no min-w */}
         <AnimatePresence>
           {menuOpen && (
             <motion.div
