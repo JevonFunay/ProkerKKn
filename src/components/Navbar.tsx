@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,8 +10,25 @@ import { smoothScrollTo, smoothScrollToElement } from "@/lib/smoothScroll";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const lastY = useRef(0);
   const pathname = usePathname();
   const isHome   = pathname === "/";
+
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (y > lastY.current && y > 80) {
+        setHidden(true);
+        if (menuOpen) setMenuOpen(false);
+      } else {
+        setHidden(false);
+      }
+      lastY.current = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [menuOpen]);
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     setMenuOpen(false);
@@ -27,8 +44,10 @@ export default function Navbar() {
 
   return (
     /* Outer wrapper: constrained width on mobile so the pill has room to breathe */
-    <div
-      className="fixed left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-[400px] md:w-auto"
+    <motion.div
+      animate={{ y: hidden ? "-200%" : "0%" }}
+      transition={{ type: "spring", damping: 28, stiffness: 300, mass: 0.8 }}
+      className="fixed left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-[400px] md:w-auto md:max-w-none"
       style={{ top: "calc(env(safe-area-inset-top) + 14px)" }}
     >
       {/* Pill — w-full on mobile so it fills the constrained wrapper */}
@@ -145,6 +164,6 @@ export default function Navbar() {
           )}
         </AnimatePresence>
       </div>
-    </div>
+    </motion.div>
   );
 }
