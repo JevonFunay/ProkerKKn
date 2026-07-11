@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { CalendarDays } from "lucide-react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { CalendarDays, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface BeritaItem {
   id: number;
@@ -47,11 +47,7 @@ const berita: BeritaItem[] = [
   },
 ];
 
-// Overdamped spring: no bounce, smooth glide
 const SPRING = { type: "spring", damping: 50, stiffness: 280, mass: 1 } as const;
-
-// Fixed row heights so the grid wrapper never changes size → footer stays put.
-// Row 1 (featured): 440px  |  Row 2 (compact): 265px  |  gap: 16px  →  total: 721px
 const ROW_FEATURED = 440;
 const ROW_COMPACT = 265;
 const IMG_FEATURED = 250;
@@ -59,16 +55,19 @@ const IMG_COMPACT = 155;
 
 export default function BeritaSection() {
   const [selectedId, setSelectedId] = useState<number>(berita[0].id);
+  const [mobileIdx, setMobileIdx] = useState(0);
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
-  // Selected card is always first → CSS grid auto-places it in row 1 (col-span-2).
-  // The other two cards fall into row 2 (col-span-1 each).
+  // Desktop: selected card always first → col-span-2 featured slot
   const sorted = [
     berita.find((b) => b.id === selectedId)!,
     ...berita.filter((b) => b.id !== selectedId),
   ];
+
+  const mobilePrev = () => setMobileIdx((i) => (i - 1 + berita.length) % berita.length);
+  const mobileNext = () => setMobileIdx((i) => (i + 1) % berita.length);
 
   return (
     <section id="berita" className="py-24 lg:py-32 bg-[#faf9f6] relative overflow-hidden">
@@ -96,13 +95,90 @@ export default function BeritaSection() {
           </h2>
         </motion.div>
 
-        {/* Grid — gridTemplateRows pins the total height to a constant value.
-            Cards animate position+size with `layout`; footer never moves.        */}
+        {/* ── MOBILE: simple card carousel, no layout animation ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="md:hidden"
+        >
+          <div className="relative rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-sm">
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={mobileIdx}
+                initial={{ opacity: 0, x: 24 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -24 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+              >
+                {/* Photo */}
+                <div className="relative overflow-hidden bg-slate-100" style={{ height: 210 }}>
+                  <img
+                    src={berita[mobileIdx].image}
+                    alt={berita[mobileIdx].judul}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                  <span className={`absolute top-3 left-3 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${berita[mobileIdx].kategoriColor}`}>
+                    {berita[mobileIdx].kategori}
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div className="p-5">
+                  <div className="flex items-center gap-1.5 text-slate-400 text-xs mb-2">
+                    <CalendarDays size={11} />
+                    {berita[mobileIdx].tanggal}
+                  </div>
+                  <h3 className="font-black text-slate-900 text-base leading-snug mb-3">
+                    {berita[mobileIdx].judul}
+                  </h3>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    {berita[mobileIdx].ringkasan}
+                  </p>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Mobile nav: arrows + dots */}
+          <div className="flex items-center justify-between mt-4 px-1">
+            <button
+              onClick={mobilePrev}
+              className="w-9 h-9 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:border-primary-300 hover:text-primary-600 transition-colors cursor-pointer"
+            >
+              <ChevronLeft size={16} />
+            </button>
+
+            <div className="flex gap-2">
+              {berita.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setMobileIdx(i)}
+                  className={`rounded-full transition-all duration-300 cursor-pointer ${
+                    i === mobileIdx
+                      ? "w-5 h-2 bg-primary-500"
+                      : "w-2 h-2 bg-slate-300 hover:bg-slate-400"
+                  }`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={mobileNext}
+              className="w-9 h-9 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:border-primary-300 hover:text-primary-600 transition-colors cursor-pointer"
+            >
+              <ChevronRight size={16} />
+            </button>
+          </div>
+        </motion.div>
+
+        {/* ── DESKTOP: 3-card grid with card-swap layout animation ── */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.65, delay: 0.2 }}
-          className="grid grid-cols-2 gap-4"
+          className="hidden md:grid grid-cols-2 gap-4"
           style={{ gridTemplateRows: `${ROW_FEATURED}px ${ROW_COMPACT}px` }}
         >
           {sorted.map((item, i) => {
@@ -121,7 +197,6 @@ export default function BeritaSection() {
                 }`}
                 onClick={() => !featured && setSelectedId(item.id)}
               >
-                {/* Image — nested layout syncs height animation with the card's layout animation */}
                 <motion.div
                   layout
                   transition={SPRING}
@@ -139,7 +214,6 @@ export default function BeritaSection() {
                     {item.kategori}
                   </span>
 
-                  {/* Badge fades via opacity — no layout impact */}
                   <motion.span
                     animate={{ opacity: featured ? 1 : 0 }}
                     transition={{ duration: 0.22, delay: featured ? 0.2 : 0 }}
@@ -149,11 +223,7 @@ export default function BeritaSection() {
                   </motion.span>
                 </motion.div>
 
-                {/* Content area — flex-1 fills the row height remainder.
-                    overflow-hidden clips any internal layout changes so they
-                    never propagate to the grid or the page.                   */}
                 <div className={`flex-1 overflow-hidden flex flex-col ${featured ? "p-6" : "p-3.5"}`}>
-
                   <div className={`flex items-center gap-1 text-slate-400 mb-1.5 flex-shrink-0 ${featured ? "text-xs" : "text-[9px]"}`}>
                     <CalendarDays size={featured ? 12 : 9} />
                     {item.tanggal}
@@ -167,9 +237,6 @@ export default function BeritaSection() {
                     {item.judul}
                   </h3>
 
-                  {/* Description: h-0 in compact so it takes no space (clipped by parent
-                      overflow-hidden). Switches to flex-1 in featured to fill remaining
-                      content height. Opacity cross-fades independently.               */}
                   <motion.p
                     animate={{ opacity: featured ? 1 : 0 }}
                     transition={{ duration: 0.3, delay: featured ? 0.15 : 0 }}
@@ -180,7 +247,6 @@ export default function BeritaSection() {
                     {item.ringkasan}
                   </motion.p>
 
-                  {/* Hint: h-0 in featured (no space), visible in compact */}
                   <motion.p
                     animate={{ opacity: featured ? 0 : 1 }}
                     transition={{ duration: 0.18 }}
@@ -190,12 +256,12 @@ export default function BeritaSection() {
                   >
                     Ketuk untuk tampilkan ↑
                   </motion.p>
-
                 </div>
               </motion.div>
             );
           })}
         </motion.div>
+
       </div>
     </section>
   );
