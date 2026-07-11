@@ -2,8 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, ChevronLeft, ChevronRight, MapPin } from "lucide-react";
-import Link from "next/link";
+import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 function IconInstagram() {
   return (
@@ -82,7 +81,7 @@ export default function ProfilSection() {
             initial={{ opacity: 0, x: -24 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.65, delay: 0.1 }}
-            className="order-2 lg:order-1 relative"
+            className="order-1 relative"
           >
             <div className="relative w-full rounded-3xl overflow-hidden bg-slate-100 shadow-xl shadow-slate-200/60" style={{ aspectRatio: "4/3" }}>
               <AnimatePresence initial={false} custom={direction}>
@@ -138,7 +137,7 @@ export default function ProfilSection() {
             initial={{ opacity: 0, x: 24 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.65, delay: 0.2 }}
-            className="order-1 lg:order-2"
+            className="order-2"
           >
             <div className="flex items-center gap-3 mb-4">
               <span className="w-2 h-2 rounded-full bg-primary-500 flex-shrink-0" />
@@ -159,27 +158,17 @@ export default function ProfilSection() {
               potensi desa.
             </p>
 
-            {/* Dua tombol */}
-            <div className="flex flex-col sm:flex-row gap-3">
-              <a
-                href="https://www.instagram.com/kknreguler2026_karangnongko/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary-700 to-teal-600 hover:from-primary-800 hover:to-teal-700 text-white font-semibold text-sm px-6 py-3.5 rounded-2xl transition-all duration-300 shadow-md hover:shadow-lg"
-              >
-                <IconInstagram />
-                Dokumentasi Lengkap
-                <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
-              </a>
-
-              <Link
-                href="/desa"
-                className="group inline-flex items-center justify-center gap-2 bg-white border border-slate-200 hover:border-primary-300 hover:bg-primary-50 text-slate-700 hover:text-primary-700 font-semibold text-sm px-6 py-3.5 rounded-2xl transition-all duration-300"
-              >
-                <MapPin size={15} />
-                Profil Dusun
-              </Link>
-            </div>
+            {/* Tombol Instagram */}
+            <a
+              href="https://www.instagram.com/kknreguler2026_karangnongko/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary-700 to-teal-600 hover:from-primary-800 hover:to-teal-700 text-white font-semibold text-sm px-6 py-3.5 rounded-2xl transition-all duration-300 shadow-md hover:shadow-lg w-fit"
+            >
+              <IconInstagram />
+              Dokumentasi Lengkap
+              <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+            </a>
           </motion.div>
 
         </div>

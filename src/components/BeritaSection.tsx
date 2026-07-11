@@ -1,16 +1,19 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { CalendarDays, ChevronLeft, ChevronRight } from "lucide-react";
+import { CalendarDays, ChevronLeft, ChevronRight, Clock, X } from "lucide-react";
 
 interface BeritaItem {
   id: number;
   judul: string;
+  hari: string;
   tanggal: string;
+  jam: string;
+  lokasi: string;
   kategori: string;
   kategoriColor: string;
-  ringkasan: string;
+  penjelasan: string;
   image: string;
 }
 
@@ -18,251 +21,347 @@ const berita: BeritaItem[] = [
   {
     id: 1,
     judul: "Pelatihan Batik Jumputan Teknik Shibori Berhasil Digelar untuk Ibu-Ibu PKK",
+    hari: "Rabu",
     tanggal: "15 Juli 2026",
+    jam: "09.00 – 12.00 WIB",
+    lokasi: "Balai Dusun Karangnongko",
     kategori: "Laporan Kegiatan",
     kategoriColor: "bg-primary-100 text-primary-700",
-    ringkasan:
-      "Ibu-ibu PKK Dusun Karangnongko mengikuti pelatihan pewarnaan kain teknik Shibori yang dipandu Lidwina Cahya. Peserta antusias mempraktikkan teknik ikat, lipat, dan celup untuk menghasilkan kain bermotif indah bernilai jual tinggi.",
+    penjelasan:
+      "Ibu-ibu PKK Dusun Karangnongko mengikuti pelatihan pewarnaan kain teknik Shibori yang dipandu Lidwina Cahya. Peserta antusias mempraktikkan teknik ikat, lipat, dan celup untuk menghasilkan kain bermotif indah bernilai jual tinggi. Kegiatan ini merupakan bagian dari program pemberdayaan ekonomi kreatif yang bertujuan membuka peluang wirausaha bagi ibu rumah tangga di lingkungan desa.",
     image: "/ProkerWina.webp",
   },
   {
     id: 2,
     judul: "Posyandu Lansia & Cek Kesehatan Gratis Disambut Antusias Warga",
+    hari: "Kamis",
     tanggal: "9 Juli 2026",
+    jam: "08.00 – 11.00 WIB",
+    lokasi: "Balai Dusun Karangnongko",
     kategori: "Laporan Kegiatan",
     kategoriColor: "bg-primary-100 text-primary-700",
-    ringkasan:
-      "Elisabeth Liliana bersama tim Kelompok 44 menggelar senam anti-hipertensi dan cek kesehatan gratis untuk lansia Dusun Karangnongko. Kegiatan mencakup pemeriksaan tekanan darah, gula darah, serta edukasi pola hidup sehat guna mencegah komplikasi hipertensi.",
+    penjelasan:
+      "Elisabeth Liliana bersama tim Kelompok 44 menggelar senam anti-hipertensi dan cek kesehatan gratis untuk lansia Dusun Karangnongko. Kegiatan mencakup pemeriksaan tekanan darah, gula darah, serta edukasi pola hidup sehat guna mencegah komplikasi hipertensi. Warga lanjut usia menyambut program ini dengan antusias dan berharap kegiatan serupa dapat rutin dilaksanakan.",
     image: "/prokerlili2.webp",
   },
   {
     id: 3,
     judul: "Dua Program Berjalan Bersamaan: Edukasi Keuangan & Pelatihan Pelayanan UMKM",
+    hari: "Senin",
     tanggal: "8 Juli 2026",
+    jam: "09.00 – 12.00 WIB",
+    lokasi: "Balai Dusun Karangnongko",
     kategori: "Laporan Kegiatan",
     kategoriColor: "bg-primary-100 text-primary-700",
-    ringkasan:
-      "Reynathania Nonie dan Kelpin Saktara menyelenggarakan dua program secara bersamaan dalam satu kegiatan: edukasi pengelolaan keuangan metode amplop dan pelatihan kualitas pelayanan UMKM. Ibu-ibu PKK dan pelaku usaha Dusun Karangnongko antusias mengikuti keduanya.",
+    penjelasan:
+      "Reynathania Nonie dan Kelpin Saktara menyelenggarakan dua program secara bersamaan dalam satu kegiatan: edukasi pengelolaan keuangan metode amplop dan pelatihan kualitas pelayanan UMKM. Ibu-ibu PKK dan pelaku usaha Dusun Karangnongko antusias mengikuti keduanya. Metode amplop membantu warga memisahkan pos pengeluaran secara fisik, sementara pelatihan pelayanan berfokus pada komunikasi, etika, dan penanganan keluhan pelanggan.",
     image: "/prokerreyna.webp",
   },
 ];
 
-const SPRING = { type: "spring", damping: 50, stiffness: 280, mass: 1 } as const;
-const ROW_FEATURED = 440;
-const ROW_COMPACT = 265;
-const IMG_FEATURED = 250;
-const IMG_COMPACT = 155;
+const slideVariants = {
+  enter: (dir: number) => ({ x: dir > 0 ? "100%" : "-100%" }),
+  center: { x: 0 },
+  exit:  (dir: number) => ({ x: dir > 0 ? "-100%" : "100%" }),
+};
+const SLIDE_TRANSITION = { type: "spring", damping: 32, stiffness: 280, mass: 0.9 } as const;
 
 export default function BeritaSection() {
-  const [selectedId, setSelectedId] = useState<number>(berita[0].id);
-  const [mobileIdx, setMobileIdx] = useState(0);
+  const [idx, setIdx] = useState(0);
+  const [dir, setDir] = useState(1);
+  const [modal, setModal] = useState<BeritaItem | null>(null);
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
-  // Desktop: selected card always first → col-span-2 featured slot
-  const sorted = [
-    berita.find((b) => b.id === selectedId)!,
-    ...berita.filter((b) => b.id !== selectedId),
-  ];
+  const go = (next: number) => {
+    setDir(next > idx ? 1 : -1);
+    setIdx(next);
+  };
+  const prev = () => go((idx - 1 + berita.length) % berita.length);
+  const next = () => go((idx + 1) % berita.length);
 
-  const mobilePrev = () => setMobileIdx((i) => (i - 1 + berita.length) % berita.length);
-  const mobileNext = () => setMobileIdx((i) => (i + 1) % berita.length);
+  // Lock body scroll when modal open
+  useEffect(() => {
+    document.body.classList.toggle("modal-open", !!modal);
+    return () => document.body.classList.remove("modal-open");
+  }, [modal]);
+
+  // Close modal on Escape
+  useEffect(() => {
+    const fn = (e: KeyboardEvent) => { if (e.key === "Escape") setModal(null); };
+    window.addEventListener("keydown", fn);
+    return () => window.removeEventListener("keydown", fn);
+  }, []);
 
   return (
-    <section id="berita" className="py-24 lg:py-32 bg-[#faf9f6] relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+    <>
+      <section id="berita" className="py-24 lg:py-32 bg-[#faf9f6] relative overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
 
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-20" ref={ref}>
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-20" ref={ref}>
 
-        {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-12"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <span className="w-2 h-2 rounded-full bg-primary-500 flex-shrink-0" />
-            <span className="text-xs font-bold text-primary-700 tracking-[0.22em] uppercase">
-              Update Terkini
-            </span>
-            <div className="h-px flex-1 bg-slate-200" />
-          </div>
-          <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight">
-            Berita{" "}
-            <span className="text-slate-300">Terbaru</span>
-          </h2>
-        </motion.div>
+          {/* Section header */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="mb-12"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-2 h-2 rounded-full bg-primary-500 flex-shrink-0" />
+              <span className="text-xs font-bold text-primary-700 tracking-[0.22em] uppercase">
+                Update Terkini
+              </span>
+              <div className="h-px flex-1 bg-slate-200" />
+            </div>
+            <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight">
+              Berita{" "}
+              <span className="text-slate-300">Terbaru</span>
+            </h2>
+          </motion.div>
 
-        {/* ── MOBILE: simple card carousel, no layout animation ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="md:hidden"
-        >
-          <div className="relative rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-sm">
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.div
-                key={mobileIdx}
-                initial={{ opacity: 0, x: 24 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -24 }}
-                transition={{ duration: 0.25, ease: "easeOut" }}
+          {/* Card carousel */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            {/* Fixed-height card container */}
+            <div
+              className="relative overflow-hidden rounded-2xl shadow-sm border border-slate-200 cursor-pointer"
+              onClick={() => setModal(berita[idx])}
+            >
+              <AnimatePresence initial={false} custom={dir}>
+                <motion.div
+                  key={idx}
+                  custom={dir}
+                  variants={slideVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={SLIDE_TRANSITION}
+                  className="absolute inset-0 bg-white flex flex-col"
+                >
+                  {/* Photo */}
+                  <div className="relative overflow-hidden bg-slate-100 h-52 sm:h-64 flex-shrink-0">
+                    <img
+                      src={berita[idx].image}
+                      alt={berita[idx].judul}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                    <span className={`absolute top-3 left-3 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${berita[idx].kategoriColor}`}>
+                      {berita[idx].kategori}
+                    </span>
+                  </div>
+
+                  {/* Body — fixed height, no description */}
+                  <div className="h-32 overflow-hidden flex flex-col justify-between p-4 sm:p-5">
+                    <div>
+                      <div className="flex items-center gap-1.5 text-slate-400 text-xs mb-2">
+                        <CalendarDays size={11} />
+                        {berita[idx].hari}, {berita[idx].tanggal}
+                      </div>
+                      <h3 className="font-black text-slate-900 text-base sm:text-lg leading-snug line-clamp-2">
+                        {berita[idx].judul}
+                      </h3>
+                    </div>
+                    <p className="text-[11px] text-primary-600 font-semibold">
+                      Ketuk untuk baca selengkapnya →
+                    </p>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Invisible spacer drives container height */}
+              <div className="invisible flex flex-col" aria-hidden>
+                <div className="h-52 sm:h-64 flex-shrink-0" />
+                <div className="h-32" />
+              </div>
+            </div>
+
+            {/* Navigation */}
+            <div className="flex items-center justify-between mt-4 px-1">
+              <button
+                onClick={(e) => { e.stopPropagation(); prev(); }}
+                className="w-9 h-9 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:border-primary-300 hover:text-primary-600 transition-colors cursor-pointer"
+                aria-label="Berita sebelumnya"
               >
-                {/* Photo */}
-                <div className="relative overflow-hidden bg-slate-100" style={{ height: 210 }}>
+                <ChevronLeft size={16} />
+              </button>
+
+              <div className="flex gap-2">
+                {berita.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => go(i)}
+                    className={`rounded-full transition-all duration-300 cursor-pointer ${
+                      i === idx
+                        ? "w-5 h-2 bg-primary-500"
+                        : "w-2 h-2 bg-slate-300 hover:bg-slate-400"
+                    }`}
+                    aria-label={`Berita ${i + 1}`}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={(e) => { e.stopPropagation(); next(); }}
+                className="w-9 h-9 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:border-primary-300 hover:text-primary-600 transition-colors cursor-pointer"
+                aria-label="Berita berikutnya"
+              >
+                <ChevronRight size={16} />
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Berita Detail Modal ── */}
+      <AnimatePresence>
+        {modal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.22 }}
+            className="fixed inset-0 z-[100] flex items-end md:items-center justify-center"
+            role="dialog"
+            aria-modal="true"
+          >
+            {/* Backdrop */}
+            <motion.div
+              className="absolute inset-0 bg-slate-900/55 backdrop-blur-sm"
+              onClick={() => setModal(null)}
+            />
+
+            {/* Panel */}
+            <motion.div
+              initial={{ y: "100%", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: "100%", opacity: 0 }}
+              transition={{ type: "spring", damping: 30, stiffness: 300 }}
+              className="relative z-10 w-full max-w-2xl max-h-[94vh] md:max-h-[88vh] bg-white border border-slate-200 rounded-t-3xl md:rounded-3xl overflow-hidden flex flex-col md:mx-4 shadow-2xl shadow-slate-900/25"
+            >
+              {/* Drag handle mobile */}
+              <div className="md:hidden flex justify-center pt-3 pb-1 flex-shrink-0">
+                <div className="w-10 h-1 rounded-full bg-slate-200" />
+              </div>
+
+              {/* Close button */}
+              <button
+                onClick={() => setModal(null)}
+                className="absolute top-4 right-4 z-20 w-10 h-10 bg-white/90 hover:bg-slate-100 border border-slate-200 rounded-full flex items-center justify-center hover:rotate-90 hover:scale-110 transition-all duration-300 cursor-pointer shadow-sm"
+                aria-label="Tutup"
+              >
+                <X size={18} className="text-slate-500" />
+              </button>
+
+              {/* Scrollable content */}
+              <div className="overflow-y-auto overscroll-contain flex-1">
+
+                {/* Hero image */}
+                <div className="relative overflow-hidden flex-shrink-0" style={{ height: 220 }}>
                   <img
-                    src={berita[mobileIdx].image}
-                    alt={berita[mobileIdx].judul}
+                    src={modal.image}
+                    alt={modal.judul}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                  <span className={`absolute top-3 left-3 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${berita[mobileIdx].kategoriColor}`}>
-                    {berita[mobileIdx].kategori}
-                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/10 to-transparent" />
+                  <div className="absolute top-4 left-4">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-white/70 bg-black/30 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                      Laporan Kegiatan
+                    </span>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-5">
+                    <span className={`inline-block text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full mb-2 ${modal.kategoriColor}`}>
+                      {modal.kategori}
+                    </span>
+                    <h2 className="font-black text-xl sm:text-2xl text-white leading-tight">
+                      {modal.judul}
+                    </h2>
+                  </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-5">
-                  <div className="flex items-center gap-1.5 text-slate-400 text-xs mb-2">
-                    <CalendarDays size={11} />
-                    {berita[mobileIdx].tanggal}
-                  </div>
-                  <h3 className="font-black text-slate-900 text-base leading-snug mb-3">
-                    {berita[mobileIdx].judul}
-                  </h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    {berita[mobileIdx].ringkasan}
-                  </p>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+                <div className="p-5 sm:p-7 space-y-5">
 
-          {/* Mobile nav: arrows + dots */}
-          <div className="flex items-center justify-between mt-4 px-1">
-            <button
-              onClick={mobilePrev}
-              className="w-9 h-9 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:border-primary-300 hover:text-primary-600 transition-colors cursor-pointer"
-            >
-              <ChevronLeft size={16} />
-            </button>
-
-            <div className="flex gap-2">
-              {berita.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setMobileIdx(i)}
-                  className={`rounded-full transition-all duration-300 cursor-pointer ${
-                    i === mobileIdx
-                      ? "w-5 h-2 bg-primary-500"
-                      : "w-2 h-2 bg-slate-300 hover:bg-slate-400"
-                  }`}
-                />
-              ))}
-            </div>
-
-            <button
-              onClick={mobileNext}
-              className="w-9 h-9 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:border-primary-300 hover:text-primary-600 transition-colors cursor-pointer"
-            >
-              <ChevronRight size={16} />
-            </button>
-          </div>
-        </motion.div>
-
-        {/* ── DESKTOP: 3-card grid with card-swap layout animation ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.65, delay: 0.2 }}
-          className="hidden md:grid grid-cols-2 gap-4"
-          style={{ gridTemplateRows: `${ROW_FEATURED}px ${ROW_COMPACT}px` }}
-        >
-          {sorted.map((item, i) => {
-            const featured = i === 0;
-
-            return (
-              <motion.div
-                key={item.id}
-                layout
-                transition={SPRING}
-                style={{ borderRadius: featured ? 24 : 16 }}
-                className={`flex flex-col overflow-hidden bg-white border ${
-                  featured
-                    ? "col-span-2 border-slate-200 shadow-sm"
-                    : "col-span-1 border-slate-200 hover:border-primary-300 hover:shadow-md cursor-pointer transition-colors duration-200"
-                }`}
-                onClick={() => !featured && setSelectedId(item.id)}
-              >
-                <motion.div
-                  layout
-                  transition={SPRING}
-                  style={{ height: featured ? IMG_FEATURED : IMG_COMPACT }}
-                  className="relative overflow-hidden bg-slate-100 flex-shrink-0"
-                >
-                  <img
-                    src={item.image}
-                    alt={item.judul}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent" />
-
-                  <span className={`absolute top-3 left-3 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${item.kategoriColor}`}>
-                    {item.kategori}
-                  </span>
-
-                  <motion.span
-                    animate={{ opacity: featured ? 1 : 0 }}
-                    transition={{ duration: 0.22, delay: featured ? 0.2 : 0 }}
-                    className="absolute bottom-3 left-3 text-[10px] font-semibold px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm text-slate-600 pointer-events-none select-none"
-                  >
-                    Sedang Ditampilkan
-                  </motion.span>
-                </motion.div>
-
-                <div className={`flex-1 overflow-hidden flex flex-col ${featured ? "p-6" : "p-3.5"}`}>
-                  <div className={`flex items-center gap-1 text-slate-400 mb-1.5 flex-shrink-0 ${featured ? "text-xs" : "text-[9px]"}`}>
-                    <CalendarDays size={featured ? 12 : 9} />
-                    {item.tanggal}
-                  </div>
-
-                  <h3 className={`font-black text-slate-900 leading-snug flex-shrink-0 ${
-                    featured
-                      ? "text-xl sm:text-2xl mb-3"
-                      : "text-xs sm:text-sm line-clamp-2 mb-auto"
-                  }`}>
-                    {item.judul}
-                  </h3>
-
+                  {/* Description */}
                   <motion.p
-                    animate={{ opacity: featured ? 1 : 0 }}
-                    transition={{ duration: 0.3, delay: featured ? 0.15 : 0 }}
-                    className={`text-slate-500 text-sm leading-relaxed overflow-hidden ${
-                      featured ? "flex-1" : "h-0"
-                    }`}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 }}
+                    className="text-slate-500 leading-relaxed text-sm sm:text-base"
                   >
-                    {item.ringkasan}
+                    {modal.penjelasan}
                   </motion.p>
 
-                  <motion.p
-                    animate={{ opacity: featured ? 0 : 1 }}
-                    transition={{ duration: 0.18 }}
-                    className={`text-[9px] sm:text-[10px] text-primary-600 font-semibold flex-shrink-0 ${
-                      featured ? "h-0 pointer-events-none" : "mt-auto"
-                    }`}
-                  >
-                    Ketuk untuk tampilkan ↑
-                  </motion.p>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+                  <div className="h-px bg-slate-100" />
 
+                  {/* Waktu pelaksanaan */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.18 }}
+                  >
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-3">
+                      Waktu Pelaksanaan
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      <InfoCard
+                        icon={<CalendarDays size={15} />}
+                        label="Hari"
+                        value={modal.hari}
+                      />
+                      <InfoCard
+                        icon={<CalendarDays size={15} />}
+                        label="Tanggal"
+                        value={modal.tanggal}
+                      />
+                      <InfoCard
+                        icon={<Clock size={15} />}
+                        label="Jam"
+                        value={modal.jam}
+                      />
+                    </div>
+                  </motion.div>
+
+                  {/* Close CTA */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.26 }}
+                    className="pt-1 pb-2"
+                  >
+                    <button
+                      onClick={() => setModal(null)}
+                      className="w-full inline-flex items-center justify-center gap-2 bg-primary-700 hover:bg-primary-800 text-white font-semibold px-6 py-3.5 rounded-xl transition-all duration-300 shadow-md shadow-primary-900/15 cursor-pointer"
+                    >
+                      Tutup
+                    </button>
+                  </motion.div>
+
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
+
+function InfoCard({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
+  return (
+    <div className="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
+      <div className="w-8 h-8 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0 mt-0.5 text-primary-700">
+        {icon}
       </div>
-    </section>
+      <div className="min-w-0">
+        <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">{label}</p>
+        <p className="text-sm font-semibold text-slate-800 mt-0.5 leading-snug">{value}</p>
+      </div>
+    </div>
   );
 }

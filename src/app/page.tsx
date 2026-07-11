@@ -3,10 +3,11 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import ProfilSection from "@/components/ProfilSection";
 import ProgramSection from "@/components/ProgramSection";
 import PotensiSection from "@/components/PotensiSection";
+import ProfilDusunSection from "@/components/ProfilDusunSection";
 import BeritaSection from "@/components/BeritaSection";
+import ProfilSection from "@/components/ProfilSection";
 import Footer from "@/components/Footer";
 import DetailModal from "@/components/DetailModal";
 import BackToTop from "@/components/BackToTop";
@@ -20,10 +21,11 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <ProfilDusunSection />
+        <BeritaSection />
         <ProfilSection />
         <ProgramSection />
         <PotensiSection onCardClick={(data) => setModalData(data)} />
-        <BeritaSection />
       </main>
       <Footer />
       <BackToTop />

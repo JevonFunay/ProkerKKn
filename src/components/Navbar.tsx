@@ -32,7 +32,7 @@ export default function Navbar() {
     >
       {/* Border-radius tetap 28px di semua state — tidak pernah berubah */}
       <div
-        className="rounded-[28px] bg-slate-900/60 backdrop-blur-2xl border border-white/[0.12] shadow-2xl shadow-black/40 overflow-hidden"
+        className="rounded-[28px] bg-slate-900/60 backdrop-blur-2xl border border-white/[0.12] shadow-2xl shadow-black/40 overflow-hidden w-[min(calc(100vw-2rem),400px)] md:w-auto"
       >
         {/* Main pill row */}
         <div className="flex items-center gap-3 px-5 py-3.5 whitespace-nowrap">
@@ -54,6 +54,9 @@ export default function Navbar() {
               Karangnongko
             </span>
           </Link>
+
+          {/* Spacer — pushes burger to far right on mobile */}
+          <span className="flex-1 md:hidden" />
 
           {/* Divider desktop */}
           <div className="h-4 w-px bg-white/10 hidden md:block" />
@@ -77,7 +80,7 @@ export default function Navbar() {
           <motion.button
             whileTap={{ scale: 0.82 }}
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden ml-1 w-9 h-9 flex items-center justify-center text-white/60 hover:text-white rounded-full hover:bg-white/10 transition-all cursor-pointer flex-shrink-0"
+            className="md:hidden w-9 h-9 flex items-center justify-center text-white/60 hover:text-white rounded-full hover:bg-white/10 transition-all cursor-pointer flex-shrink-0"
             aria-label="Toggle menu"
           >
             <AnimatePresence mode="wait" initial={false}>
@@ -117,7 +120,7 @@ export default function Navbar() {
               className="md:hidden overflow-hidden"
             >
               <div className="mx-5 h-px bg-white/[0.07]" />
-              <nav className="px-4 pt-2 pb-4 min-w-[240px] space-y-0.5">
+              <nav className="px-4 pt-2 pb-4 space-y-0.5">
                 {navLinks.map((link, i) => (
                   <motion.div
                     key={link.href}
