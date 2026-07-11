@@ -117,9 +117,6 @@ export default function Footer() {
           <p className="text-xs text-white/35">
             &copy; 2026 Kelompok 44 KKN UKDW. Seluruh hak cipta dilindungi.
           </p>
-          <p className="text-xs text-white/25">
-            Dibuat oleh Jevon Funay dari Kelompok 44
-          </p>
         </div>
       </motion.div>
     </footer>
