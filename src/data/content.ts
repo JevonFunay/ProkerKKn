@@ -43,7 +43,7 @@ export const programKerja: ProgramData[] = [
       "Edukasi dokumen prioritas: KTP, KK, akta, buku tabungan",
       "Pengenalan jalur evakuasi dan titik kumpul terdekat",
     ],
-    timeline: "Senin, 6 Juli 2026",
+    timeline: "Senin, 13 Juli 2026",
     pj: "Tim Kelompok 44",
   },
   {
@@ -61,7 +61,7 @@ export const programKerja: ProgramData[] = [
       "Praktik langsung menggunakan amplop berlabel per kategori",
       "Tidak memerlukan literasi digital — metode fisik sederhana",
     ],
-    timeline: "Senin, 8 Juli 2026",
+    timeline: "Rabu, 8 Juli 2026",
     pj: "Reynathania Nonie",
   },
   {
@@ -98,7 +98,7 @@ export const programKerja: ProgramData[] = [
       "Menggunakan pewarna alami dan bahan ramah lingkungan",
       "Produk jadi berpotensi dijual sebagai oleh-oleh wisata",
     ],
-    timeline: "Rabu, 15 Juli 2026",
+    timeline: "Senin, 6 Juli 2026",
     pj: "Lidwina Cahya",
   },
   {
@@ -268,6 +268,7 @@ export const statsData = [
 
 export const navLinks = [
   { label: "Beranda", href: "/" },
+  { label: "Berita", href: "/#berita" },
   { label: "Profil Tim", href: "/tim" },
   { label: "Program Kerja", href: "/#program" },
   { label: "Potensi Desa", href: "/#potensi" },
