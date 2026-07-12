@@ -39,44 +39,34 @@ export const metadata: Metadata = {
     capable: true,
     statusBarStyle: "black-translucent",
   },
-  title: {
-    default: "Dusun Karangnongko, Pacitan — Profil & Potensi Desa",
-    template: "%s | Dusun Karangnongko",
-  },
+  title: "Dusun Karangnongko, Pacitan - Profil & E-Portofolio KKN",
   description:
-    "Profil lengkap Dusun Karangnongko, Desa Watukarung, Kecamatan Pringkuku, Kabupaten Pacitan — informasi potensi desa, UMKM lokal, program KKN Kelompok 44 UKDW, dan peta digital wilayah.",
+    "Pusat informasi resmi, potensi desa, pariwisata, UMKM, dan rekam jejak program kerja KKN Kelompok 44 di Dusun Karangnongko, Desa Watukarung, Kabupaten Pacitan.",
   keywords: [
     "Dusun Karangnongko",
-    "Karangnongko Pacitan",
     "Desa Watukarung",
-    "Kecamatan Pringkuku",
-    "Kabupaten Pacitan",
-    "profil desa Karangnongko",
-    "potensi desa Karangnongko",
-    "wisata pesisir Pacitan selatan",
-    "UMKM Karangnongko rengginang",
-    "KKN Karangnongko UKDW",
-    "lokasi KKN Pacitan",
-    "mitigasi bencana gempa Pacitan",
-    "nelayan Karangnongko",
-    "Watukarung Pringkuku Pacitan",
+    "Pacitan",
+    "Wisata Karangnongko",
+    "UMKM Watukarung",
+    "KKN Karangnongko",
+    "KKN UKDW",
   ],
   authors: [{ name: "KKN Kelompok 44 — Universitas Kristen Duta Wacana" }],
   creator: "KKN Kelompok 44 UKDW",
   openGraph: {
-    type: "website",
-    locale: "id_ID",
-    url: SITE_URL,
-    siteName: "E-Portofolio KKN Karangnongko",
-    title: "Dusun Karangnongko, Pacitan — Profil & Potensi Desa",
+    title: "Dusun Karangnongko, Pacitan - Profil & E-Portofolio KKN",
     description:
-      "Profil lengkap Dusun Karangnongko, Desa Watukarung, Kecamatan Pringkuku, Kabupaten Pacitan — potensi desa, UMKM lokal, dan dokumentasi program KKN Kelompok 44 UKDW.",
+      "Pusat informasi resmi dan potensi desa Dusun Karangnongko, Desa Watukarung, Kabupaten Pacitan.",
+    url: SITE_URL,
+    siteName: "Karangnongko Hub",
+    locale: "id_ID",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dusun Karangnongko, Pacitan — Profil & Potensi Desa",
+    title: "Dusun Karangnongko, Pacitan - Profil & E-Portofolio KKN",
     description:
-      "Profil lengkap Dusun Karangnongko — potensi desa, UMKM lokal, dan dokumentasi program KKN Kelompok 44 UKDW.",
+      "Pusat informasi resmi dan potensi desa Dusun Karangnongko, Desa Watukarung, Kabupaten Pacitan.",
   },
   robots: {
     index: true,
@@ -87,6 +77,11 @@ export const metadata: Metadata = {
       "max-snippet": -1,
       "max-image-preview": "large",
     },
+  },
+  verification: {
+    // Kode verifikasi Google Search Console (baris 83)
+    // Ganti value di bawah dengan kode unik alfanumerik dari Google Search Console Anda
+    google: "rcC9eFW_7a0lFzIFh0dhbI7PF05e7S4n0rVYf79ch8E",
   },
   category: "education",
 };
