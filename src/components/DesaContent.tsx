@@ -21,13 +21,13 @@ const infoCards = [
   {
     icon: Home,
     label: "Kepala Keluarga",
-    value: "66 KK",
+    value: "69 KK",
     color: "bg-teal-50 text-teal-700",
   },
   {
     icon: Users,
     label: "Jumlah Jiwa",
-    value: "±200 Jiwa",
+    value: "±169 Jiwa",
     color: "bg-amber-50 text-amber-700",
   },
   {
