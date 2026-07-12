@@ -48,18 +48,25 @@ export const programKerja: ProgramData[] = [
   },
   {
     id: 2,
-    title: "Edukasi Keuangan Metode Amplop",
+    title: "Edukasi Perencanaan & Pengelolaan Keuangan Rumah Tangga dengan Metode Amplop",
     category: "Literasi Finansial",
     categoryColor: "bg-amber-100 text-amber-700",
     image: "/prokerreyna.webp",
     shortDesc:
-      "Peningkatan literasi keuangan rumah tangga bagi ibu-ibu PKK melalui metode amplop.",
+      "Edukasi perencanaan dan pengelolaan keuangan rumah tangga melalui Metode Amplop beserta pencatatan pengeluaran sederhana.",
     fullDesc:
-      "Sebagian besar penduduk Dusun Karangnongko bermata pencaharian sebagai nelayan dengan penghasilan yang tidak tetap (tidak menentu). Fluktuasi pendapatan harian, mingguan, atau musiman membuat pengelolaan keuangan menjadi tantangan tersendiri. Banyak keluarga kesulitan mengatur pengeluaran karena pendapatan yang tidak pasti, sehingga seringkali terjadi kehabisan uang sebelum akhir bulan atau kesulitan menyisihkan untuk kebutuhan darurat. Metode amplop membantu memisahkan anggaran ke dalam pos-pos fisik (kebutuhan pokok, tabungan, dana tak terduga) agar pengeluaran lebih terkontrol dan teratur meskipun pendapatan tidak stabil.",
+      "Beberapa keluarga di Dusun Karangnongko mengelola uang bulanan tanpa perencanaan tertulis — pemasukan dan pengeluaran tercampur dalam satu tempat, sehingga kebutuhan pokok seperti pasar dan sekolah anak sering kehabisan jatah sebelum akhir bulan. Belum ada kebiasaan memisahkan dan mencatat pengeluaran rumah tangga secara sederhana. Menjawab tantangan literasi keuangan tersebut, program ini mengenalkan Metode Amplop: cara sederhana memisahkan uang bulanan ke dalam beberapa amplop sesuai kategori kebutuhan (pasar, sekolah anak, listrik, bensin, dan dana darurat), dilengkapi dengan pencatatan pengeluaran sederhana.",
     highlights: [
-      "Pembagian pos: kebutuhan pokok, tabungan, dan dana darurat",
-      "Praktik langsung menggunakan amplop berlabel per kategori",
-      "Tidak memerlukan literasi digital — metode fisik sederhana",
+      "Praktik langsung membagi uang ke amplop bersama peserta",
+      "Edukasi pencatatan sederhana pemasukan dan pengeluaran rumah tangga",
+      "Pendampingan menentukan prioritas kebutuhan sesuai kondisi tiap keluarga",
+    ],
+    mekanisme: [
+      "Peserta mengisi pre-test singkat mengenai kebiasaan mengatur keuangan sebelum materi dimulai.",
+      "Fasilitator menyampaikan ilustrasi masalah keuangan rumah tangga sehari-hari.",
+      "Praktik langsung membagi uang bulanan ke amplop sesuai kategori kebutuhan, melibatkan peserta menentukan prioritas dan nominal.",
+      "Praktik mencatat pengeluaran di buku catatan sederhana setiap kali amplop digunakan.",
+      "Peserta mengisi post-test, menerima amplop dan buku catatan sebagai alat praktik mandiri di rumah.",
     ],
     timeline: "Rabu, 8 Juli 2026",
     pj: "Reynathania Nonie",
