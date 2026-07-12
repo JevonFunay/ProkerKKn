@@ -15,7 +15,7 @@ const inter = Inter({
 });
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://karangnongko.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://dusunkarangnongko.vercel.app";
 
 const jsonLd = {
   "@context": "https://schema.org",
