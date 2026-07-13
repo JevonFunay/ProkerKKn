@@ -83,7 +83,7 @@ export default function DetailModal({ data, onClose }: DetailModalProps) {
                 {/* Type badge */}
                 <div className="absolute top-4 left-4 flex items-center gap-2">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-white/70 bg-black/30 backdrop-blur-sm px-2.5 py-1 rounded-full">
-                    {isPotensi ? "Potensi Desa" : "Program Kerja"}
+                    {isPotensi ? "Potensi Proker" : "Program Kerja"}
                   </span>
                 </div>
 

@@ -50,7 +50,7 @@ export default function PotensiSection({ onCardClick }: PotensiSectionProps) {
             <div className="h-px flex-1 bg-slate-200" />
           </div>
           <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight">
-            Potensi Desa &{" "}
+            Potensi Proker &{" "}
             <span className="text-slate-300">Keberlanjutan</span>
           </h2>
         </motion.div>
