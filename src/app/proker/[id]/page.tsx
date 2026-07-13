@@ -16,7 +16,7 @@ export async function generateMetadata({
   const program = programKerja.find((p) => p.id === Number(id));
   if (!program) return {};
   return {
-    title: `${program.title} — KKN Kelompok 44`,
+    title: `${program.title} - KKN Kelompok 44`,
     description: program.shortDesc,
   };
 }

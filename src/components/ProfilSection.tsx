@@ -153,9 +153,9 @@ export default function ProfilSection() {
             </h2>
 
             <p className="text-slate-500 leading-relaxed text-base sm:text-lg mb-10">
-              Dokumentasi perjalanan KKN Kelompok 44 UKDW di Dusun Karangnongko —
-              dari program kerja, interaksi bersama warga, hingga pengembangan
-              potensi desa.
+              Dokumentasi perjalanan KKN Kelompok 44 UKDW di Dusun Karangnongko,
+              mulai dari program kerja, interaksi bersama warga, hingga
+              pengembangan potensi desa.
             </p>
 
             {/* Tombol Instagram */}

@@ -233,7 +233,7 @@ export default function TimContent() {
                 <span className="text-slate-300">Kelompok 44</span>
               </h1>
               <p className="text-slate-500 mt-4 max-w-lg text-sm leading-relaxed">
-                Mahasiswa Kuliah Kerja Nyata Universitas Kristen Duta Wacana —
+                Mahasiswa Kuliah Kerja Nyata Universitas Kristen Duta Wacana
                 Periode Genap 2025/2026
               </p>
             </motion.div>

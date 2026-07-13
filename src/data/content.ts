@@ -55,7 +55,7 @@ export const programKerja: ProgramData[] = [
     shortDesc:
       "Edukasi perencanaan dan pengelolaan keuangan rumah tangga melalui Metode Amplop beserta pencatatan pengeluaran sederhana.",
     fullDesc:
-      "Beberapa keluarga di Dusun Karangnongko mengelola uang bulanan tanpa perencanaan tertulis — pemasukan dan pengeluaran tercampur dalam satu tempat, sehingga kebutuhan pokok seperti pasar dan sekolah anak sering kehabisan jatah sebelum akhir bulan. Belum ada kebiasaan memisahkan dan mencatat pengeluaran rumah tangga secara sederhana. Menjawab tantangan literasi keuangan tersebut, program ini mengenalkan Metode Amplop: cara sederhana memisahkan uang bulanan ke dalam beberapa amplop sesuai kategori kebutuhan (pasar, sekolah anak, listrik, bensin, dan dana darurat), dilengkapi dengan pencatatan pengeluaran sederhana.",
+      "Beberapa keluarga di Dusun Karangnongko mengelola uang bulanan tanpa perencanaan tertulis. Pemasukan dan pengeluaran tercampur dalam satu tempat, sehingga kebutuhan pokok seperti pasar dan sekolah anak sering kehabisan jatah sebelum akhir bulan. Belum ada kebiasaan memisahkan dan mencatat pengeluaran rumah tangga secara sederhana. Menjawab tantangan literasi keuangan tersebut, program ini mengenalkan Metode Amplop: cara sederhana memisahkan uang bulanan ke dalam beberapa amplop sesuai kategori kebutuhan (pasar, sekolah anak, listrik, bensin, dan dana darurat), dilengkapi dengan pencatatan pengeluaran sederhana.",
     highlights: [
       "Praktik langsung membagi uang ke amplop bersama peserta",
       "Edukasi pencatatan sederhana pemasukan dan pengeluaran rumah tangga",
@@ -268,8 +268,8 @@ export const potensiDesa: PotensiData[] = [
 ];
 
 export const statsData = [
-  { label: "Kepala Keluarga", value: "66 KK", icon: "Users" as const },
-  { label: "Jumlah Penduduk", value: "± 200 Jiwa", icon: "ClipboardList" as const },
+  { label: "Kepala Keluarga", value: "69 KK", icon: "Users" as const },
+  { label: "Jumlah Penduduk", value: "± 169 Jiwa", icon: "ClipboardList" as const },
   { label: "Mata Pencaharian Utama", value: "Mayoritas Nelayan", icon: "Anchor" as const },
 ];
 

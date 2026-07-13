@@ -65,7 +65,7 @@ export default function Hero() {
               className="text-slate-500 text-base leading-relaxed max-w-sm mb-9"
             >
               Pusat data pengabdian masyarakat, mitigasi bencana, dan potensi
-              wilayah Dusun Karangnongko — UKDW 2026.
+              wilayah Dusun Karangnongko oleh KKN UKDW 2026.
             </motion.p>
 
             {/* CTAs */}
@@ -106,7 +106,7 @@ export default function Hero() {
               </div>
               <div className="hidden sm:block h-8 w-px bg-slate-200 flex-shrink-0" />
               <div>
-                <p className="text-xl sm:text-2xl font-black text-slate-900">66</p>
+                <p className="text-xl sm:text-2xl font-black text-slate-900">69</p>
                 <p className="text-[10px] sm:text-xs text-slate-400 font-medium mt-0.5 uppercase tracking-wider leading-tight">Kepala KK</p>
               </div>
               <div className="hidden sm:block h-8 w-px bg-slate-200 flex-shrink-0" />

@@ -3,13 +3,19 @@
 import { motion } from "framer-motion";
 import { MapPin, Users, Home, Anchor, ArrowLeft, Navigation } from "lucide-react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-// pb param: references CID 0x2e7bddcd63ba8b79:0x59c29dad64bd3216
-// → Google Maps renders administrative boundary outline for this place
-const MAPS_EMBED =
-  "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4000!2d110.9836164!3d-8.2189295!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7bddcd63ba8b79%3A0x59c29dad64bd3216!2sKarangnongko%2C%20Watukarung%2C%20Kec.%20Pringkuku%2C%20Kabupaten%20Pacitan%2C%20Jawa%20Timur!5e1!3m2!1sid!2sid!4v1751980000000!5m2!1sid!2sid";
+// Leaflet mengakses `window`, jadi hanya dirender di client
+const DusunMap = dynamic(() => import("@/components/DusunMap"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center bg-slate-100 text-slate-400 text-sm">
+      Memuat peta…
+    </div>
+  ),
+});
 
 const infoCards = [
   {
@@ -42,17 +48,17 @@ const infoSections = [
   {
     title: "Kondisi Geografis",
     content:
-      "Dusun Karangnongko terletak di kawasan pesisir selatan Pulau Jawa yang berada di atas zona aktif lempeng tektonik Indo-Australia, menjadikan wilayah ini rentan terhadap bencana gempa bumi, namun untuk tsunami itu tidak terlalu rentan karena mengingat dusun ini berada di antara gunung jadi sulit untuk sampai. Topografi wilayah berupa perbukitan dan lahan pesisir sempit yang dipenuhi oleh batu karang alami.",
+      "Karangnongko merupakan satu dari tujuh dusun di Desa Watukarung, bersama Dusun Tekil, Dokgarut, Sempon, Kenul, Ketro, dan Gumulharjo. Desa Watukarung memiliki luas sekitar 582,6 hektare dan berbatasan langsung dengan Samudera Hindia di sisi selatan, berjarak kurang lebih 28 km dari pusat Kota Pacitan. Topografi wilayah berupa perbukitan karst dan lahan pesisir sempit yang dipenuhi batu karang alami. Kawasan ini berada di atas zona subduksi lempeng Indo-Australia sehingga rawan gempa bumi, namun permukiman dusun yang diapit perbukitan relatif lebih terlindung dari terjangan tsunami dibandingkan pesisir terbuka.",
   },
   {
     title: "Mata Pencaharian",
     content:
-      "Mayoritas penduduk bermata pencaharian sebagai nelayan tangkap. Pertanian menjadi usaha sampingan, meski kerap terkendala serangan hama monyet dan babi hutan. Beberapa warga juga mengandalkan usaha warung dan jasa.",
+      "Mayoritas penduduk bermata pencaharian sebagai nelayan tangkap dengan hasil laut berupa tuna, cakalang, hingga lobster. Pertanian menjadi usaha sampingan, meski kerap terkendala serangan hama monyet dan babi hutan. Seiring berkembangnya pariwisata, sebagian warga juga mengelola warung, homestay, dan jasa bagi wisatawan.",
   },
   {
-    title: "UMKM & Potensi Lokal",
+    title: "Pariwisata & UMKM",
     content:
-      "Salah satu produk unggulan Dusun Karangnongko adalah rengginang beras ketan — makanan tradisional yang diproduksi secara rumahan.",
+      "Desa Watukarung dikenal hingga mancanegara berkat Pantai Watukarung, spot selancar kelas dunia dengan ombak yang dapat mencapai enam meter. Di sekitarnya terdapat Pantai Kasap yang dijuluki Raja Ampat-nya Pacitan serta wisata Sungai Cokel. Dari sisi UMKM, produk unggulan Dusun Karangnongko adalah rengginang beras ketan yang diproduksi secara rumahan.",
   },
   {
     title: "Mitigasi Bencana",
@@ -141,17 +147,8 @@ export default function DesaContent() {
                 <span className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em]">Peta Lokasi</span>
               </div>
 
-              <div className="w-full rounded-3xl overflow-hidden border border-slate-200 shadow-sm" style={{ height: 420 }}>
-                <iframe
-                  title="Peta Dusun Karangnongko"
-                  src={MAPS_EMBED}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+              <div className="w-full rounded-3xl overflow-hidden border border-slate-200 shadow-sm relative z-0" style={{ height: 420 }}>
+                <DusunMap />
               </div>
 
               {/* Tombol buka di Google Maps */}

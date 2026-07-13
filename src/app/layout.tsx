@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     "KKN Karangnongko",
     "KKN UKDW",
   ],
-  authors: [{ name: "KKN Kelompok 44 — Universitas Kristen Duta Wacana" }],
+  authors: [{ name: "KKN Kelompok 44 Universitas Kristen Duta Wacana" }],
   creator: "KKN Kelompok 44 UKDW",
   openGraph: {
     title: "Dusun Karangnongko, Pacitan - Profil & E-Portofolio KKN",

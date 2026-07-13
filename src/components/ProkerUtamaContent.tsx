@@ -126,7 +126,7 @@ export default function ProkerUtamaContent() {
                   <div className="bg-orange-50 border border-orange-100 rounded-2xl p-5">
                     <p className="text-sm text-orange-900 leading-relaxed">
                       Dusun Karangnongko berada tepat di atas zona subduksi lempeng Indo-Australia
-                      dan Eurasia — salah satu zona gempa paling aktif di Indonesia. Wilayah pesisir
+                      dan Eurasia, salah satu zona gempa paling aktif di Indonesia. Wilayah pesisir
                       ini juga terancam tsunami apabila terjadi gempa besar di dasar laut selatan.
                       Namun, banyak warga belum memiliki persiapan konkret untuk menghadapi
                       situasi darurat tersebut.

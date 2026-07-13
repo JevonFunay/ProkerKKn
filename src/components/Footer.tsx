@@ -76,7 +76,7 @@ export default function Footer() {
           <ul className="space-y-3 text-sm text-white/50">
             <li className="flex items-center gap-2">
               <CalendarDays size={16} className="text-primary-400 flex-shrink-0" />
-              KKN Reguler 2026 — Juni s/d Juli
+              KKN Reguler 2026 · Juni s/d Juli
             </li>
             <li className="flex items-center gap-2">
               <MapPin size={16} className="text-primary-400 flex-shrink-0" />
