@@ -53,12 +53,12 @@ const infoSections = [
   {
     title: "Mata Pencaharian",
     content:
-      "Mayoritas penduduk bermata pencaharian sebagai nelayan tangkap dengan hasil laut berupa tuna, cakalang, hingga lobster. Pertanian menjadi usaha sampingan, meski kerap terkendala serangan hama monyet dan babi hutan. Seiring berkembangnya pariwisata, sebagian warga juga mengelola warung, homestay, dan jasa bagi wisatawan.",
+      "Mayoritas penduduk bermata pencaharian sebagai nelayan tangkap dengan hasil laut berupa tuna, cakalang, hingga lobster. Pertanian menjadi usaha sampingan, meski kerap terkendala serangan hama monyet dan babi hutan. Beberapa warga juga mengandalkan usaha warung dan jasa.",
   },
   {
-    title: "Pariwisata & UMKM",
+    title: "UMKM & Potensi Lokal",
     content:
-      "Desa Watukarung dikenal hingga mancanegara berkat Pantai Watukarung, spot selancar kelas dunia dengan ombak yang dapat mencapai enam meter. Di sekitarnya terdapat Pantai Kasap yang dijuluki Raja Ampat-nya Pacitan serta wisata Sungai Cokel. Dari sisi UMKM, produk unggulan Dusun Karangnongko adalah rengginang beras ketan yang diproduksi secara rumahan.",
+      "Meskipun Desa Watukarung secara umum dikenal lewat Pantai Watukarung yang menjadi spot selancar kelas dunia, di dalam wilayah Dusun Karangnongko sendiri belum terdapat objek wisata yang dikelola. UMKM pun masih sangat terbatas: satu-satunya usaha yang berjalan adalah produksi rengginang beras ketan secara rumahan yang dikelola oleh para simbah, dengan pemesanan hanya melalui telepon, sehingga usaha ini belum memungkinkan untuk didigitalisasi.",
   },
   {
     title: "Mitigasi Bencana",
