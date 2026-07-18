@@ -19,6 +19,19 @@ interface BeritaItem {
 
 const berita: BeritaItem[] = [
   {
+    id: 5,
+    judul: "Warga Antusias Ikuti Sayembara Tas Siaga Bencana Gempa Bumi",
+    hari: "Senin",
+    tanggal: "13 Juli 2026",
+    jam: "13.00 WIB – selesai",
+    lokasi: "Balai Dusun Karangnongko",
+    kategori: "Laporan Kegiatan",
+    kategoriColor: "bg-primary-100 text-primary-700",
+    penjelasan:
+      "Program kerja utama KKN Kelompok 44, Sayembara Tas Siaga Bencana Gempa Bumi, telah terlaksana dengan diikuti warga Dusun Karangnongko secara antusias. Setelah menerima materi kesiapsiagaan bencana dari fasilitator, setiap kepala keluarga menyusun tas siaga berisi dokumen penting, obat-obatan, dan logistik darurat sesuai panduan. Tim juri menilai kelengkapan dan kondisi tas setiap peserta, dan pemenang mendapatkan hadiah edukatif beserta sertifikat kesiapsiagaan bencana. Kegiatan ditutup dengan edukasi mengenai jalur evakuasi terdekat, sebagai bekal warga menghadapi situasi darurat di wilayah yang rawan gempa ini.",
+    image: "/ProkerUtama.jpeg",
+  },
+  {
     id: 2,
     judul: "Posyandu Lansia & Cek Kesehatan Gratis Disambut Antusias Warga",
     hari: "Kamis",
