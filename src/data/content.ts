@@ -33,7 +33,7 @@ export const programKerja: ProgramData[] = [
     title: "Sayembara Tas Siaga Bencana Gempa Bumi",
     category: "Kebencanaan",
     categoryColor: "bg-orange-100 text-orange-700",
-    image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&h=500&fit=crop",
+    image: "/ProkerUtama.jpeg",
     shortDesc:
       "Edukasi kesiapsiagaan gempa bumi melalui sayembara penyusunan tas siaga bencana.",
     fullDesc:
@@ -144,7 +144,7 @@ export const programKerja: ProgramData[] = [
     title: "Digitalisasi Informasi Geospasial Dusun Karangnongko Berbasis GIS, OpenStreetMap, dan Google Maps",
     category: "Pemetaan Digital",
     categoryColor: "bg-stone-100 text-stone-700",
-    image: "https://images.unsplash.com/photo-1569336415962-a4bd9f69c07b?w=800&h=500&fit=crop",
+    image: "/ProkerGatot.jpg",
     shortDesc:
       "Pemetaan batas wilayah dusun dan digitalisasi lokasi penting melalui GIS, OpenStreetMap, dan Google Maps.",
     fullDesc:
