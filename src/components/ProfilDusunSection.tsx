@@ -18,8 +18,8 @@ export default function ProfilDusunSection() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="dusun" className="py-24 lg:py-32 bg-white relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+    <section id="dusun" className="py-24 lg:py-32 bg-white dark:bg-slate-950 relative overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-white/10 to-transparent" />
 
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-20" ref={ref}>
 
@@ -35,13 +35,13 @@ export default function ProfilDusunSection() {
             <span className="text-xs font-bold text-primary-700 tracking-[0.22em] uppercase">
               Tentang Dusun
             </span>
-            <div className="h-px flex-1 bg-slate-200" />
+            <div className="h-px flex-1 bg-slate-200 dark:bg-white/10" />
           </div>
-          <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight">
+          <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 dark:text-white tracking-tight">
             Mengenal{" "}
-            <span className="text-slate-300">Karangnongko</span>
+            <span className="text-slate-300 dark:text-slate-700">Karangnongko</span>
           </h2>
-          <p className="mt-4 text-slate-500 leading-relaxed text-base sm:text-lg max-w-2xl">
+          <p className="mt-4 text-slate-500 dark:text-slate-400 leading-relaxed text-base sm:text-lg max-w-2xl">
             Karangnongko merupakan satu dari tujuh dusun di Desa Watukarung, Kecamatan Pringkuku,
             Kabupaten Pacitan. Terletak di kawasan perbukitan karst pesisir selatan Jawa, mayoritas
             warganya bermata pencaharian sebagai nelayan tangkap dengan pertanian sebagai usaha
@@ -57,16 +57,16 @@ export default function ProfilDusunSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + i * 0.07 }}
-              className="p-5 bg-slate-50 border border-slate-100 rounded-2xl flex flex-col gap-3"
+              className="p-5 bg-slate-50 dark:bg-white/[0.03] border border-slate-100 dark:border-white/[0.06] rounded-2xl flex flex-col gap-3"
             >
-              <div className="w-9 h-9 rounded-xl bg-primary-100 flex items-center justify-center text-primary-700 flex-shrink-0">
+              <div className="w-9 h-9 rounded-xl bg-primary-100 dark:bg-primary-500/15 flex items-center justify-center text-primary-700 dark:text-primary-400 flex-shrink-0">
                 {iconMap[stat.icon]}
               </div>
               <div>
-                <p className="font-black text-slate-900 text-lg sm:text-xl leading-tight">
+                <p className="font-black text-slate-900 dark:text-white text-lg sm:text-xl leading-tight">
                   {stat.value}
                 </p>
-                <p className="text-xs text-slate-400 font-medium mt-0.5 leading-snug">
+                <p className="text-xs text-slate-400 dark:text-slate-500 font-medium mt-0.5 leading-snug">
                   {stat.label}
                 </p>
               </div>

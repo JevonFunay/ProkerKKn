@@ -8,13 +8,13 @@ export default function Hero() {
   return (
     <section
       id="beranda"
-      className="min-h-screen bg-[#faf9f6] flex items-center pb-16 relative overflow-hidden"
+      className="min-h-screen bg-[#faf9f6] dark:bg-slate-950 flex items-center pb-16 relative overflow-hidden"
       style={{ paddingTop: "calc(env(safe-area-inset-top) + 5rem)" }}
     >
       {/* Decorative background blobs */}
-      <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-primary-50 rounded-full -translate-y-1/3 translate-x-1/3 pointer-events-none opacity-70" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-amber-50/60 rounded-full translate-y-1/3 -translate-x-1/3 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-primary-100/30 rounded-full -translate-y-1/2 pointer-events-none blur-3xl" />
+      <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-primary-50 dark:bg-primary-500/[0.06] rounded-full -translate-y-1/3 translate-x-1/3 pointer-events-none opacity-70" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-amber-50/60 dark:bg-amber-500/[0.04] rounded-full translate-y-1/3 -translate-x-1/3 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-primary-100/30 dark:bg-primary-500/[0.05] rounded-full -translate-y-1/2 pointer-events-none blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-20 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -41,7 +41,7 @@ export default function Hero() {
                 initial={{ y: "110%" }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.85, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                className="font-black text-[clamp(2.6rem,7vw,6.5rem)] text-slate-900 leading-[0.87] tracking-tight"
+                className="font-black text-[clamp(2.6rem,7vw,6.5rem)] text-slate-900 dark:text-white leading-[0.87] tracking-tight"
               >
                 E-Portofolio
               </motion.h1>
@@ -62,7 +62,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.55 }}
-              className="text-slate-500 text-base leading-relaxed max-w-sm mb-9"
+              className="text-slate-500 dark:text-slate-400 text-base leading-relaxed max-w-sm mb-9"
             >
               Pusat data pengabdian masyarakat, mitigasi bencana, dan potensi
               wilayah Dusun Karangnongko oleh KKN UKDW 2026.
@@ -87,7 +87,7 @@ export default function Hero() {
                 whileHover={{ x: 4 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => smoothScrollToElement("#profil", 80)}
-                className="text-slate-500 hover:text-slate-800 font-semibold text-sm transition-colors cursor-pointer"
+                className="text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white font-semibold text-sm transition-colors cursor-pointer"
               >
                 Profil KKN →
               </motion.button>
@@ -98,21 +98,21 @@ export default function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.75 }}
-              className="grid grid-cols-3 sm:flex sm:items-center sm:gap-8 pt-8 border-t border-slate-200"
+              className="grid grid-cols-3 sm:flex sm:items-center sm:gap-8 pt-8 border-t border-slate-200 dark:border-white/10"
             >
               <div>
-                <p className="text-xl sm:text-2xl font-black text-slate-900">7</p>
-                <p className="text-[10px] sm:text-xs text-slate-400 font-medium mt-0.5 uppercase tracking-wider leading-tight">Program Kerja</p>
+                <p className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">7</p>
+                <p className="text-[10px] sm:text-xs text-slate-400 dark:text-slate-500 font-medium mt-0.5 uppercase tracking-wider leading-tight">Program Kerja</p>
               </div>
-              <div className="hidden sm:block h-8 w-px bg-slate-200 flex-shrink-0" />
+              <div className="hidden sm:block h-8 w-px bg-slate-200 dark:bg-white/10 flex-shrink-0" />
               <div>
-                <p className="text-xl sm:text-2xl font-black text-slate-900">69</p>
-                <p className="text-[10px] sm:text-xs text-slate-400 font-medium mt-0.5 uppercase tracking-wider leading-tight">Kepala KK</p>
+                <p className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">69</p>
+                <p className="text-[10px] sm:text-xs text-slate-400 dark:text-slate-500 font-medium mt-0.5 uppercase tracking-wider leading-tight">Kepala KK</p>
               </div>
-              <div className="hidden sm:block h-8 w-px bg-slate-200 flex-shrink-0" />
+              <div className="hidden sm:block h-8 w-px bg-slate-200 dark:bg-white/10 flex-shrink-0" />
               <div>
-                <p className="text-xl sm:text-2xl font-black text-slate-900">Pacitan</p>
-                <p className="text-[10px] sm:text-xs text-slate-400 font-medium mt-0.5 uppercase tracking-wider leading-tight">Lokasi KKN</p>
+                <p className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">Pacitan</p>
+                <p className="text-[10px] sm:text-xs text-slate-400 dark:text-slate-500 font-medium mt-0.5 uppercase tracking-wider leading-tight">Lokasi KKN</p>
               </div>
             </motion.div>
           </div>
@@ -120,8 +120,8 @@ export default function Hero() {
           {/* Right: Photo with organic blob frame */}
           <div className="order-1 lg:order-2 relative flex justify-center lg:justify-end pt-16 lg:pt-0">
             {/* Decorative circles behind photo */}
-            <div className="absolute -z-10 -top-10 -right-4 lg:-right-8 w-64 h-64 bg-primary-100 rounded-full opacity-60" />
-            <div className="absolute -z-10 -bottom-10 -left-4 w-48 h-48 bg-amber-100/70 rounded-full" />
+            <div className="absolute -z-10 -top-10 -right-4 lg:-right-8 w-64 h-64 bg-primary-100 dark:bg-primary-500/10 rounded-full opacity-60" />
+            <div className="absolute -z-10 -bottom-10 -left-4 w-48 h-48 bg-amber-100/70 dark:bg-amber-500/10 rounded-full" />
 
             {/* Organic blob image */}
             <motion.div
@@ -145,15 +145,15 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.9 }}
-                className="absolute -bottom-5 -left-4 sm:-left-8 bg-white rounded-2xl p-3.5 shadow-xl border border-slate-100"
+                className="absolute -bottom-5 -left-4 sm:-left-8 bg-white dark:bg-slate-900 rounded-2xl p-3.5 shadow-xl border border-slate-100 dark:border-white/10"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin size={16} className="text-primary-700" />
+                  <div className="w-9 h-9 bg-primary-100 dark:bg-primary-500/15 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <MapPin size={16} className="text-primary-700 dark:text-primary-400" />
                   </div>
                   <div>
-                    <p className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">Lokasi</p>
-                    <p className="text-sm font-bold text-slate-800">Dusun Karangnongko</p>
+                    <p className="text-[10px] text-slate-400 dark:text-slate-500 font-medium uppercase tracking-wider">Lokasi</p>
+                    <p className="text-sm font-bold text-slate-800 dark:text-slate-100">Dusun Karangnongko</p>
                   </div>
                 </div>
               </motion.div>

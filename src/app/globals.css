@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Class-based dark mode: toggled via .dark on <html>, not just OS preference */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme inline {
   --color-background: #faf9f6;
   --color-foreground: #1c1917;
@@ -36,6 +39,15 @@
 }
 
 /* ================================ */
+/* Dark mode tokens                 */
+/* ================================ */
+
+.dark {
+  --color-background: #0c0a09;
+  --color-foreground: #f5f5f4;
+}
+
+/* ================================ */
 /* Global Styles                    */
 /* ================================ */
 
@@ -47,6 +59,7 @@ body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 main,
@@ -69,6 +82,36 @@ footer {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-primary-600);
+}
+.dark ::-webkit-scrollbar-track {
+  background: #1c1917;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #44403c;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-500);
+}
+
+/* Leaflet map controls — dark surface to match theme */
+.dark .leaflet-control-zoom a,
+.dark .leaflet-control-layers,
+.dark .leaflet-bar {
+  background-color: #1c1917;
+  color: #e7e5e4;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.dark .leaflet-control-zoom a:hover {
+  background-color: #292524;
+}
+.dark .leaflet-control-layers-expanded {
+  background: #1c1917;
+  color: #e7e5e4;
+}
+.dark .leaflet-popup-content-wrapper,
+.dark .leaflet-popup-tip {
+  background: #1c1917;
+  color: #e7e5e4;
 }
 
 /* Gradient text utility */

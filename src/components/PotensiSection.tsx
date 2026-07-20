@@ -30,8 +30,8 @@ export default function PotensiSection({ onCardClick }: PotensiSectionProps) {
   const gridInView = useInView(gridRef, { once: true, margin: "-60px" });
 
   return (
-    <section id="potensi" className="py-24 lg:py-32 bg-white relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+    <section id="potensi" className="py-24 lg:py-32 bg-white dark:bg-slate-950 relative overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-white/10 to-transparent" />
 
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-20 relative" ref={ref}>
 
@@ -47,11 +47,11 @@ export default function PotensiSection({ onCardClick }: PotensiSectionProps) {
             <span className="text-xs font-bold text-primary-700 tracking-[0.22em] uppercase">
               Potensi Berkelanjutan
             </span>
-            <div className="h-px flex-1 bg-slate-200" />
+            <div className="h-px flex-1 bg-slate-200 dark:bg-white/10" />
           </div>
-          <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight">
+          <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 dark:text-white tracking-tight">
             Potensi Proker &{" "}
-            <span className="text-slate-300">Keberlanjutan</span>
+            <span className="text-slate-300 dark:text-slate-700">Keberlanjutan</span>
           </h2>
         </motion.div>
 

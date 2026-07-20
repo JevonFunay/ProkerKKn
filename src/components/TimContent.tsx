@@ -94,25 +94,25 @@ function MemberModal({ member, index, onClose }: MemberModalProps) {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: "100%", opacity: 0 }}
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="relative z-10 w-full max-w-sm sm:mx-4 bg-white border border-slate-200 rounded-t-3xl sm:rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/20"
+            className="relative z-10 w-full max-w-sm sm:mx-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-t-3xl sm:rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/20"
           >
             {/* Drag handle */}
             <div className="sm:hidden flex justify-center pt-3 pb-1">
-              <div className="w-10 h-1 rounded-full bg-slate-200" />
+              <div className="w-10 h-1 rounded-full bg-slate-200 dark:bg-slate-700" />
             </div>
 
             {/* Close button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-20 w-9 h-9 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-full flex items-center justify-center transition-all duration-200 hover:rotate-90 cursor-pointer"
+              className="absolute top-4 right-4 z-20 w-9 h-9 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 rounded-full flex items-center justify-center transition-all duration-200 hover:rotate-90 cursor-pointer"
               aria-label="Tutup"
             >
-              <X size={16} className="text-slate-500" />
+              <X size={16} className="text-slate-500 dark:text-slate-300" />
             </button>
 
             {/* Header — full-width portrait photo */}
             {member.photo ? (
-              <div className="relative w-full overflow-hidden bg-slate-100" style={{ aspectRatio: "3/4" }}>
+              <div className="relative w-full overflow-hidden bg-slate-100 dark:bg-slate-800" style={{ aspectRatio: "3/4" }}>
                 <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${memberGradients[index % memberGradients.length]} z-10`} />
                 <img
                   src={member.photo}
@@ -120,9 +120,9 @@ function MemberModal({ member, index, onClose }: MemberModalProps) {
                   className="team-photo w-full h-full object-cover"
                   style={{ objectPosition: member.photoPosition }}
                 />
-                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white dark:from-slate-900 to-transparent" />
                 <div className="absolute bottom-4 left-0 right-0 text-center px-6">
-                  <h2 className="font-bold text-xl text-slate-900 leading-snug drop-shadow-sm">{member.name}</h2>
+                  <h2 className="font-bold text-xl text-slate-900 dark:text-white leading-snug drop-shadow-sm">{member.name}</h2>
                 </div>
               </div>
             ) : (
@@ -130,18 +130,18 @@ function MemberModal({ member, index, onClose }: MemberModalProps) {
                 <UserRound size={48} className="text-white" strokeWidth={1.4} />
               </div>
             )}
-            <div className="px-6 pt-4 pb-5 text-center border-b border-slate-100">
+            <div className="px-6 pt-4 pb-5 text-center border-b border-slate-100 dark:border-white/[0.06]">
               {!member.photo && (
-                <h2 className="font-bold text-xl text-slate-900 leading-snug mb-2">{member.name}</h2>
+                <h2 className="font-bold text-xl text-slate-900 dark:text-white leading-snug mb-2">{member.name}</h2>
               )}
-              <span className="inline-block text-xs font-semibold text-primary-700 bg-primary-50 border border-primary-200 px-3 py-1 rounded-full">
+              <span className="inline-block text-xs font-semibold text-primary-700 dark:text-primary-400 bg-primary-50 dark:bg-primary-500/15 border border-primary-200 dark:border-primary-800 px-3 py-1 rounded-full">
                 {member.role}
               </span>
             </div>
 
             {/* Social links */}
             <div className="px-6 py-6">
-              <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.3em] mb-4">
+              <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[0.3em] mb-4">
                 Social Media
               </p>
 
@@ -159,16 +159,16 @@ function MemberModal({ member, index, onClose }: MemberModalProps) {
                           rel="noopener noreferrer"
                           whileHover={{ x: 4 }}
                           whileTap={{ scale: 0.97 }}
-                          className="flex items-center gap-3 p-3 rounded-xl border border-slate-100 hover:border-primary-200 hover:bg-primary-50 transition-colors duration-200 group"
+                          className="flex items-center gap-3 p-3 rounded-xl border border-slate-100 dark:border-white/[0.06] hover:border-primary-200 dark:hover:border-primary-700 hover:bg-primary-50 dark:hover:bg-primary-500/10 transition-colors duration-200 group"
                         >
                           <div className={`w-9 h-9 ${social.color} rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm`}>
                             <Icon size={16} className="text-white" />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <p className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">
+                            <p className="text-[10px] text-slate-400 dark:text-slate-500 font-medium uppercase tracking-wider">
                               {social.label}
                             </p>
-                            <p className="text-sm font-semibold text-slate-600 group-hover:text-primary-700 truncate transition-colors">
+                            <p className="text-sm font-semibold text-slate-600 dark:text-slate-300 group-hover:text-primary-700 dark:group-hover:text-primary-400 truncate transition-colors">
                               {social.url.replace(/^https?:\/\/(www\.)?/, "")}
                             </p>
                           </div>
@@ -178,10 +178,10 @@ function MemberModal({ member, index, onClose }: MemberModalProps) {
                 </div>
               ) : (
                 <div className="text-center py-6">
-                  <div className="w-12 h-12 bg-slate-100 border border-slate-200 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Globe size={20} className="text-slate-400" />
+                  <div className="w-12 h-12 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Globe size={20} className="text-slate-400 dark:text-slate-500" />
                   </div>
-                  <p className="text-sm text-slate-400">
+                  <p className="text-sm text-slate-400 dark:text-slate-500">
                     Belum ada social media yang ditambahkan.
                   </p>
                 </div>
@@ -207,12 +207,12 @@ export default function TimContent() {
         onClose={() => setSelected(null)}
       />
 
-      <main className="min-h-screen bg-[#faf9f6] lg:pt-24" style={{ paddingTop: "calc(env(safe-area-inset-top) + 5rem)" }}>
+      <main className="min-h-screen bg-[#faf9f6] dark:bg-slate-950 lg:pt-24" style={{ paddingTop: "calc(env(safe-area-inset-top) + 5rem)" }}>
 
         {/* Page header */}
-        <section className="bg-white border-b border-slate-200 py-8 lg:py-12 relative overflow-hidden">
+        <section className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-8 lg:py-12 relative overflow-hidden">
           {/* Decorative background blob */}
-          <div className="absolute top-0 right-0 w-80 h-80 bg-primary-50 rounded-full -translate-y-1/2 translate-x-1/3 pointer-events-none opacity-70" />
+          <div className="absolute top-0 right-0 w-80 h-80 bg-primary-50 dark:bg-primary-500/[0.06] rounded-full -translate-y-1/2 translate-x-1/3 pointer-events-none opacity-70" />
 
           <div className="relative max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-20">
             <motion.div
@@ -222,17 +222,17 @@ export default function TimContent() {
             >
               <div className="flex items-center gap-3 mb-4">
                 <span className="w-2 h-2 rounded-full bg-primary-500 flex-shrink-0" />
-                <UsersRound size={14} className="text-primary-600 flex-shrink-0" />
-                <span className="text-xs font-bold text-primary-700 tracking-[0.22em] uppercase">
+                <UsersRound size={14} className="text-primary-600 dark:text-primary-400 flex-shrink-0" />
+                <span className="text-xs font-bold text-primary-700 dark:text-primary-400 tracking-[0.22em] uppercase">
                   Profil Tim
                 </span>
-                <div className="h-px w-16 bg-slate-200" />
+                <div className="h-px w-16 bg-slate-200 dark:bg-white/10" />
               </div>
-              <h1 className="font-black text-3xl sm:text-4xl lg:text-5xl text-slate-900 tracking-tight">
+              <h1 className="font-black text-3xl sm:text-4xl lg:text-5xl text-slate-900 dark:text-white tracking-tight">
                 Profil{" "}
-                <span className="text-slate-300">Kelompok 44</span>
+                <span className="text-slate-300 dark:text-slate-700">Kelompok 44</span>
               </h1>
-              <p className="text-slate-500 mt-4 max-w-lg text-sm leading-relaxed">
+              <p className="text-slate-500 dark:text-slate-400 mt-4 max-w-lg text-sm leading-relaxed">
                 Mahasiswa Kuliah Kerja Nyata Universitas Kristen Duta Wacana
                 Periode Genap 2025/2026
               </p>
@@ -251,7 +251,7 @@ export default function TimContent() {
               className="flex items-center gap-3 mb-5"
             >
               <Leaf size={12} className="text-primary-500" />
-              <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.3em]">
+              <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[0.3em]">
                 Klik kartu untuk melihat detail &amp; social media
               </p>
             </motion.div>
@@ -266,13 +266,13 @@ export default function TimContent() {
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
                   whileTap={{ scale: 0.97 }}
                   onClick={() => setSelected({ member, index: i })}
-                  className="bg-white border border-slate-200 hover:border-primary-300 hover:shadow-lg hover:shadow-primary-900/8 rounded-2xl cursor-pointer w-full group transition-all duration-300 flex flex-col items-center text-center p-4 sm:p-5"
+                  className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-primary-300 dark:hover:border-primary-700 hover:shadow-lg hover:shadow-primary-900/8 rounded-2xl cursor-pointer w-full group transition-all duration-300 flex flex-col items-center text-center p-4 sm:p-5"
                 >
                   {/* Gradient accent line */}
                   <div className={`w-8 h-0.5 bg-gradient-to-r ${memberGradients[i % memberGradients.length]} rounded-full mb-4 opacity-60 group-hover:opacity-100 group-hover:w-12 transition-all duration-300`} />
 
                   {/* Circular photo */}
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden ring-2 ring-slate-100 group-hover:ring-primary-200 group-hover:scale-105 transition-all duration-300 mb-3 flex-shrink-0">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden ring-2 ring-slate-100 dark:ring-white/10 group-hover:ring-primary-200 dark:group-hover:ring-primary-700 group-hover:scale-105 transition-all duration-300 mb-3 flex-shrink-0">
                     {member.photo ? (
                       <img
                         src={member.photo}
@@ -287,13 +287,13 @@ export default function TimContent() {
                     )}
                   </div>
 
-                  <h3 className="font-bold text-xs sm:text-sm text-slate-900 leading-snug break-words group-hover:text-primary-700 transition-colors">
+                  <h3 className="font-bold text-xs sm:text-sm text-slate-900 dark:text-white leading-snug break-words group-hover:text-primary-700 dark:group-hover:text-primary-400 transition-colors">
                     {member.name}
                   </h3>
-                  <p className="text-[10px] text-primary-600 font-semibold mt-1">
+                  <p className="text-[10px] text-primary-600 dark:text-primary-400 font-semibold mt-1">
                     {member.role}
                   </p>
-                  <p className="text-[9px] text-slate-400 mt-2 uppercase tracking-widest">
+                  <p className="text-[9px] text-slate-400 dark:text-slate-500 mt-2 uppercase tracking-widest">
                     Lihat profil <span className="group-hover:translate-x-1 transition-transform duration-200 inline-block">→</span>
                   </p>
                 </motion.button>

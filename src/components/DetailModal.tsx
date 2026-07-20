@@ -52,20 +52,20 @@ export default function DetailModal({ data, onClose }: DetailModalProps) {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: "100%", opacity: 0 }}
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="relative z-10 w-full max-w-2xl max-h-[94vh] md:max-h-[88vh] bg-white border border-slate-200 rounded-t-3xl md:rounded-3xl overflow-hidden flex flex-col md:mx-4 shadow-2xl shadow-slate-900/25"
+            className="relative z-10 w-full max-w-2xl max-h-[94vh] md:max-h-[88vh] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-t-3xl md:rounded-3xl overflow-hidden flex flex-col md:mx-4 shadow-2xl shadow-slate-900/25"
           >
             {/* Drag handle (mobile) */}
             <div className="md:hidden flex justify-center pt-3 pb-1 flex-shrink-0">
-              <div className="w-10 h-1 rounded-full bg-slate-200" />
+              <div className="w-10 h-1 rounded-full bg-slate-200 dark:bg-slate-700" />
             </div>
 
             {/* Close button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-20 w-10 h-10 bg-white/90 hover:bg-slate-100 border border-slate-200 rounded-full flex items-center justify-center hover:rotate-90 hover:scale-110 transition-all duration-300 cursor-pointer shadow-sm"
+              className="absolute top-4 right-4 z-20 w-10 h-10 bg-white/90 dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 rounded-full flex items-center justify-center hover:rotate-90 hover:scale-110 transition-all duration-300 cursor-pointer shadow-sm"
               aria-label="Tutup"
             >
-              <X size={18} className="text-slate-500" />
+              <X size={18} className="text-slate-500 dark:text-slate-300" />
             </button>
 
             {/* Scrollable content */}
@@ -107,7 +107,7 @@ export default function DetailModal({ data, onClose }: DetailModalProps) {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
-                  className="text-primary-700 font-semibold text-sm leading-relaxed border-l-2 border-primary-400 pl-3"
+                  className="text-primary-700 dark:text-primary-400 font-semibold text-sm leading-relaxed border-l-2 border-primary-400 dark:border-primary-600 pl-3"
                 >
                   {data.shortDesc}
                 </motion.p>
@@ -117,7 +117,7 @@ export default function DetailModal({ data, onClose }: DetailModalProps) {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.18 }}
-                  className="text-slate-500 leading-relaxed text-sm sm:text-base"
+                  className="text-slate-500 dark:text-slate-400 leading-relaxed text-sm sm:text-base"
                 >
                   {data.fullDesc}
                 </motion.p>
@@ -128,7 +128,7 @@ export default function DetailModal({ data, onClose }: DetailModalProps) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.26 }}
                 >
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-3">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-3">
                     {isPotensi ? "Poin Peluang" : "Poin Pelaksanaan"}
                   </p>
                   <ul className="space-y-2.5">
@@ -136,16 +136,16 @@ export default function DetailModal({ data, onClose }: DetailModalProps) {
                       <li key={i} className="flex items-start gap-2.5">
                         <CheckCircle2
                           size={16}
-                          className="text-primary-500 flex-shrink-0 mt-0.5"
+                          className="text-primary-500 dark:text-primary-400 flex-shrink-0 mt-0.5"
                         />
-                        <span className="text-sm text-slate-600 leading-snug">{point}</span>
+                        <span className="text-sm text-slate-600 dark:text-slate-300 leading-snug">{point}</span>
                       </li>
                     ))}
                   </ul>
                 </motion.div>
 
                 {/* Divider */}
-                <div className="h-px bg-slate-100" />
+                <div className="h-px bg-slate-100 dark:bg-white/[0.06]" />
 
                 {/* Info grid */}
                 <motion.div
@@ -202,13 +202,13 @@ function InfoCard({
   wide?: boolean;
 }) {
   return (
-    <div className={`flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl ${wide ? "sm:col-span-2" : ""}`}>
-      <div className="w-8 h-8 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0 mt-0.5 text-primary-700">
+    <div className={`flex items-start gap-3 p-3.5 bg-slate-50 dark:bg-white/[0.03] border border-slate-100 dark:border-white/[0.06] rounded-xl ${wide ? "sm:col-span-2" : ""}`}>
+      <div className="w-8 h-8 rounded-lg bg-primary-100 dark:bg-primary-500/15 flex items-center justify-center flex-shrink-0 mt-0.5 text-primary-700 dark:text-primary-400">
         {icon}
       </div>
       <div className="min-w-0">
-        <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">{label}</p>
-        <p className="text-sm font-semibold text-slate-800 mt-0.5 leading-snug">{value}</p>
+        <p className="text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider">{label}</p>
+        <p className="text-sm font-semibold text-slate-800 dark:text-slate-100 mt-0.5 leading-snug">{value}</p>
       </div>
     </div>
   );

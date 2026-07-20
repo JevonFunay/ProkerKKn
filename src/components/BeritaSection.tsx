@@ -140,8 +140,8 @@ export default function BeritaSection() {
 
   return (
     <>
-      <section id="berita" className="py-24 lg:py-32 bg-[#faf9f6] relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+      <section id="berita" className="py-24 lg:py-32 bg-[#faf9f6] dark:bg-slate-950 relative overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-white/10 to-transparent" />
 
         <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-20" ref={ref}>
 
@@ -157,11 +157,11 @@ export default function BeritaSection() {
               <span className="text-xs font-bold text-primary-700 tracking-[0.22em] uppercase">
                 Update Terkini
               </span>
-              <div className="h-px flex-1 bg-slate-200" />
+              <div className="h-px flex-1 bg-slate-200 dark:bg-white/10" />
             </div>
-            <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight">
+            <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 dark:text-white tracking-tight">
               Berita{" "}
-              <span className="text-slate-300">Terbaru</span>
+              <span className="text-slate-300 dark:text-slate-700">Terbaru</span>
             </h2>
           </motion.div>
 
@@ -174,7 +174,7 @@ export default function BeritaSection() {
             {/* ── MOBILE: single-card carousel ── */}
             <div className="md:hidden">
               <div
-                className="relative overflow-hidden rounded-2xl shadow-sm border border-slate-200 cursor-pointer"
+                className="relative overflow-hidden rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 cursor-pointer"
                 onClick={() => setModal(berita[mobileIdx])}
               >
                 <AnimatePresence initial={false} custom={dir}>
@@ -186,9 +186,9 @@ export default function BeritaSection() {
                     animate="center"
                     exit="exit"
                     transition={SLIDE_TRANSITION}
-                    className="absolute inset-0 bg-white flex flex-col"
+                    className="absolute inset-0 bg-white dark:bg-slate-900 flex flex-col"
                   >
-                    <div className="relative overflow-hidden bg-slate-100 h-52 flex-shrink-0">
+                    <div className="relative overflow-hidden bg-slate-100 dark:bg-slate-800 h-52 flex-shrink-0">
                       <img
                         src={berita[mobileIdx].image}
                         alt={berita[mobileIdx].judul}
@@ -201,15 +201,15 @@ export default function BeritaSection() {
                     </div>
                     <div className="h-32 overflow-hidden flex flex-col justify-between p-4">
                       <div>
-                        <div className="flex items-center gap-1.5 text-slate-400 text-xs mb-2">
+                        <div className="flex items-center gap-1.5 text-slate-400 dark:text-slate-500 text-xs mb-2">
                           <CalendarDays size={11} />
                           {berita[mobileIdx].hari}, {berita[mobileIdx].tanggal}
                         </div>
-                        <h3 className="font-black text-slate-900 text-base leading-snug line-clamp-2">
+                        <h3 className="font-black text-slate-900 dark:text-white text-base leading-snug line-clamp-2">
                           {berita[mobileIdx].judul}
                         </h3>
                       </div>
-                      <p className="text-[11px] text-primary-600 font-semibold">
+                      <p className="text-[11px] text-primary-600 dark:text-primary-400 font-semibold">
                         Ketuk untuk baca selengkapnya →
                       </p>
                     </div>
@@ -226,7 +226,7 @@ export default function BeritaSection() {
               <div className="flex items-center justify-between mt-4 px-1">
                 <button
                   onClick={(e) => { e.stopPropagation(); prevMobile(); }}
-                  className="w-9 h-9 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:border-primary-300 hover:text-primary-600 transition-colors cursor-pointer"
+                  className="w-9 h-9 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:border-primary-300 dark:hover:border-primary-700 hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-pointer"
                   aria-label="Sebelumnya"
                 >
                   <ChevronLeft size={16} />
@@ -239,7 +239,7 @@ export default function BeritaSection() {
                       className={`rounded-full transition-all duration-300 cursor-pointer ${
                         i === mobileIdx
                           ? "w-5 h-2 bg-primary-500"
-                          : "w-2 h-2 bg-slate-300 hover:bg-slate-400"
+                          : "w-2 h-2 bg-slate-300 dark:bg-slate-700 hover:bg-slate-400 dark:hover:bg-slate-600"
                       }`}
                       aria-label={`Berita ${i + 1}`}
                     />
@@ -247,7 +247,7 @@ export default function BeritaSection() {
                 </div>
                 <button
                   onClick={(e) => { e.stopPropagation(); nextMobile(); }}
-                  className="w-9 h-9 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:border-primary-300 hover:text-primary-600 transition-colors cursor-pointer"
+                  className="w-9 h-9 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:border-primary-300 dark:hover:border-primary-700 hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-pointer"
                   aria-label="Berikutnya"
                 >
                   <ChevronRight size={16} />
@@ -271,11 +271,11 @@ export default function BeritaSection() {
                       className="flex-shrink-0 px-2"
                     >
                       <div
-                        className="rounded-2xl overflow-hidden border border-slate-200 bg-white cursor-pointer hover:border-primary-200 hover:shadow-lg transition-all duration-200 flex flex-col"
+                        className="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 cursor-pointer hover:border-primary-200 dark:hover:border-primary-700 hover:shadow-lg transition-all duration-200 flex flex-col"
                         onClick={() => setModal(item)}
                       >
                         {/* Photo */}
-                        <div className="relative overflow-hidden bg-slate-100 h-44 flex-shrink-0">
+                        <div className="relative overflow-hidden bg-slate-100 dark:bg-slate-800 h-44 flex-shrink-0">
                           <img
                             src={item.image}
                             alt={item.judul}
@@ -288,14 +288,14 @@ export default function BeritaSection() {
                         </div>
                         {/* Body */}
                         <div className="p-4 flex flex-col gap-2 flex-1">
-                          <div className="flex items-center gap-1.5 text-slate-400 text-xs">
+                          <div className="flex items-center gap-1.5 text-slate-400 dark:text-slate-500 text-xs">
                             <CalendarDays size={11} />
                             {item.hari}, {item.tanggal}
                           </div>
-                          <h3 className="font-black text-slate-900 text-sm leading-snug line-clamp-2 flex-1">
+                          <h3 className="font-black text-slate-900 dark:text-white text-sm leading-snug line-clamp-2 flex-1">
                             {item.judul}
                           </h3>
-                          <p className="text-[11px] text-primary-600 font-semibold">
+                          <p className="text-[11px] text-primary-600 dark:text-primary-400 font-semibold">
                             Baca selengkapnya →
                           </p>
                         </div>
@@ -310,7 +310,7 @@ export default function BeritaSection() {
                 <button
                   onClick={prevDesktop}
                   disabled={desktopIdx === 0}
-                  className="w-9 h-9 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:border-primary-300 hover:text-primary-600 transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-default"
+                  className="w-9 h-9 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:border-primary-300 dark:hover:border-primary-700 hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-default"
                   aria-label="Sebelumnya"
                 >
                   <ChevronLeft size={16} />
@@ -324,7 +324,7 @@ export default function BeritaSection() {
                       className={`rounded-full transition-all duration-300 cursor-pointer ${
                         i === desktopIdx
                           ? "w-5 h-2 bg-primary-500"
-                          : "w-2 h-2 bg-slate-300 hover:bg-slate-400"
+                          : "w-2 h-2 bg-slate-300 dark:bg-slate-700 hover:bg-slate-400 dark:hover:bg-slate-600"
                       }`}
                       aria-label={`Slide ${i + 1}`}
                     />
@@ -334,7 +334,7 @@ export default function BeritaSection() {
                 <button
                   onClick={nextDesktop}
                   disabled={desktopIdx === desktopMax}
-                  className="w-9 h-9 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-500 hover:border-primary-300 hover:text-primary-600 transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-default"
+                  className="w-9 h-9 rounded-full border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:border-primary-300 dark:hover:border-primary-700 hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-pointer disabled:opacity-30 disabled:cursor-default"
                   aria-label="Berikutnya"
                 >
                   <ChevronRight size={16} />
@@ -368,18 +368,18 @@ export default function BeritaSection() {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: "100%", opacity: 0 }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="relative z-10 w-full max-w-2xl max-h-[94vh] md:max-h-[88vh] bg-white border border-slate-200 rounded-t-3xl md:rounded-3xl overflow-hidden flex flex-col md:mx-4 shadow-2xl shadow-slate-900/25"
+              className="relative z-10 w-full max-w-2xl max-h-[94vh] md:max-h-[88vh] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-t-3xl md:rounded-3xl overflow-hidden flex flex-col md:mx-4 shadow-2xl shadow-slate-900/25"
             >
               <div className="md:hidden flex justify-center pt-3 pb-1 flex-shrink-0">
-                <div className="w-10 h-1 rounded-full bg-slate-200" />
+                <div className="w-10 h-1 rounded-full bg-slate-200 dark:bg-slate-700" />
               </div>
 
               <button
                 onClick={() => setModal(null)}
-                className="absolute top-4 right-4 z-20 w-10 h-10 bg-white/90 hover:bg-slate-100 border border-slate-200 rounded-full flex items-center justify-center hover:rotate-90 hover:scale-110 transition-all duration-300 cursor-pointer shadow-sm"
+                className="absolute top-4 right-4 z-20 w-10 h-10 bg-white/90 dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 rounded-full flex items-center justify-center hover:rotate-90 hover:scale-110 transition-all duration-300 cursor-pointer shadow-sm"
                 aria-label="Tutup"
               >
-                <X size={18} className="text-slate-500" />
+                <X size={18} className="text-slate-500 dark:text-slate-300" />
               </button>
 
               <div className="overflow-y-auto overscroll-contain flex-1">
@@ -410,19 +410,19 @@ export default function BeritaSection() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="text-slate-500 leading-relaxed text-sm sm:text-base"
+                    className="text-slate-500 dark:text-slate-400 leading-relaxed text-sm sm:text-base"
                   >
                     {modal.penjelasan}
                   </motion.p>
 
-                  <div className="h-px bg-slate-100" />
+                  <div className="h-px bg-slate-100 dark:bg-white/[0.06]" />
 
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.18 }}
                   >
-                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-3">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-3">
                       Waktu Pelaksanaan
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -457,13 +457,13 @@ export default function BeritaSection() {
 
 function InfoCard({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
   return (
-    <div className="flex items-start gap-3 p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
-      <div className="w-8 h-8 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0 mt-0.5 text-primary-700">
+    <div className="flex items-start gap-3 p-3.5 bg-slate-50 dark:bg-white/[0.03] border border-slate-100 dark:border-white/[0.06] rounded-xl">
+      <div className="w-8 h-8 rounded-lg bg-primary-100 dark:bg-primary-500/15 flex items-center justify-center flex-shrink-0 mt-0.5 text-primary-700 dark:text-primary-400">
         {icon}
       </div>
       <div className="min-w-0">
-        <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">{label}</p>
-        <p className="text-sm font-semibold text-slate-800 mt-0.5 leading-snug">{value}</p>
+        <p className="text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider">{label}</p>
+        <p className="text-sm font-semibold text-slate-800 dark:text-slate-100 mt-0.5 leading-snug">{value}</p>
       </div>
     </div>
   );

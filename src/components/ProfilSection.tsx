@@ -73,8 +73,8 @@ export default function ProfilSection() {
   };
 
   return (
-    <section id="profil" className="py-24 lg:py-32 bg-white relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+    <section id="profil" className="py-24 lg:py-32 bg-white dark:bg-slate-950 relative overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-white/10 to-transparent" />
 
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-20 relative" ref={ref}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -86,7 +86,7 @@ export default function ProfilSection() {
             transition={{ duration: 0.65, delay: 0.1 }}
             className="order-1 relative"
           >
-            <div className="relative w-full rounded-3xl overflow-hidden bg-slate-100 shadow-xl shadow-slate-200/60" style={{ aspectRatio: "4/3" }}>
+            <div className="relative w-full rounded-3xl overflow-hidden bg-slate-100 dark:bg-slate-800 shadow-xl shadow-slate-200/60 dark:shadow-black/40" style={{ aspectRatio: "4/3" }}>
               <AnimatePresence initial={false} custom={direction}>
                 <motion.img
                   key={current}
@@ -147,15 +147,15 @@ export default function ProfilSection() {
               <span className="text-xs font-bold text-primary-700 tracking-[0.22em] uppercase">
                 Dokumentasi Kegiatan
               </span>
-              <div className="h-px flex-1 bg-slate-200" />
+              <div className="h-px flex-1 bg-slate-200 dark:bg-white/10" />
             </div>
 
-            <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight mb-6">
+            <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 dark:text-white tracking-tight mb-6">
               Progress{" "}
-              <span className="text-slate-300">KKN Kel. 44</span>
+              <span className="text-slate-300 dark:text-slate-700">KKN Kel. 44</span>
             </h2>
 
-            <p className="text-slate-500 leading-relaxed text-base sm:text-lg mb-10">
+            <p className="text-slate-500 dark:text-slate-400 leading-relaxed text-base sm:text-lg mb-10">
               Dokumentasi perjalanan KKN Kelompok 44 UKDW di Dusun Karangnongko,
               mulai dari program kerja, interaksi bersama warga, hingga
               pengembangan potensi desa.

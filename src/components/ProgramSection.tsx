@@ -33,8 +33,8 @@ export default function ProgramSection() {
   const rest = programKerja.slice(1);
 
   return (
-    <section id="program" className="py-24 lg:py-32 bg-[#faf9f6] relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+    <section id="program" className="py-24 lg:py-32 bg-[#faf9f6] dark:bg-slate-950 relative overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-white/10 to-transparent" />
 
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-20 relative" ref={ref}>
 
@@ -50,11 +50,11 @@ export default function ProgramSection() {
             <span className="text-xs font-bold text-accent-500 tracking-[0.22em] uppercase">
               Realisasi Aksi
             </span>
-            <div className="h-px flex-1 bg-slate-200" />
+            <div className="h-px flex-1 bg-slate-200 dark:bg-white/10" />
           </div>
-          <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight">
+          <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 dark:text-white tracking-tight">
             Program{" "}
-            <span className="text-slate-300">Kerja</span>
+            <span className="text-slate-300 dark:text-slate-700">Kerja</span>
           </h2>
         </motion.div>
 
@@ -67,7 +67,7 @@ export default function ProgramSection() {
         >
           <TiltCard>
           <div
-            className="group cursor-pointer rounded-3xl overflow-hidden bg-white border border-slate-200 hover:border-primary-300 hover:shadow-2xl hover:shadow-primary-900/8 transition-all duration-300"
+            className="group cursor-pointer rounded-3xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-primary-300 dark:hover:border-primary-700 hover:shadow-2xl hover:shadow-primary-900/8 transition-all duration-300"
             onClick={() => router.push("/proker/utama")}
           >
             {/* Top gradient strip */}
@@ -75,7 +75,7 @@ export default function ProgramSection() {
 
             <div className="grid grid-cols-1 md:grid-cols-5">
               {/* Image */}
-              <div className="md:col-span-2 relative overflow-hidden h-56 md:h-auto min-h-[260px] bg-slate-100">
+              <div className="md:col-span-2 relative overflow-hidden h-56 md:h-auto min-h-[260px] bg-slate-100 dark:bg-slate-800">
                 <img
                   src={featured.image}
                   alt={featured.title}
@@ -85,8 +85,8 @@ export default function ProgramSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
 
                 {/* Number badge */}
-                <div className="absolute top-4 left-4 w-9 h-9 rounded-xl bg-white/90 backdrop-blur-sm flex items-center justify-center border border-white/60 shadow-sm">
-                  <span className="text-slate-700 font-black text-xs">01</span>
+                <div className="absolute top-4 left-4 w-9 h-9 rounded-xl bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm flex items-center justify-center border border-white/60 dark:border-white/10 shadow-sm">
+                  <span className="text-slate-700 dark:text-slate-200 font-black text-xs">01</span>
                 </div>
 
                 {/* Proker Utama badge */}
@@ -102,32 +102,32 @@ export default function ProgramSection() {
 
               {/* Content */}
               <div className="md:col-span-3 p-8 lg:p-10 flex flex-col">
-                <h3 className="font-black text-xl sm:text-2xl lg:text-[1.6rem] text-slate-900 mb-4 leading-snug group-hover:text-primary-700 transition-colors">
+                <h3 className="font-black text-xl sm:text-2xl lg:text-[1.6rem] text-slate-900 dark:text-white mb-4 leading-snug group-hover:text-primary-700 dark:group-hover:text-primary-400 transition-colors">
                   {featured.title}
                 </h3>
 
-                <p className="text-slate-500 leading-relaxed text-sm sm:text-base mb-6">
+                <p className="text-slate-500 dark:text-slate-400 leading-relaxed text-sm sm:text-base mb-6">
                   {featured.fullDesc}
                 </p>
 
                 {/* Meta cards */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 mt-auto">
-                  <div className="flex items-start gap-2.5 p-3.5 bg-slate-50 rounded-xl border border-slate-100">
-                    <CalendarDays size={14} className="text-primary-600 mt-0.5 flex-shrink-0" />
+                  <div className="flex items-start gap-2.5 p-3.5 bg-slate-50 dark:bg-white/[0.03] rounded-xl border border-slate-100 dark:border-white/[0.06]">
+                    <CalendarDays size={14} className="text-primary-600 dark:text-primary-400 mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">
+                      <p className="text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider mb-0.5">
                         Timeline
                       </p>
-                      <p className="text-xs font-semibold text-slate-700">{featured.timeline}</p>
+                      <p className="text-xs font-semibold text-slate-700 dark:text-slate-200">{featured.timeline}</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-2.5 p-3.5 bg-slate-50 rounded-xl border border-slate-100">
-                    <UserCheck size={14} className="text-primary-600 mt-0.5 flex-shrink-0" />
+                  <div className="flex items-start gap-2.5 p-3.5 bg-slate-50 dark:bg-white/[0.03] rounded-xl border border-slate-100 dark:border-white/[0.06]">
+                    <UserCheck size={14} className="text-primary-600 dark:text-primary-400 mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mb-0.5">
+                      <p className="text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider mb-0.5">
                         Penanggung Jawab
                       </p>
-                      <p className="text-xs font-semibold text-slate-700">{featured.pj}</p>
+                      <p className="text-xs font-semibold text-slate-700 dark:text-slate-200">{featured.pj}</p>
                     </div>
                   </div>
                 </div>
@@ -153,10 +153,10 @@ export default function ProgramSection() {
           transition={{ duration: 0.5, delay: 0.35 }}
           className="flex items-center gap-3 mb-6"
         >
-          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.3em] whitespace-nowrap">
+          <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[0.3em] whitespace-nowrap">
             Proker Individu
           </span>
-          <div className="h-px flex-1 bg-slate-200" />
+          <div className="h-px flex-1 bg-slate-200 dark:bg-white/10" />
         </motion.div>
 
         {/* ── Small cards grid ── */}

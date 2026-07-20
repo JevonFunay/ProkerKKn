@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "@/data/content";
 import { smoothScrollTo, smoothScrollToElement } from "@/lib/smoothScroll";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -92,6 +93,11 @@ export default function Navbar() {
             ))}
           </nav>
 
+          {/* Desktop theme toggle */}
+          <div className="hidden md:block">
+            <ThemeToggle />
+          </div>
+
           {/* Mobile hamburger */}
           <motion.button
             whileTap={{ scale: 0.82 }}
@@ -159,6 +165,18 @@ export default function Navbar() {
                     </Link>
                   </motion.div>
                 ))}
+                <motion.div
+                  initial={{ opacity: 0, y: -12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    delay: navLinks.length * 0.07,
+                    duration: 0.28,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                >
+                  <div className="mx-4 my-1.5 h-px bg-white/[0.07]" />
+                  <ThemeToggle variant="row" />
+                </motion.div>
               </nav>
             </motion.div>
           )}

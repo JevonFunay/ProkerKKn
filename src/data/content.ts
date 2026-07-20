@@ -32,7 +32,7 @@ export const programKerja: ProgramData[] = [
     id: 1,
     title: "Sayembara Tas Siaga Bencana Gempa Bumi",
     category: "Kebencanaan",
-    categoryColor: "bg-orange-100 text-orange-700",
+    categoryColor: "bg-orange-100 text-orange-700 dark:bg-orange-500/15 dark:text-orange-400",
     image: "/ProkerUtama.jpeg",
     shortDesc:
       "Edukasi kesiapsiagaan gempa bumi melalui sayembara penyusunan tas siaga bencana.",
@@ -50,7 +50,7 @@ export const programKerja: ProgramData[] = [
     id: 2,
     title: "Edukasi Perencanaan & Pengelolaan Keuangan Rumah Tangga dengan Metode Amplop",
     category: "Literasi Finansial",
-    categoryColor: "bg-amber-100 text-amber-700",
+    categoryColor: "bg-amber-100 text-amber-700 dark:bg-amber-500/15 dark:text-amber-400",
     image: "/prokerreyna.webp",
     shortDesc:
       "Edukasi perencanaan dan pengelolaan keuangan rumah tangga melalui Metode Amplop beserta pencatatan pengeluaran sederhana.",
@@ -75,7 +75,7 @@ export const programKerja: ProgramData[] = [
     id: 3,
     title: "Website E-Portofolio KKN",
     category: "Teknologi",
-    categoryColor: "bg-teal-100 text-teal-700",
+    categoryColor: "bg-teal-100 text-teal-700 dark:bg-teal-500/15 dark:text-teal-400",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
     shortDesc:
       "Rancang bangun sistem informasi berbasis web untuk dokumentasi pengabdian KKN.",
@@ -94,7 +94,7 @@ export const programKerja: ProgramData[] = [
     id: 4,
     title: "Batik Jumputan Teknik Shibori",
     category: "Pemberdayaan",
-    categoryColor: "bg-primary-100 text-primary-700",
+    categoryColor: "bg-primary-100 text-primary-700 dark:bg-primary-500/15 dark:text-primary-400",
     image: "/ProkerWina.webp",
     shortDesc:
       "Pelatihan pewarnaan kain metode ikat-celup Shibori untuk ibu-ibu PKK.",
@@ -112,7 +112,7 @@ export const programKerja: ProgramData[] = [
     id: 5,
     title: "Senam Hipertensi Lansia Happy",
     category: "Kesehatan",
-    categoryColor: "bg-lime-100 text-lime-700",
+    categoryColor: "bg-lime-100 text-lime-700 dark:bg-lime-500/15 dark:text-lime-400",
     image: "/prokerlili.webp",
     shortDesc:
       "Posyandu Lansia dan Cek Kesehatan Gratis sebagai upaya deteksi dini dan pencegahan komplikasi hipertensi pada lansia Dusun Karangnongko.",
@@ -143,7 +143,7 @@ export const programKerja: ProgramData[] = [
     id: 6,
     title: "Digitalisasi Informasi Geospasial Dusun Karangnongko Berbasis GIS, OpenStreetMap, dan Google Maps",
     category: "Pemetaan Digital",
-    categoryColor: "bg-stone-100 text-stone-700",
+    categoryColor: "bg-stone-100 text-stone-700 dark:bg-stone-500/15 dark:text-stone-400",
     image: "/ProkerGatot.jpg",
     shortDesc:
       "Pemetaan batas wilayah dusun dan digitalisasi lokasi penting melalui GIS, OpenStreetMap, dan Google Maps.",
@@ -174,7 +174,7 @@ export const programKerja: ProgramData[] = [
     id: 7,
     title: "Edukasi QRIS: Cara Mudah Bertransaksi Digital untuk UMKM dan Masyarakat",
     category: "Literasi Digital",
-    categoryColor: "bg-sky-100 text-sky-700",
+    categoryColor: "bg-sky-100 text-sky-700 dark:bg-sky-500/15 dark:text-sky-400",
     image: "/prokerkelpin.webp",
     shortDesc:
       "Sosialisasi penggunaan QRIS bagi pelaku UMKM, Ibu PKK, dan masyarakat Dusun Karangnongko agar lebih percaya diri bertransaksi digital.",
@@ -205,7 +205,7 @@ export const potensiDesa: PotensiData[] = [
     id: 8,
     title: "Pembangunan Tempat Pembakaran Sampah Terpusat",
     category: "Lingkungan",
-    categoryColor: "bg-lime-100 text-lime-700",
+    categoryColor: "bg-lime-100 text-lime-700 dark:bg-lime-500/15 dark:text-lime-400",
     image: "/potensisampah.jpeg",
     shortDesc:
       "Fasilitas pengelolaan sampah terpusat khusus dusun untuk mengatasi kebiasaan membuang sampah sembarangan.",
@@ -224,7 +224,7 @@ export const potensiDesa: PotensiData[] = [
     id: 9,
     title: "Digitalisasi UMKM Rengginang",
     category: "Ekonomi Digital",
-    categoryColor: "bg-sky-100 text-sky-700",
+    categoryColor: "bg-sky-100 text-sky-700 dark:bg-sky-500/15 dark:text-sky-400",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop",
     shortDesc:
       "Perluasan pemasaran rengginang beras ketan yang saat ini hanya melayani pesanan langsung dan telepon.",
@@ -243,7 +243,7 @@ export const potensiDesa: PotensiData[] = [
     id: 10,
     title: "Pembuatan Titik Kumpul Bencana",
     category: "Kebencanaan",
-    categoryColor: "bg-orange-100 text-orange-700",
+    categoryColor: "bg-orange-100 text-orange-700 dark:bg-orange-500/15 dark:text-orange-400",
     image: "/assembly-point-scaled.webp",
     shortDesc:
       "Penetapan titik kumpul evakuasi warga karena dusun sama sekali belum memilikinya.",
@@ -262,7 +262,7 @@ export const potensiDesa: PotensiData[] = [
     id: 11,
     title: "Sistem Anti-Hama untuk Kebun Warga",
     category: "Pertanian",
-    categoryColor: "bg-emerald-100 text-emerald-700",
+    categoryColor: "bg-emerald-100 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-400",
     image: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800&h=500&fit=crop",
     shortDesc:
       "Perlindungan kebun warga dari serangan hama monyet dan babi hutan yang merusak hasil pertanian.",

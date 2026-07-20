@@ -18,17 +18,17 @@ export default function ProkerDetailContent({ program }: { program: ProgramData 
     <>
       <Navbar />
 
-      <main className="min-h-screen bg-[#faf9f6] pt-20 lg:pt-24">
+      <main className="min-h-screen bg-[#faf9f6] dark:bg-slate-950 pt-20 lg:pt-24">
 
         {/* Page header */}
-        <section className="bg-white border-b border-slate-200 py-10 lg:py-14 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-primary-50 rounded-full -translate-y-1/2 translate-x-1/3 pointer-events-none opacity-60" />
+        <section className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-10 lg:py-14 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-primary-50 dark:bg-primary-500/[0.06] rounded-full -translate-y-1/2 translate-x-1/3 pointer-events-none opacity-60" />
 
           <div className="relative max-w-[1400px] mx-auto px-6 sm:px-10 lg:px-20">
             <motion.div {...fadeUp(0)}>
               <Link
                 href="/#program"
-                className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-primary-600 transition-colors mb-6 group"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 dark:text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors mb-6 group"
               >
                 <ArrowLeft size={13} className="group-hover:-translate-x-0.5 transition-transform" />
                 Kembali ke Program Kerja
@@ -38,15 +38,15 @@ export default function ProkerDetailContent({ program }: { program: ProgramData 
                 <span className={`text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full ${program.categoryColor}`}>
                   {program.category}
                 </span>
-                <span className="text-[10px] font-bold uppercase tracking-widest bg-slate-100 text-slate-500 px-3 py-1 rounded-full">
+                <span className="text-[10px] font-bold uppercase tracking-widest bg-slate-100 dark:bg-white/[0.06] text-slate-500 dark:text-slate-400 px-3 py-1 rounded-full">
                   Proker Individu
                 </span>
               </div>
 
-              <h1 className="font-black text-3xl sm:text-4xl lg:text-5xl text-slate-900 tracking-tight leading-tight">
+              <h1 className="font-black text-3xl sm:text-4xl lg:text-5xl text-slate-900 dark:text-white tracking-tight leading-tight">
                 {program.title}
               </h1>
-              <p className="text-slate-500 mt-3 text-sm leading-relaxed max-w-2xl">
+              <p className="text-slate-500 dark:text-slate-400 mt-3 text-sm leading-relaxed max-w-2xl">
                 {program.shortDesc}
               </p>
             </motion.div>
@@ -66,7 +66,7 @@ export default function ProkerDetailContent({ program }: { program: ProgramData 
             alt={program.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-[#faf9f6]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-[#faf9f6] dark:to-slate-950" />
         </motion.div>
 
         {/* Main content */}
@@ -78,24 +78,24 @@ export default function ProkerDetailContent({ program }: { program: ProgramData 
               <div className="lg:col-span-2 space-y-8">
 
                 <motion.div {...fadeUp(0.18)}>
-                  <h2 className="font-bold text-slate-900 text-lg mb-3">Tentang Program</h2>
-                  <p className="text-slate-500 text-sm sm:text-base leading-relaxed border-l-2 border-primary-300 pl-4">
+                  <h2 className="font-bold text-slate-900 dark:text-white text-lg mb-3">Tentang Program</h2>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm sm:text-base leading-relaxed border-l-2 border-primary-300 dark:border-primary-700 pl-4">
                     {program.fullDesc}
                   </p>
                 </motion.div>
 
                 <motion.div {...fadeUp(0.26)}>
                   <div className="flex items-center gap-2 mb-3">
-                    <CheckCircle2 size={15} className="text-primary-600" />
-                    <span className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em]">
+                    <CheckCircle2 size={15} className="text-primary-600 dark:text-primary-400" />
+                    <span className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[0.2em]">
                       Poin Pelaksanaan
                     </span>
                   </div>
                   <ul className="space-y-2.5">
                     {program.highlights.map((point, i) => (
                       <li key={i} className="flex items-start gap-2.5">
-                        <CheckCircle2 size={16} className="text-primary-500 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-slate-600 leading-snug">{point}</span>
+                        <CheckCircle2 size={16} className="text-primary-500 dark:text-primary-400 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm text-slate-600 dark:text-slate-300 leading-snug">{point}</span>
                       </li>
                     ))}
                   </ul>
@@ -104,18 +104,18 @@ export default function ProkerDetailContent({ program }: { program: ProgramData 
                 {program.mekanisme && program.mekanisme.length > 0 && (
                   <motion.div {...fadeUp(0.34)}>
                     <div className="flex items-center gap-2 mb-4">
-                      <ListOrdered size={15} className="text-primary-600" />
-                      <span className="text-xs font-bold text-slate-400 uppercase tracking-[0.2em]">
+                      <ListOrdered size={15} className="text-primary-600 dark:text-primary-400" />
+                      <span className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[0.2em]">
                         Mekanisme Pelaksanaan
                       </span>
                     </div>
                     <ol className="space-y-3">
                       {program.mekanisme.map((step, i) => (
                         <li key={i} className="flex items-start gap-3">
-                          <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 text-primary-700 text-[11px] font-black flex items-center justify-center mt-0.5">
+                          <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 dark:bg-primary-500/15 text-primary-700 dark:text-primary-400 text-[11px] font-black flex items-center justify-center mt-0.5">
                             {i + 1}
                           </span>
-                          <span className="text-sm text-slate-600 leading-snug pt-0.5">{step}</span>
+                          <span className="text-sm text-slate-600 dark:text-slate-300 leading-snug pt-0.5">{step}</span>
                         </li>
                       ))}
                     </ol>
@@ -128,36 +128,36 @@ export default function ProkerDetailContent({ program }: { program: ProgramData 
                 initial={{ opacity: 0, x: 16 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="bg-white border border-slate-200 rounded-2xl p-5 h-fit lg:sticky lg:top-28"
+                className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 h-fit lg:sticky lg:top-28"
               >
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-4">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-4">
                   Info Program
                 </p>
 
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0">
-                      <CalendarDays size={15} className="text-primary-700" />
+                    <div className="w-8 h-8 rounded-lg bg-primary-100 dark:bg-primary-500/15 flex items-center justify-center flex-shrink-0">
+                      <CalendarDays size={15} className="text-primary-700 dark:text-primary-400" />
                     </div>
                     <div>
-                      <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                      <p className="text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider">
                         Timeline
                       </p>
-                      <p className="text-sm font-semibold text-slate-800 mt-0.5">{program.timeline}</p>
+                      <p className="text-sm font-semibold text-slate-800 dark:text-slate-100 mt-0.5">{program.timeline}</p>
                     </div>
                   </div>
 
-                  <div className="h-px bg-slate-100" />
+                  <div className="h-px bg-slate-100 dark:bg-white/[0.06]" />
 
                   <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-primary-100 flex items-center justify-center flex-shrink-0">
-                      <UserCheck size={15} className="text-primary-700" />
+                    <div className="w-8 h-8 rounded-lg bg-primary-100 dark:bg-primary-500/15 flex items-center justify-center flex-shrink-0">
+                      <UserCheck size={15} className="text-primary-700 dark:text-primary-400" />
                     </div>
                     <div>
-                      <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                      <p className="text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider">
                         Penanggung Jawab
                       </p>
-                      <p className="text-sm font-semibold text-slate-800 mt-0.5">{program.pj}</p>
+                      <p className="text-sm font-semibold text-slate-800 dark:text-slate-100 mt-0.5">{program.pj}</p>
                     </div>
                   </div>
                 </div>
