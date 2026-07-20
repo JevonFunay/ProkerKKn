@@ -83,6 +83,15 @@ export default function Footer() {
               Dusun Karangnongko, Desa Watukarung, Kec. Pringkuku, Kab. Pacitan
             </li>
           </ul>
+          <div className="mt-5">
+            <span className="block font-semibold text-white text-sm uppercase tracking-wider">
+              Website ini dibuat oleh
+            </span>
+            <p className="flex items-center gap-2 text-sm text-white/50 mt-2">
+              <img src="/logotransparan.webp" alt="Logo" className="h-4 w-auto object-contain brightness-0 invert flex-shrink-0" />
+              Kelompok 44 KKN UKDW
+            </p>
+          </div>
         </div>
       ),
     },
