@@ -206,7 +206,7 @@ export const potensiDesa: PotensiData[] = [
     title: "Pembangunan Tempat Pembakaran Sampah Terpusat",
     category: "Lingkungan",
     categoryColor: "bg-lime-100 text-lime-700",
-    image: "https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=800&h=500&fit=crop",
+    image: "/potensisampah.jpeg",
     shortDesc:
       "Fasilitas pengelolaan sampah terpusat khusus dusun untuk mengatasi kebiasaan membuang sampah sembarangan.",
     fullDesc:
@@ -229,12 +229,12 @@ export const potensiDesa: PotensiData[] = [
     shortDesc:
       "Perluasan pemasaran rengginang beras ketan yang saat ini hanya melayani pesanan langsung dan telepon.",
     fullDesc:
-      "UMKM rengginang beras ketan di Dusun Karangnongko saat ini hanya melayani pemesanan dengan datang langsung atau menelepon pengelolanya. Digitalisasi sederhana, mulai dari pendaftaran lokasi usaha di Google Maps, katalog produk digital, hingga pemasaran melalui media sosial, dapat memperluas jangkauan pembeli tanpa mengubah proses produksi rumahan yang sudah berjalan. Karena usaha ini dikelola oleh para simbah, pendampingan dari generasi muda dusun menjadi kunci keberlanjutannya.",
+      "UMKM rengginang beras ketan di Dusun Karangnongko saat ini hanya melayani pemesanan dengan datang langsung atau menelepon pengelolanya. Digitalisasi sederhana, mulai dari pendaftaran lokasi usaha di Google Maps, katalog produk digital, hingga pemasaran melalui media sosial, dapat memperluas jangkauan pembeli tanpa mengubah proses produksi rumahan yang sudah berjalan. Namun ada satu hal yang harus dipikirkan terlebih dahulu: usaha ini sepenuhnya dijalankan oleh para simbah, sehingga digitalisasi tidak mungkin diterapkan oleh pengelola yang sekarang. Langkah awalnya adalah mencari penerus dari generasi muda dusun yang bersedia melanjutkan usaha sekaligus menerapkan digitalisasinya.",
     highlights: [
       "Pemesanan saat ini terbatas datang langsung atau via telepon",
       "Pendaftaran lokasi usaha di Google Maps agar mudah ditemukan",
       "Katalog produk dan promosi melalui media sosial",
-      "Perlu pendampingan generasi muda karena dikelola para simbah",
+      "Harus dicari penerus yang mampu menerapkan digitalisasi, karena tidak mungkin dijalankan para simbah pengelola saat ini",
     ],
     timeline: "Rekomendasi pengembangan berkelanjutan",
     pj: "Rekomendasi KKN Kelompok 44",
@@ -244,7 +244,7 @@ export const potensiDesa: PotensiData[] = [
     title: "Pembuatan Titik Kumpul Bencana",
     category: "Kebencanaan",
     categoryColor: "bg-orange-100 text-orange-700",
-    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=500&fit=crop",
+    image: "/assembly-point-scaled.webp",
     shortDesc:
       "Penetapan titik kumpul evakuasi warga karena dusun sama sekali belum memilikinya.",
     fullDesc:
