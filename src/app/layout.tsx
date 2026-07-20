@@ -87,11 +87,11 @@ export const metadata: Metadata = {
 };
 
 // Dijalankan sebelum React hydrate — mencegah "flash" tema salah saat load
+// Default selalu terang; mode gelap hanya aktif jika user memilihnya sendiri lewat toggle
 const themeInitScript = `
 (function () {
   try {
-    var saved = localStorage.getItem("theme");
-    var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var dark = localStorage.getItem("theme") === "dark";
     document.documentElement.classList.toggle("dark", dark);
   } catch (e) {}
 })();
