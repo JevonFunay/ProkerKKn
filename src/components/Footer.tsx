@@ -4,7 +4,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, useInView } from "framer-motion";
-import { BookOpen, CalendarDays, MapPin } from "lucide-react";
+import { BookOpen, CalendarDays, MapPin, Mail, MessageCircle } from "lucide-react";
 import { navLinks } from "@/data/content";
 import { smoothScrollTo, smoothScrollToElement } from "@/lib/smoothScroll";
 
@@ -95,13 +95,37 @@ export default function Footer() {
         </div>
       ),
     },
+    {
+      delay: 0.3,
+      content: (
+        <div>
+          <h4 className="font-semibold text-white text-sm uppercase tracking-wider mb-4">
+            Kontak
+          </h4>
+          <ul className="space-y-3 text-sm text-white/50">
+            <li className="flex items-center gap-2">
+              <Mail size={16} className="text-primary-400 flex-shrink-0" />
+              <a href="mailto:jevoncristian@gmail.com" className="hover:text-primary-400 transition-colors">
+                jevoncristian@gmail.com
+              </a>
+            </li>
+            <li className="flex items-center gap-2">
+              <MessageCircle size={16} className="text-primary-400 flex-shrink-0" />
+              <a href="https://wa.me/62859106556312" target="_blank" rel="noopener noreferrer" className="hover:text-primary-400 transition-colors">
+                0859-1065-56312
+              </a>
+            </li>
+          </ul>
+        </div>
+      ),
+    },
   ];
 
   return (
     <footer className="bg-[#1c1917] text-white/55 border-t border-white/[0.06]" ref={ref}>
       {/* Top */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {columns.map(({ delay, content }, i) => (
             <motion.div
               key={i}
