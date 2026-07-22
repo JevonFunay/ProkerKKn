@@ -8,4 +8,4 @@ Website ini merupakan pusat dokumentasi digital untuk merekam seluruh rangkaian 
 2. **Promosi Potensi Daerah:** Mengangkat potensi lokal Dusun Karangnongko, mulai dari pariwisata alam hingga produk unggulan UMKM binaan agar lebih dikenal luas.
 3. **Referensi Keberlanjutan:** Menjadi basis data dan panduan yang dapat dimanfaatkan oleh perangkat desa atau angkatan KKN selanjutnya untuk menyusun program berkelanjutan.
 
-*Dibuat dengan ❤️ oleh Kelompok 44 KKN UKDW (Periode Juni - Juli 2026).*
+*Dibuat oleh Kelompok 44 KKN UKDW (Periode Juni - Juli 2026).*
