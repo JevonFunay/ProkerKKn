@@ -51,7 +51,7 @@ export default function ProgramCard({
   return (
     <div
       onClick={onClick}
-      className="group cursor-pointer transform-gpu hover:-translate-y-1.5 transition-transform duration-300 ease-out"
+      className="group cursor-pointer transform-gpu hover:-translate-y-1.5 transition-transform duration-300 ease-out h-full"
     >
       <motion.div
         {...motionProps}
