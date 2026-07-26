@@ -76,7 +76,7 @@ export const programKerja: ProgramData[] = [
     title: "Website E-Portofolio KKN",
     category: "Teknologi",
     categoryColor: "bg-teal-100 text-teal-700 dark:bg-teal-500/15 dark:text-teal-400",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
+    image: "/prokerjevon.jpg",
     shortDesc:
       "Rancang bangun sistem informasi berbasis web untuk dokumentasi pengabdian KKN.",
     fullDesc:
